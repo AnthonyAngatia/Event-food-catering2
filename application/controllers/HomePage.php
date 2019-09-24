@@ -1,8 +1,10 @@
 <?php
-defined ('BASEPATH') OR exit('No direct script allowed');
-class HomePageController extends CI_Controller{
+defined('BASEPATH') or exit('No direct script allowed');
+class HomePage extends CI_Controller
+{
 
-    public function index(){
+    public function index()
+    {
         $this->load->view('HomePage3');
         /*----Loading multiple files..
 
@@ -12,4 +14,3 @@ class HomePageController extends CI_Controller{
         */
     }
 }
-?>
