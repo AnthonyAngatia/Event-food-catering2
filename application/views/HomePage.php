@@ -23,7 +23,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     header {
       display: flex;
       justify-content: flex-end;
-      border: 1px solid greenyellow;
+
     }
 
     .logo {
@@ -35,8 +35,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
     }
 
     .header h1 {
-      border: 1px solid;
-      justify-content: flex-end;
+      font-family: cursive;
+      margin-right: auto;
+      padding: 5px;
 
     }
 
@@ -54,7 +55,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     }
 
     .nav {
-      border: 1px solid greenyellow;
+
       display: flex;
       justify-content: space-evenly;
       background-color: #003366;
@@ -81,12 +82,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
     /* Slideshow container */
     .slideshow-container {
-      max-width: 1000px;
+
+      max-width: 100%;
       position: relative;
       margin: auto;
-      border: 1px solid red;
-      max-height: 500px;
+
+      max-height: 900px;
       background-color: #ddd;
+    }
+
+    .mySlides img {
+      max-height: 610px;
     }
 
     /* Caption text */
@@ -165,109 +171,90 @@ defined('BASEPATH') or exit('No direct script access allowed');
       }
     }
 
-    @media (min-width: 768px) {
-      .grid-container {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-gap: 1em;
-        grid-auto-rows: minmax(200px, auto);
-        background: #ddd;
-        margin: 5px;
-      }
-    }
+    /*  @media (min-width: 768px) */
 
-    /* 
-  ? .box1 {
-     grid-column: 1/3;
-      grid-row: 1/3;
-      position: relative;
-    }
 
-    .box1 img {
-      max-height: 400px;
-      height: 100%;
-      width: 100%;
-    }
-
-    .box2 {
-      position: relative;
-    }
-
-    .box2 img {
-      max-height: 100%;
-      height: 100%;
-      width: 100%;
-    }
-
-    .box3 {
-      position: relative;
-    }
-
-    .box3 img {
-      max-height: 100%;
-      height: 100%;
-      width: 100%;
-    }
-
-    .box1-inside {
-      color: whitesmoke;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 100;
-
-    
-    }
-
-    .box1-inside h1 {
-      font-family: helvetica;
-      font-size: 42px;
-      text-align: center;
-      cursor: pointer;
-    }
-
-    .box1-inside p {
-      font-family: verdana;
-      text-align: center;
-    }
-
-    .box2-inside {
-      color: whitesmoke;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 100;
-
-      
-    }
-
-    .box2-inside h1 {
-      text-align: center;
-      font-family: helvetica;
-      cursor: pointer;
-    }
-
-    .box2-inside p {
-      font-family: verdana;
-    text-align: center;
-   ! }
-    */
 
     .Dishes {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       grid-gap: 1em;
       grid-auto-rows: minmax(300px, auto);
-      margin: 5px;
+
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+
+    .Dishes img {
+      max-height: 300px;
+      height: 100%;
+      width: 100%;
+    }
+
+    .Extras {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: 1em;
+      grid-auto-rows: minmax(300px, auto);
+
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+
+    .Extras img {
+      max-height: 300px;
+      height: 100%;
+      width: 100%;
+    }
+
+    .Extras div {
+      background-color: #ddd;
+
+    }
+
+    .Description {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: 1em;
+      grid-auto-rows: minmax(100px, auto);
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+
+    .Description 2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: 1em;
+      grid-auto-rows: minmax(100px, auto);
+      margin-left: 5px;
+      margin-right: 5px;
     }
 
 
 
     .Dishes div {
       background-color: #ddd;
+
+    }
+
+    .Description div {
+      background-color: #dddd;
       box-shadow: 0 8px 6px -6px black;
+      padding: 2em;
+    }
+
+    .Description2 div {
+      background-color: #dddd;
+      box-shadow: 0 8px 6px -6px black;
+      padding: 2em;
+    }
+
+    footer {
+      margin-top: 1em;
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      font-size: 24px;
     }
   </style>
 </head>
@@ -288,20 +275,20 @@ defined('BASEPATH') or exit('No direct script access allowed');
   </div>
   <!--SlideShow-->
   <div class="slideshow-container">
-    <div class="mySlides fade">
-      <img src="<?php echo base_url("/Assets/brocoli.png"); ?>" style="width:100%; max-height:500px;" />
+    <div class="mySlides ">
+      <img src="<?php echo base_url("/Assets/brocoli.png"); ?>" style="width:100%;" />
       <div class="text"><button>Menu</button></div>
     </div>
 
-    <div class="mySlides fade">
-      <img src="<?php echo base_url("/Assets/Restaurant-image-1.jpg"); ?>" style="width:100%;
-          max-height:500px;" />
+    <div class="mySlides ">
+      <img src="<?php echo base_url("/Assets/chicken.png"); ?>" style="width:100%;
+          " />
       <div class="text"><button>Menu</button></div>
     </div>
 
-    <div class="mySlides fade">
-      <img src="<?php echo base_url("/Assets/cheeseburger.png"); ?>" style="width:100%;
-          max-height:500px;" />
+    <div class="mySlides ">
+      <img src="<?php echo base_url("/Assets/cheeseburger.png"); ?>" style="width:100%; ;
+" />
       <div class="text"><button>Menu</button></div>
     </div>
   </div>
@@ -313,19 +300,68 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <span class="dot"></span>
   </div>
   <!--Foods-->
-  <h1>Dishes</h1>
+  <h1 style="margin: 1em">Dishes</h1>
   <div class="Dishes">
     <div class="Dish1">
-      <img src="" alt="Dish1" />
+      <img src="<?php echo base_url("/Assets/brocoli.png"); ?>" alt="Dish1" />
     </div>
     <div class="Dish2">
-      <img src="" alt="Dish2" />
+      <img src="<?php echo base_url("/Assets/cheeseburger.png"); ?>" alt="Dish2" />
     </div>
     <div class="Dish3">
-      <img src="" alt="Dish3" />
+      <img src="<?php echo base_url("/Assets/brocoli.png"); ?>" alt="Dish3" />
     </div>
   </div>
-  <a href="">See more</a>
+
+
+
+  <div class="Description">
+    <div class="desc1">
+      <h3>Brocoli</h3>
+      <p>Price</p>
+    </div>
+    <div class="desc2">
+      <h3>Cheese Burger</h3>
+      <p>Price</p>
+    </div>
+    <div class="desc3">
+      <h3>Brocoli</h3>
+      <p>Price</p>
+    </div>
+  </div>
+  <button style="margin:1em"><a href="" style="text-decoration:none; color:white">See more</a></button>
+
+  <h1 style="margin: 1em">Extra</h1>
+  <div class="Extras">
+    <div class="Extra1">
+      <img src="<?php echo base_url("/Assets/Catering.jpg"); ?>" alt="Extra1" />
+    </div>
+    <div class="Extra2">
+      <img src="<?php echo base_url("/Assets/Waiter.jpg"); ?>" alt="Extra1" />
+    </div>
+    <div class="Extra3">
+      <img src="<?php echo base_url("/Assets/QualityFood.jpg"); ?>" alt="Extra3" />
+    </div>
+  </div>
+
+  <div class="Description">
+    <div class="desc1">
+      <h1>Catering Services</h1>
+      <p>Get the best for your function</p>
+      <button style=" margin:1em; padding:1em;"><a href="" style="text-decoration:none; color:white ">Find out more</a></button>
+    </div>
+    <div class="desc2">
+      <h1>Zero Waiting time</h1>
+      <button style=" margin:1em; padding:1em;"><a href="" style="text-decoration:none; color:white ">Find out more</a></button>
+    </div>
+    <div class="desc3">
+      <h1>Quality Food</h1>
+      <button style=" margin:1em; padding:1em;"><a href="" style="text-decoration:none; color:white ">Find out more</a></button>
+    </div>
+  </div>
+  <footer>
+    <p>CopyRight &copy; 2019</p>
+  </footer>
 
   <script>
     var slideIndex = 0;
