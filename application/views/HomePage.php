@@ -16,6 +16,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
       padding: 0px;
     }
 
+    h1 {
+      text-align: center;
+    }
+
     header {
       display: flex;
       justify-content: flex-end;
@@ -28,6 +32,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
       border: 1px solid tomato;
       margin-right: auto;
       padding: 5px;
+    }
+
+    .header h1 {
+      border: 1px solid;
+      justify-content: flex-end;
+
     }
 
     .Sign-up button {
@@ -63,93 +73,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
       color: powderblue;
     }
 
-    @media (min-width: 768px) {
-      .grid-container {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-gap: 1em;
-        grid-auto-rows: minmax(200px, auto);
-        background: #ddd;
-        margin: 5px;
-      }
-    }
 
-    .box1 {
-      grid-column: 1/3;
-      grid-row: 1/3;
-      position: relative;
-    }
-
-    .box1 img {
-      max-height: 400px;
-      height: 100%;
-      width: 100%;
-    }
-
-    .box2 {
-      position: relative;
-    }
-
-    .box2 img {
-      max-height: 100%;
-      height: 100%;
-      width: 100%;
-    }
-
-    .box3 {
-      position: relative;
-    }
-
-    .box3 img {
-      max-height: 100%;
-      height: 100%;
-      width: 100%;
-    }
-
-    .box1-inside {
-      color: whitesmoke;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 100;
-
-      /*border: 1px solid tomato;*/
-    }
-
-    .box1-inside h1 {
-      font-family: helvetica;
-      font-size: 42px;
-      text-align: center;
-      cursor: pointer;
-    }
-
-    .box1-inside p {
-      font-family: verdana;
-      text-align: center;
-    }
-
-    .box2-inside {
-      color: whitesmoke;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 100;
-
-      /*border: 1px solid tomato;*/
-    }
-
-    .box2-inside h1 {
-      text-align: center;
-      font-family: helvetica;
-      cursor: pointer;
-    }
-
-    .box2-inside p {
-      font-family: verdana;
-      text-align: center;
-    }
 
     .mySlides {
       display: none;
@@ -209,9 +133,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
     /* Fading animation */
     .fade {
       -webkit-animation-name: fade;
-      -webkit-animation-duration: 1.5s;
-      animation-name: fade;
-      animation-duration: 1.5s;
+      -webkit-animation-duration: 0.5s;
+      animation-name: slide;
+      animation-duration: 0.5s;
     }
 
     @-webkit-keyframes fade {
@@ -240,12 +164,119 @@ defined('BASEPATH') or exit('No direct script access allowed');
         font-size: 11px;
       }
     }
+
+    @media (min-width: 768px) {
+      .grid-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 1em;
+        grid-auto-rows: minmax(200px, auto);
+        background: #ddd;
+        margin: 5px;
+      }
+    }
+
+    /* 
+  ? .box1 {
+     grid-column: 1/3;
+      grid-row: 1/3;
+      position: relative;
+    }
+
+    .box1 img {
+      max-height: 400px;
+      height: 100%;
+      width: 100%;
+    }
+
+    .box2 {
+      position: relative;
+    }
+
+    .box2 img {
+      max-height: 100%;
+      height: 100%;
+      width: 100%;
+    }
+
+    .box3 {
+      position: relative;
+    }
+
+    .box3 img {
+      max-height: 100%;
+      height: 100%;
+      width: 100%;
+    }
+
+    .box1-inside {
+      color: whitesmoke;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 100;
+
+    
+    }
+
+    .box1-inside h1 {
+      font-family: helvetica;
+      font-size: 42px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .box1-inside p {
+      font-family: verdana;
+      text-align: center;
+    }
+
+    .box2-inside {
+      color: whitesmoke;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 100;
+
+      
+    }
+
+    .box2-inside h1 {
+      text-align: center;
+      font-family: helvetica;
+      cursor: pointer;
+    }
+
+    .box2-inside p {
+      font-family: verdana;
+    text-align: center;
+   ! }
+    */
+
+    .Dishes {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: 1em;
+      grid-auto-rows: minmax(300px, auto);
+      margin: 5px;
+    }
+
+
+
+    .Dishes div {
+      background-color: #ddd;
+      box-shadow: 0 8px 6px -6px black;
+    }
   </style>
 </head>
 
 <body>
-  <header>
-    <img class="logo" src="/Assets/Logo.jpg" alt="logo" />
+  <!--Header-->
+  <header class="header">
+    <img class="logo" src="<?php echo base_url("Assets/logo.jpg"); ?>" />
+    <h1>Taste of Africa</h1>
     <a class="login" href=""><button>Login</button></a>
     <a class="Sign-up" href=""><button>Sign up</button></a>
   </header>
@@ -255,20 +286,21 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <a class="Cart" href=""><button>Cart</button></a>
     <a class="About us" href=""><button>About us</button></a>
   </div>
+  <!--SlideShow-->
   <div class="slideshow-container">
     <div class="mySlides fade">
-      <img src="/Assets/brocoli.png" style="width:100%; max-height:500px;" />
+      <img src="<?php echo base_url("/Assets/brocoli.png"); ?>" style="width:100%; max-height:500px;" />
       <div class="text"><button>Menu</button></div>
     </div>
 
     <div class="mySlides fade">
-      <img src="/Assets/Restaurant-image-1.jpg" style="width:100%;
+      <img src="<?php echo base_url("/Assets/Restaurant-image-1.jpg"); ?>" style="width:100%;
           max-height:500px;" />
       <div class="text"><button>Menu</button></div>
     </div>
 
     <div class="mySlides fade">
-      <img src="/Assets/cheeseburger.png" style="width:100%;
+      <img src="<?php echo base_url("/Assets/cheeseburger.png"); ?>" style="width:100%;
           max-height:500px;" />
       <div class="text"><button>Menu</button></div>
     </div>
@@ -280,29 +312,21 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <span class="dot"></span>
     <span class="dot"></span>
   </div>
-  <div class="grid-container">
-    <div class="box1">
-      <img src="/Assets/Restaurant-image-1.jpg" alt="logo" />
-      <div class="box1-inside">
-        <h1>Taste of Africa</h1>
-        <p>Find a variety of all tasty food</p>
-      </div>
+  <!--Foods-->
+  <h1>Dishes</h1>
+  <div class="Dishes">
+    <div class="Dish1">
+      <img src="" alt="Dish1" />
     </div>
-    <div class="box2">
-      <img src="/Assets/brocoli.png" alt="logo" />
-      <div class="box2-inside">
-        <h1>Make your order</h1>
-        <p>Find a variety of all tasty food</p>
-      </div>
+    <div class="Dish2">
+      <img src="" alt="Dish2" />
     </div>
-    <div class="box3">
-      <img src="/Assets/Restaurant-image-1.jpg" alt="logo" />
-      <div class="box2-inside">
-        <h1>Todays Special</h1>
-        <p>Find a variety of all tasty food</p>
-      </div>
+    <div class="Dish3">
+      <img src="" alt="Dish3" />
     </div>
   </div>
+  <a href="">See more</a>
+
   <script>
     var slideIndex = 0;
     showSlides();
