@@ -265,9 +265,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
   <header class="header">
     <img class="logo" src="<?php echo base_url("Assets/logo.jpg"); ?>" />
     <h1>Taste of Africa</h1>
-    <a class="login" href="" onclick = myFunction()><button >Login</button></a>
+    <a class="login" href="#" onclick = "window.location.replace('users/login');"><button >Login</button></a>
 	
-    <a class="Sign-up" href=""><button>Sign up</button></a>
+    <a class="Sign-up" href="#" onclick = "window.location.replace('users/registration');"><button>Sign up</button></a>
   </header>
   <div class="nav">
     <a class="Category" href=""><button>Category</button></a>
