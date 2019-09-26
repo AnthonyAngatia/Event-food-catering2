@@ -32,6 +32,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
       border: 1px solid tomato;
       margin-right: auto;
       padding: 5px;
+	  
     }
 
     .header h1 {
@@ -264,7 +265,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
   <header class="header">
     <img class="logo" src="<?php echo base_url("Assets/logo.jpg"); ?>" />
     <h1>Taste of Africa</h1>
-    <a class="login" href=""><button>Login</button></a>
+    <a class="login" href="" onclick = myFunction()><button >Login</button></a>
+	
     <a class="Sign-up" href=""><button>Sign up</button></a>
   </header>
   <div class="nav">
@@ -277,19 +279,19 @@ defined('BASEPATH') or exit('No direct script access allowed');
   <div class="slideshow-container">
     <div class="mySlides ">
       <img src="<?php echo base_url("/Assets/brocoli.png"); ?>" style="width:100%;" />
-      <div class="text"><button>Menu</button></div>
+      <div class="text"><a href ="#" onclick= "window.location.replace('MenuC');">click here</a></div>
     </div>
 
     <div class="mySlides ">
       <img src="<?php echo base_url("/Assets/chicken.png"); ?>" style="width:100%;
           " />
-      <div class="text"><button>Menu</button></div>
+      <div class="text"><a href ="#" onclick= "window.location.replace('MenuV');">click here</a></div>
     </div>
 
     <div class="mySlides ">
       <img src="<?php echo base_url("/Assets/cheeseburger.png"); ?>" style="width:100%; ;
 " />
-      <div class="text"><button>Menu</button></div>
+      <div class="text"><a href ="#" onclick= "window.location.replace('MenuV');"><button>Menu</button></a></div>
     </div>
   </div>
   <br />
@@ -364,6 +366,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
   </footer>
 
   <script>
+  function myFunction() {
+  document.getElementByClassName("login").style.display = "block";
+  }
     var slideIndex = 0;
     showSlides();
 
@@ -383,7 +388,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
       }
       slides[slideIndex - 1].style.display = "block";
       dots[slideIndex - 1].className += " active";
-      setTimeout(showSlides, 10000); // Change image every 2 seconds
+      setTimeout(showSlides, 5000); // Change image every 2 seconds
     }
   </script>
 </body>
