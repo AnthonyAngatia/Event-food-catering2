@@ -367,7 +367,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
   <script>
   function myFunction() {
-  document.getElementByClassName("login").style.display = "block";
+	  console.log("Im hereawsefgyjmk,lmkjhgfdsxfcgvhbjnmklmjhgfdsexfcgvbhmk,lkmjngvfcszxfcgvbhjnmk");
+  document.getElementByClassName("login").style.display = "none";
   }
     var slideIndex = 0;
     showSlides();
