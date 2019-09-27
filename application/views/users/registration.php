@@ -1,11 +1,11 @@
 <div class="container">
 
-
+	
     <!-- Status message -->
 
 	
     <!-- Registration form -->
-    <div class="row">
+    <div class="wrapper">
     <?php  
         if(!empty($success_msg)){ 
             echo '<p class="status-msg success">'.$success_msg.'</p>'; 
@@ -13,9 +13,6 @@
             echo '<p class="status-msg error">'.$error_msg.'</p>'; 
         } 
     ?>
-
-    
-        <div class="col-md-offset-5 col-md-4 text-center">
         <h2>Sign Up</h2>
         <p>Please fill this form to create an account.</p>
         <form action="" method="post">
@@ -71,6 +68,5 @@
             </div>
         </form>
         <p>Already have an account? <a href="#" onclick = "window.location.replace('login');">Login here</a></p>
-    </div>
     </div>
 </div>

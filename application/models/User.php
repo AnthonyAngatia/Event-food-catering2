@@ -11,7 +11,7 @@ class User extends CI_Model{
      * @param array filter data based on the passed parameters 
      */ 
     function getRows($params = array()){ 
-        $this->db->select('*'); 
+        //$this->db->select('SELECT * FROM users'); 
         $this->db->from($this->table); 
          
         if(array_key_exists("conditions", $params)){ 
