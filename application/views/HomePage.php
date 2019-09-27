@@ -32,7 +32,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
       border: 1px solid tomato;
       margin-right: auto;
       padding: 5px;
-	  
+
     }
 
     .header h1 {
@@ -265,9 +265,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
   <header class="header">
     <img class="logo" src="<?php echo base_url("Assets/logo.jpg"); ?>" />
     <h1>Taste of Africa</h1>
-    <a class="login" href="#" onclick = "window.location.replace('users/login');"><button >Login</button></a>
-	
-    <a class="Sign-up" href="#" onclick = "window.location.replace('users/registration');"><button>Sign up</button></a>
+    <a class="login" href="#" onclick="window.location.replace('users/login');"><button>Login</button></a>
+
+    <a class="Sign-up" href="#" onclick="window.location.replace('users/registration');"><button>Sign up</button></a>
   </header>
   <div class="nav">
     <a class="Category" href=""><button>Category</button></a>
@@ -279,19 +279,19 @@ defined('BASEPATH') or exit('No direct script access allowed');
   <div class="slideshow-container">
     <div class="mySlides ">
       <img src="<?php echo base_url("/Assets/brocoli.png"); ?>" style="width:100%;" />
-      <div class="text"><a href ="#" onclick= "window.location.replace('MenuC');">click here</a></div>
+      <div class="text"><a href="#" onclick="window.location.replace('MenuC');"><button>Menu</button></a></div>
     </div>
 
     <div class="mySlides ">
       <img src="<?php echo base_url("/Assets/chicken.png"); ?>" style="width:100%;
           " />
-      <div class="text"><a href ="#" onclick= "window.location.replace('MenuV');">click here</a></div>
+      <div class="text"><a href="#" onclick="window.location.replace('MenuC');"><button>Menu</button>e</a></div>
     </div>
 
     <div class="mySlides ">
       <img src="<?php echo base_url("/Assets/cheeseburger.png"); ?>" style="width:100%; ;
 " />
-      <div class="text"><a href ="#" onclick= "window.location.replace('MenuV');"><button>Menu</button></a></div>
+      <div class="text"><a href="#" onclick="window.location.replace('MenuC');"><button>Menu</button></a></div>
     </div>
   </div>
   <br />
@@ -349,7 +349,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
   <div class="Description">
     <div class="desc1">
       <h1>Catering Services</h1>
-      <p>Get the best for your function</p>
+
       <button style=" margin:1em; padding:1em;"><a href="" style="text-decoration:none; color:white ">Find out more</a></button>
     </div>
     <div class="desc2">
@@ -366,9 +366,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
   </footer>
 
   <script>
-  function myFunction() {
-  document.getElementByClassName("login").style.display = "block";
-  }
+    function myFunction() {
+      document.getElementByClassName("login").style.display = "block";
+    }
     var slideIndex = 0;
     showSlides();
 
