@@ -1,22 +1,23 @@
 <div class="container">
 
-	
+
     <!-- Status message -->
 
 	
     <!-- Login form -->
-    <div class="wrapper">
+    <div class="row">
+    <div class="col-md-offset-5 col-md-4 text-center">
         <h2>Login</h2>
         <p>Please fill in your credentials to login.</p>
-        <p style="color:red;">
+
         <?php  
         if(!empty($success_msg)){ 
-            echo '<p class="status-msg success">'.$success_msg.'</p>'; 
+            echo '<p style="color:red;" class="status-msg success">'.$success_msg.'</p>'; 
         }elseif(!empty($error_msg)){ 
-            echo '<p class="status-msg error">'.$error_msg.'</p>'; 
+            echo '<p style="color:red;"  class="status-msg error">'.$error_msg.'</p>'; 
         } 
         ?>
-        </p>
+    
 	
         <form action="" method="post">
             <div class="form-group">
@@ -32,5 +33,6 @@
             </div>
         </form>
         <p>Don't have an account? <a href="#" onclick = "window.location.replace('registration');">Register </a> </p>
+    </div>
     </div>
 </div>
