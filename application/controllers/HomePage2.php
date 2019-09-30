@@ -5,7 +5,7 @@ class HomePage extends CI_Controller
 
     public function index()
     {
-        $this->load->view('HomePage');
+        $this->load->view('HomePage2');
         /*----Loading multiple files..
 
         //$this->load->view('');

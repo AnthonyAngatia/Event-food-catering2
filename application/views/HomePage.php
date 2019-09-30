@@ -16,10 +16,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
       padding: 0px;
     }
 
+    h1 {
+      text-align: center;
+    }
+
     header {
       display: flex;
       justify-content: flex-end;
-      border: 1px solid greenyellow;
+
     }
 
     .logo {
@@ -28,6 +32,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
       border: 1px solid tomato;
       margin-right: auto;
       padding: 5px;
+
+    }
+
+    .header h1 {
+      font-family: cursive;
+      margin-right: auto;
+      padding: 5px;
+
     }
 
     .Sign-up button {
@@ -44,7 +56,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     }
 
     .nav {
-      border: 1px solid greenyellow;
+
       display: flex;
       justify-content: space-evenly;
       background-color: #003366;
@@ -63,93 +75,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
       color: powderblue;
     }
 
-    @media (min-width: 768px) {
-      .grid-container {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-gap: 1em;
-        grid-auto-rows: minmax(200px, auto);
-        background: #ddd;
-        margin: 5px;
-      }
-    }
 
-    .box1 {
-      grid-column: 1/3;
-      grid-row: 1/3;
-      position: relative;
-    }
-
-    .box1 img {
-      max-height: 400px;
-      height: 100%;
-      width: 100%;
-    }
-
-    .box2 {
-      position: relative;
-    }
-
-    .box2 img {
-      max-height: 100%;
-      height: 100%;
-      width: 100%;
-    }
-
-    .box3 {
-      position: relative;
-    }
-
-    .box3 img {
-      max-height: 100%;
-      height: 100%;
-      width: 100%;
-    }
-
-    .box1-inside {
-      color: whitesmoke;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 100;
-
-      /*border: 1px solid tomato;*/
-    }
-
-    .box1-inside h1 {
-      font-family: helvetica;
-      font-size: 42px;
-      text-align: center;
-      cursor: pointer;
-    }
-
-    .box1-inside p {
-      font-family: verdana;
-      text-align: center;
-    }
-
-    .box2-inside {
-      color: whitesmoke;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 100;
-
-      /*border: 1px solid tomato;*/
-    }
-
-    .box2-inside h1 {
-      text-align: center;
-      font-family: helvetica;
-      cursor: pointer;
-    }
-
-    .box2-inside p {
-      font-family: verdana;
-      text-align: center;
-    }
 
     .mySlides {
       display: none;
@@ -157,12 +83,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
     /* Slideshow container */
     .slideshow-container {
-      max-width: 1000px;
+
+      max-width: 100%;
       position: relative;
       margin: auto;
-      border: 1px solid red;
-      max-height: 500px;
+
+      max-height: 900px;
       background-color: #ddd;
+    }
+
+    .mySlides img {
+      max-height: 610px;
     }
 
     /* Caption text */
@@ -209,9 +140,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
     /* Fading animation */
     .fade {
       -webkit-animation-name: fade;
-      -webkit-animation-duration: 1.5s;
-      animation-name: fade;
-      animation-duration: 1.5s;
+      -webkit-animation-duration: 0.5s;
+      animation-name: slide;
+      animation-duration: 0.5s;
     }
 
     @-webkit-keyframes fade {
@@ -240,14 +171,103 @@ defined('BASEPATH') or exit('No direct script access allowed');
         font-size: 11px;
       }
     }
+
+    /*  @media (min-width: 768px) */
+
+
+
+    .Dishes {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: 1em;
+      grid-auto-rows: minmax(300px, auto);
+
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+
+    .Dishes img {
+      max-height: 300px;
+      height: 100%;
+      width: 100%;
+    }
+
+    .Extras {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: 1em;
+      grid-auto-rows: minmax(300px, auto);
+
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+
+    .Extras img {
+      max-height: 300px;
+      height: 100%;
+      width: 100%;
+    }
+
+    .Extras div {
+      background-color: #ddd;
+
+    }
+
+    .Description {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: 1em;
+      grid-auto-rows: minmax(100px, auto);
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+
+    .Description 2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: 1em;
+      grid-auto-rows: minmax(100px, auto);
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+
+
+
+    .Dishes div {
+      background-color: #ddd;
+
+    }
+
+    .Description div {
+      background-color: #dddd;
+      box-shadow: 0 8px 6px -6px black;
+      padding: 2em;
+    }
+
+    .Description2 div {
+      background-color: #dddd;
+      box-shadow: 0 8px 6px -6px black;
+      padding: 2em;
+    }
+
+    footer {
+      margin-top: 1em;
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      font-size: 24px;
+    }
   </style>
 </head>
 
 <body>
-  <header>
-    <img class="logo" src="/Assets/Logo.jpg" alt="logo" />
-    <a class="login" href=""><button>Login</button></a>
-    <a class="Sign-up" href=""><button>Sign up</button></a>
+  <!--Header-->
+  <header class="header">
+    <img class="logo" src="<?php echo base_url("Assets/logo.jpg"); ?>" />
+    <h1>Taste of Africa</h1>
+    <a class="login" href="#" onclick="window.location.replace('users/login');"><button>Login</button></a>
+
+    <a class="Sign-up" href="#" onclick="window.location.replace('users/registration');"><button>Sign up</button></a>
   </header>
   <div class="nav">
     <a class="Category" href=""><button>Category</button></a>
@@ -255,22 +275,23 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <a class="Cart" href=""><button>Cart</button></a>
     <a class="About us" href=""><button>About us</button></a>
   </div>
+  <!--SlideShow-->
   <div class="slideshow-container">
-    <div class="mySlides fade">
-      <img src="/Assets/brocoli.png" style="width:100%; max-height:500px;" />
-      <div class="text"><button>Menu</button></div>
+    <div class="mySlides ">
+      <img src="<?php echo base_url("/Assets/brocoli.png"); ?>" style="width:100%;" />
+      <div class="text"><a href="#" onclick="window.location.replace('MenuC');"><button>Menu</button></a></div>
     </div>
 
-    <div class="mySlides fade">
-      <img src="/Assets/Restaurant-image-1.jpg" style="width:100%;
-          max-height:500px;" />
-      <div class="text"><button>Menu</button></div>
+    <div class="mySlides ">
+      <img src="<?php echo base_url("/Assets/chicken.png"); ?>" style="width:100%;
+          " />
+      <div class="text"><a href="#" onclick="window.location.replace('MenuC');"><button>Menu</button>e</a></div>
     </div>
 
-    <div class="mySlides fade">
-      <img src="/Assets/cheeseburger.png" style="width:100%;
-          max-height:500px;" />
-      <div class="text"><button>Menu</button></div>
+    <div class="mySlides ">
+      <img src="<?php echo base_url("/Assets/cheeseburger.png"); ?>" style="width:100%; ;
+" />
+      <div class="text"><a href="#" onclick="window.location.replace('MenuC');"><button>Menu</button></a></div>
     </div>
   </div>
   <br />
@@ -280,30 +301,74 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <span class="dot"></span>
     <span class="dot"></span>
   </div>
-  <div class="grid-container">
-    <div class="box1">
-      <img src="/Assets/Restaurant-image-1.jpg" alt="logo" />
-      <div class="box1-inside">
-        <h1>Taste of Africa</h1>
-        <p>Find a variety of all tasty food</p>
-      </div>
+  <!--Foods-->
+  <h1 style="margin: 1em">Dishes</h1>
+  <div class="Dishes">
+    <div class="Dish1">
+      <img src="<?php echo base_url("/Assets/brocoli.png"); ?>" alt="Dish1" />
     </div>
-    <div class="box2">
-      <img src="/Assets/brocoli.png" alt="logo" />
-      <div class="box2-inside">
-        <h1>Make your order</h1>
-        <p>Find a variety of all tasty food</p>
-      </div>
+    <div class="Dish2">
+      <img src="<?php echo base_url("/Assets/cheeseburger.png"); ?>" alt="Dish2" />
     </div>
-    <div class="box3">
-      <img src="/Assets/Restaurant-image-1.jpg" alt="logo" />
-      <div class="box2-inside">
-        <h1>Todays Special</h1>
-        <p>Find a variety of all tasty food</p>
-      </div>
+    <div class="Dish3">
+      <img src="<?php echo base_url("/Assets/brocoli.png"); ?>" alt="Dish3" />
     </div>
   </div>
+
+
+
+  <div class="Description">
+    <div class="desc1">
+      <h3>Brocoli</h3>
+      <p>Price</p>
+    </div>
+    <div class="desc2">
+      <h3>Cheese Burger</h3>
+      <p>Price</p>
+    </div>
+    <div class="desc3">
+      <h3>Brocoli</h3>
+      <p>Price</p>
+    </div>
+  </div>
+  <button style="margin:1em"><a href="" style="text-decoration:none; color:white">See more</a></button>
+
+  <h1 style="margin: 1em">Extra</h1>
+  <div class="Extras">
+    <div class="Extra1">
+      <img src="<?php echo base_url("/Assets/Catering.jpg"); ?>" alt="Extra1" />
+    </div>
+    <div class="Extra2">
+      <img src="<?php echo base_url("/Assets/Waiter.jpg"); ?>" alt="Extra1" />
+    </div>
+    <div class="Extra3">
+      <img src="<?php echo base_url("/Assets/QualityFood.jpg"); ?>" alt="Extra3" />
+    </div>
+  </div>
+
+  <div class="Description">
+    <div class="desc1">
+      <h1>Catering Services</h1>
+
+      <button style=" margin:1em; padding:1em;"><a href="" style="text-decoration:none; color:white ">Find out more</a></button>
+    </div>
+    <div class="desc2">
+      <h1>Zero Waiting time</h1>
+      <button style=" margin:1em; padding:1em;"><a href="" style="text-decoration:none; color:white ">Find out more</a></button>
+    </div>
+    <div class="desc3">
+      <h1>Quality Food</h1>
+      <button style=" margin:1em; padding:1em;"><a href="" style="text-decoration:none; color:white ">Find out more</a></button>
+    </div>
+  </div>
+  <footer>
+    <p>CopyRight &copy; 2019</p>
+  </footer>
+
   <script>
+    function myFunction() {
+      document.getElementByClassName("login").style.display = "block";
+    }
     var slideIndex = 0;
     showSlides();
 
@@ -323,7 +388,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
       }
       slides[slideIndex - 1].style.display = "block";
       dots[slideIndex - 1].className += " active";
-      setTimeout(showSlides, 10000); // Change image every 2 seconds
+      setTimeout(showSlides, 5000); // Change image every 2 seconds
     }
   </script>
 </body>
