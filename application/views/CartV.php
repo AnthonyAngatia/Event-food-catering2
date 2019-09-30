@@ -107,69 +107,44 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <!--Menu Heading-->
             <div align = 'center' style = 'color: #003366;font-style: oblique'><h1>Cart</h1></div>
 
-
-
-
             <!--Cart Items-->
+            <form action='CartC/saveCartData' method='post' align = 'center' style = 'color: #003366;'>
         
-			<table id='customers'>
-  <tr>
-    <th>Food Item</th>
-    <th>Unit Price</th>
-    <th>Quantity</th>
-	<th>Preparation Duration</th>
-	<th>Subtotal</th>
-  </tr>
-  <tr>
-    <td>Alfreds Futterkiste</td>
-    <td>Maria Anders</td>
-    <td>Germany</td>
-	<td>Maria Anders</td>
-    <td>Germany</td>
-  </tr>
-  <tr>
-    <td>Berglunds snabbköp</td>
-    <td>Christina Berglund</td>
-    <td>Sweden</td>
-	<td>Maria Anders</td>
-    <td>Germany</td>
-  </tr>
-  <tr>
-    <td>Centro comercial Moctezuma</td>
-    <td>Francisco Chang</td>
-    <td>Mexico</td>
-	<td>Francisco Chang</td>
-    <td>Mexico</td>
-  </tr>
-  <tr>
-    <td>Ernst Handel</td>
-    <td>Roland Mendel</td>
-    <td>Austria</td>
-	<td>Roland Mendel</td>
-    <td>Austria</td>
-  </tr>
-  <tr>
-    <td>Island Trading</td>
-    <td>Helen Bennett</td>
-    <td>UK</td>
-	<td>Helen Bennett</td>
-    <td>UK</td>
-  </tr>
-  
-</table><br>
+            <table id='customers'>
+            <tr>
+                <th>Food Item</th>
+                <th>Unit Price</th>
+                <th>Preparation Duration</th>
+                <th>Quantity</th>
+  	            
+              </tr>
+            ");
+            foreach ($cartItems as $row)
+            {
+             echo("
+              
+              <tr>
+                <td>" .$row['foodName']                                           ."</td>
+                <td>" ."Sh " .$row['foodPrice']                                   ."</td>
+                <td>" .$row['foodDuration'] ." minutes"                           ."</td>
+	              <td>" ."<input type = 'text' name = 'quantity' style = 'text-align: center; width: 70px;' >"                ."</td>
+              
+              </tr>
+              ");
+            }
 
-					<form action='MenuC' method='post' align = 'center' style = 'color: #003366;'>
-					<input type = 'submit' name = 'Checkout' value = 'Checkout' style = 'font-style: oblique;background-color: #003366; color: white; text-align: center; padding: 5px 5px; border: none; height: 60px; width: 90px; border-radius: 25px;' >
+            echo("
+            
+            </table><br>
+
 					
-				</form>
+					  <input type = 'submit' name = 'Checkout' value = 'Checkout' style = 'font-style: oblique;background-color: #003366; color: white; text-align: center; padding: 5px 5px; border: none; height: 60px; width: 70px; border-radius: 25px;' >
+					
+          </form>
+              ");
 
 
-
-
-				
-
-
-			");
+		
 
     
 			echo(
@@ -177,8 +152,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			
 
     
-</body>
-</html>
+      </body>
+    </html>
           ');  
 
 

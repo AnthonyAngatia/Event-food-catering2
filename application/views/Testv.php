@@ -10,5 +10,9 @@
 </head>
 <body>
     <p>Welcome here</p>
+    <form action ="<?=base_url()?>index.php/TestC/saveMenuData" method="post" align = "center" style = "color: #003366;">
+		<input type = "submit" name = "Add_to_Cart"  value = "Add_to_Cart" style = "font-style: oblique;background-color: #003366; color: white; text-align: center; padding: 5px 5px; border: none; height: 60px; width: 90px; border-radius: 25px;" >
+		<input type = "checkbox" name = 'food'  value = 'food' >
+	</form>	
 </body>
 </html>

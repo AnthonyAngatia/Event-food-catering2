@@ -1,15 +1,14 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-echo("
-        <!DOCTYPE html>
-        <html>
-        <head>
-			<link rel = 'stylesheet' type = 'text/css' href = 'MenuV.css'></link>
-		<meta charset='UTF-8' />
-		<meta name='viewport' content='width=device-width, initial-scale=1.0' />
-		<meta http-equiv='X-UA-Compatible' content='ie=edge' />
-		<title>Taste of Africa</title>	
-	<style>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+    <style>
       * {
         box-sizing: border-box;
         margin: 0;
@@ -223,11 +222,9 @@ echo("
         }
       }
     </style>
-            
-        </head>
-        <body>
-		
-			<!--Navbar-->
+</head>
+<body>
+<!--Navbar-->
 			<header>
 				<img class='logo' src='/Assets/Logo.jpg' alt='logo' />
 				<a class='login' href=''><button>Login</button></a>
@@ -239,84 +236,9 @@ echo("
 				<a class='Cart' href=''><button>Cart</button></a>
 				<a class='About us' href=''><button>About us</button></a>
 			</div>
-            
-			<!--Mini-form for indication no of pple-->
-			<form action='MenuC' method='post' align = 'center' style = 'color: #003366;'>
-					<label></label>
-					<input type = 'text' name = 'Event Attendees'  value = 'Event Attendees' style = 'font-style: oblique;background-color: #003366; color: white; text-align: center; padding: 5px 5px; border: none; height: 60px; width: 90px; border-radius: 25px;'>
-			</form>
-				
-            <!--Menu Heading-->
-            <div align = 'center' style = 'color: #003366;font-style: oblique'><h1>Menu</h1></div>
 
 
-
-
-            <!--Menu Items-->
-        ");
-            /*
-            foreach (menuItems as $row)
-            {
-                    echo $row["foodName"];
-            }
-            */
-
-            echo('
-				<!--Outer Div-->
-                <div style = "background-color: #003366; color: #003366; border: 1px solid #003366;border-radius: 25px;"><br><br><br>
-				');
-                        
-            foreach ($menuItems as $row)
-            {
-                echo('
-                    
-						<div id = "Pic" style = "background-color: white; float: left; border: 1px solid #003366; width: 100px; height: 100px;">'
-                        ."<img src = '".'C:\xampp\htdocs\CodeIgniter-3.1.10_SEng\application\views\Assets\beans.jpg' ."' height = '100' width = '100'>"    .'<br>' 
-                        .'</div>
-
-                        <div id = "Details" align = "center" style = "font-style: oblique; background-color: white; float: left; margin: 4px; border: 1px solid #003366; width: 1300px; height: 100px; color: #003366; line-height: 80px;border-radius: 25px;">   
-                            <!--Display data here from db-->' 
-                            .'<a style = "display: inline-block; width: 200px; text-align: left;"><h2>' .$row['foodName'] .'</h2></a>'
-							.'<a style = "display: inline-block; width: 200px; text-align: center;"><h2>' .$row['foodPrice'] .'</h2></a>'
-							.'<a style = "display: inline-block; width: 200px; text-align: right;"><h2>' .$row['cookDuration'] .'</h2></a>'
-						.'</div><br><br>'
-						
-						.'<div id = "checkBox" style = "float: right; margin: 4px; border: 1px solid #003366; width: 15px; height: 15px; color: #003366;">
-							<form action="MenuC" method="post">
-								<input type = "checkbox" name = "pickFood"  value = "pickFood" >
-							</form>
-						</div>	                          
-
-                        
-                    
-                    '); 
-					echo("<br><br><br><br><br><br><br><br><br><br>");
-					
-					
-            }
-			echo('</div>');
-			echo("<br><br>");
-			
-			echo('
-				<form action="MenuC" method="post" align = "center" style = "color: #003366;">
-					<input type = "submit" name = "Add to Cart"  value = "Add to Cart" style = "font-style: oblique;background-color: #003366; color: white; text-align: center; padding: 5px 5px; border: none; height: 60px; width: 90px; border-radius: 25px;" >
-					<input type = "submit" name = "Confirm Order"  value = "Confirm Order" style = "font-style: oblique;background-color: #003366; color: white; text-align: center; padding: 5px 5px; border: none; height: 60px; width: 90px; border-radius: 25px;">
-				</form>
-				
-				');
-
-
-    
-			echo(
-			'<!--Footnote-->
-			
 
     
 </body>
 </html>
-          ');
-
-
-
-
-?>

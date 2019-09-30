@@ -6,9 +6,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         public function index(){
 			
 			$this->load->model("cartM");
-            //$data["menuItems"] = $this->cartM->returnMenuItems();
-            $this->load->view("cartV");
+            $data["cartItems"] = $this->cartM->returnCartItems();
+            $this->load->view("cartV", $data);
 						
+        }
+
+        public function saveOrderData(){
+            //Loading model, storing data it returns
+            $this->load->model("menuM");
+            $cartItems = $this->menuM->returnCartItems();
+
+            
         }
 
     }
