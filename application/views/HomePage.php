@@ -1,6 +1,24 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 ?>
+<?php
+
+if ($fetch_data->num_rows() > 0) {
+  $data  = array();
+
+  foreach ($fetch_data->result() as $row) {
+    $data[] = $row;
+    //echo $row->foodName . "<br>";
+  }
+
+  print_r($data[0]["foodName"]);
+  //json_encode($data);
+} else {
+  echo "Data not found in the database table";
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -278,7 +296,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
   <!--SlideShow-->
   <div class="slideshow-container">
     <div class="mySlides ">
-      <img src="<?php echo base_url("/Assets/brocoli.png"); ?>" style="width:100%;" />
+      <img src="<?php echo base_url("/Assets/cheeseburger.png"); ?>" style="width:100%;" />
       <div class="text"><a href="#" onclick="window.location.replace('MenuC');"><button>Menu</button></a></div>
     </div>
 
@@ -289,8 +307,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     </div>
 
     <div class="mySlides ">
-      <img src="<?php echo base_url("/Assets/cheeseburger.png"); ?>" style="width:100%; ;
-" />
+      <img src="<?php echo base_url("/Assets/brocoli.png"); ?>" style="width:100%; ;" />
       <div class="text"><a href="#" onclick="window.location.replace('MenuC');"><button>Menu</button></a></div>
     </div>
   </div>
@@ -319,7 +336,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
   <div class="Description">
     <div class="desc1">
-      <h3>Brocoli</h3>
+      <h3><?php echo $data[0] ?></h3>
       <p>Price</p>
     </div>
     <div class="desc2">
@@ -333,7 +350,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
   </div>
   <button style="margin:1em"><a href="" style="text-decoration:none; color:white">See more</a></button>
 
-  <h1 style="margin: 1em">Extra</h1>
+  <h1 style="margin: 1em">About Us</h1>
   <div class="Extras">
     <div class="Extra1">
       <img src="<?php echo base_url("/Assets/Catering.jpg"); ?>" alt="Extra1" />
@@ -361,6 +378,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
       <button style=" margin:1em; padding:1em;"><a href="" style="text-decoration:none; color:white ">Find out more</a></button>
     </div>
   </div>
+
   <footer>
     <p>CopyRight &copy; 2019</p>
   </footer>
@@ -391,6 +409,30 @@ defined('BASEPATH') or exit('No direct script access allowed');
       setTimeout(showSlides, 5000); // Change image every 2 seconds
     }
   </script>
+  <script>
+    //Open connection
+    var method = 'GET';
+    var url = "HomePage.php";
+    var asynchronus = true;
+    console.log("Im here");
+    request.open(method, url, asynchronus);
+    request.send();
+
+    //receiving response from data.php
+    request.onload = function() {
+      //Converting JSON back to an array
+      var data = JSON.parse(this.response);
+
+    }
+    /* if (request.status >= 200 && request.status < 400) {
+         console.log("Im here");
+         console.log(data);
+         data.forEach(row => {
+         }
+         */
+  </script>
+
+
 </body>
 
 </html>
