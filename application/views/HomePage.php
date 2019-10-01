@@ -11,7 +11,7 @@ if ($fetch_data->num_rows() > 0) {
     //echo $row->foodName . "<br>";
   }
 
-  print_r($data[0]["foodName"]);
+  // print_r($data[0]["foodName"]);
   //json_encode($data);
 } else {
   echo "Data not found in the database table";
