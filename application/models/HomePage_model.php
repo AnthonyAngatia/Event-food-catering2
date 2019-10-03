@@ -7,7 +7,7 @@ class HomePage_model extends CI_Model
         //$query = $this->db->get("fooditems");
         $query = $this->db->query("SELECT foodName, foodPrice FROM fooditems");
 
-
+        
         return $query;
     }
 }
