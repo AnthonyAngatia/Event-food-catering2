@@ -256,6 +256,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
             text-align: center;
             font-size: 24px;
         }
+        .food{
+            display:grid;
+            grid-template-columns:1fr 1fr 1fr;
+        }
+
+        #cont{
+            background-image:url(<?php echo base_url("Assets/Catering.jpg"); ?>)
+        }
     </style>
 </head>
 
@@ -277,7 +285,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <a class="Cart" href=""><button>Cart</button></a>
         <a class="About us" href=""><button>About us</button></a>
     </div>
-    <div class="wrapper">
+    <div id="cont">
+    <div class="wrapper" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)); color:white;">
     <form action="" method="post">
             <div class="form-group">
                 <label>Number of Attendes</label>
@@ -295,11 +304,34 @@ defined('BASEPATH') or exit('No direct script access allowed');
                       <option value="90"></option>
                       <option value="100" label="100%"></option>
                    </datalist>
-                
+                <div id="food" style = "display:grid;
+            grid-template-columns:1fr 1fr 1fr;">
+                <div class="food_types">
+                <h3>Drinks</h3>
                 <input type="checkbox" name="drink"  value="Bike"> Drinks<br>
                 <input type="checkbox" name="protein"  value="Car"> Proteins<br>
                 <input type="checkbox" name="salad"  value="Boat"> Salads<br>
                 <input type="checkbox" name="carbohybrid" value="Boat"> Carbohybrids<br>
+                </div>
+
+                <div class="food_types">
+                <h3>Drinks</h3>
+                <input type="checkbox" name="drink"  value="Bike"> Drinks<br>
+                <input type="checkbox" name="protein"  value="Car"> Proteins<br>
+                <input type="checkbox" name="salad"  value="Boat"> Salads<br>
+                <input type="checkbox" name="carbohybrid" value="Boat"> Carbohybrids<br>
+                </div>
+
+                <div class="food_types">
+                <h3>Drinks</h3>
+                <input type="checkbox" name="drink"  value="Bike"> Drinks<br>
+                <input type="checkbox" name="protein"  value="Car"> Proteins<br>
+                <input type="checkbox" name="salad"  value="Boat"> Salads<br>
+                <input type="checkbox" name="carbohybrid" value="Boat"> Carbohybrids<br>
+                </div>
+
+
+                <div>
 
                 <label>Location</label>
                 <input type="textfield"  class="form-control" name="location" placeholder="location" required="">
@@ -316,6 +348,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             </div>
             
     </form>
+    </div>
     </div>
 </body>
 </html>    
