@@ -75,102 +75,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
         }
 
 
-
-        .mySlides {
-            display: none;
-        }
-
-        /* Slideshow container */
-        .slideshow-container {
-
-            max-width: 100%;
-            position: relative;
-            margin: auto;
-
-            max-height: 900px;
-            background-color: #ddd;
-        }
-
-        .mySlides img {
-            max-height: 610px;
-        }
-
-        /* Caption text */
-        .text {
-            color: #f2f2f2;
-            font-size: 15px;
-            padding: 8px 12px;
-            position: absolute;
-            bottom: 8px;
-            width: 100%;
-            text-align: center;
-        }
-
-        .text button {
-            font-size: 24px;
-            border-radius: 0px;
-            width: 150px;
-        }
-
-        /* Number text (1/3 etc) */
-        .numbertext {
-            color: #f2f2f2;
-            font-size: 12px;
-            padding: 8px 12px;
-            position: absolute;
-            top: 0;
-        }
-
-        /* The dots/bullets/indicators */
-        .dot {
-            height: 15px;
-            width: 15px;
-            margin: 0 2px;
-            background-color: #bbb;
-            border-radius: 50%;
-            display: inline-block;
-            transition: background-color 0.6s ease;
-        }
-
-        .active {
-            background-color: #717171;
-        }
-
-        /* Fading animation */
-        .fade {
-            -webkit-animation-name: fade;
-            -webkit-animation-duration: 0.5s;
-            animation-name: slide;
-            animation-duration: 0.5s;
-        }
-
-        @-webkit-keyframes fade {
-            from {
-                opacity: 0.4;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes fade {
-            from {
-                opacity: 0.4;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        /* On smaller screens, decrease text size */
-        @media only screen and (max-width: 300px) {
-            .text {
-                font-size: 11px;
-            }
-        }
-
         /*  @media (min-width: 768px) */
 
 
@@ -256,6 +160,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
             text-align: center;
             font-size: 24px;
         }
+
+        #cont {
+            color: red;
+        }
     </style>
 </head>
 
@@ -265,57 +173,81 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <img class="logo" src="<?php echo base_url("Assets/logo.jpg"); ?>" />
         <h1>Taste of Africa</h1>
         <div id="sessionVariable">
-        <img class="logo" src="<?php echo base_url("Assets/PRO.png"); ?>" />
-        <p><b><?php echo $user['first_name'].' '.$user['last_name']; ?></b></p>
-        <a href="<?php echo base_url('index.php/Users/login'); ?>"> Log Out </a>
+            <img class="logo" src="<?php echo base_url("Assets/PRO.png"); ?>" />
+            <p><b><?php echo $user['first_name'] . ' ' . $user['last_name']; ?></b></p>
+            <a href="<?php echo base_url('index.php/Users/login'); ?>"> Log Out </a>
         </div>
 
     </header>
     <div class="nav">
-        <a href="#" onclick = "window.location.replace('CateringC');"><button>Catering</button></a>
+        <a href="#" onclick="window.location.replace('CateringC');"><button>Catering</button></a>
         <a class="Order" href=""><button>Order</button></a>
         <a class="Cart" href=""><button>Cart</button></a>
         <a class="About us" href=""><button>About us</button></a>
     </div>
+
     <div class="wrapper">
-    <form action="" method="post">
+        <form action="" method="post">
             <div class="form-group">
                 <label>Number of Attendes</label>
-                <input type="range" list="tickmarks">
-                   <datalist id="tickmarks">
-                      <option value="0" label="0%"></option>
-                      <option value="10"></option>
-                      <option value="20"></option>
-                      <option value="30"></option>
-                      <option value="40"></option>
-                      <option value="50" label="50%"></option>
-                      <option value="60"></option>
-                      <option value="70"></option>
-                      <option value="80"></option>
-                      <option value="90"></option>
-                      <option value="100" label="100%"></option>
-                   </datalist>
-                
-                <input type="checkbox" name="drink"  value="Bike"> Drinks<br>
-                <input type="checkbox" name="protein"  value="Car"> Proteins<br>
-                <input type="checkbox" name="salad"  value="Boat"> Salads<br>
-                <input type="checkbox" name="carbohybrid" value="Boat"> Carbohybrids<br>
-
+                <input type="range" list="tickmarks" name="No_of_people">
+                <datalist id="tickmarks">
+                    <option value="0" label="0%"></option>
+                    <option value="10"></option>
+                    <option value="20"></option>
+                    <option value="30"></option>
+                    <option value="40"></option>
+                    <option value="50" label="50%"></option>
+                    <option value="60"></option>
+                    <option value="70"></option>
+                    <option value="80"></option>
+                    <option value="90"></option>
+                    <option value="100" label="100%"></option>
+                </datalist>
+                <div class="food_types">
+                    <h3>Carbohydrates</h3>
+                    <input type="checkbox" name="drink" value=""> Drinks<br>
+                    <input type="checkbox" name="drink" value=""> Proteins<br>
+                    <input type="checkbox" name="drink" value=""> Salads<br>
+                    <input type="checkbox" name="drink" value=""> Carbohybrids<br>
+                </div>
+                <div class="food_types">
+                    <h3>Proteins</h3>
+                    <input type="checkbox" name="drink" value=""> Drinks<br>
+                    <input type="checkbox" name="protein" value=""> Proteins<br>
+                    <input type="checkbox" name="salad" value=""> Salads<br>
+                    <input type="checkbox" name="carbohybrid" value=""> Carbohybrids<br>
+                </div>
+                <div class="food_types">
+                    <h3>Salad</h3>
+                    <input type="checkbox" name="drink" value=""> Drinks<br>
+                    <input type="checkbox" name="protein" value=""> Proteins<br>
+                    <input type="checkbox" name="salad" value=""> Salads<br>
+                    <input type="checkbox" name="carbohybrid" value=""> Carbohybrids<br>
+                </div>
+                <div class="food_types">
+                    <h3>Drinks</h3>
+                    <input type="checkbox" name="drink" value=""> Drinks<br>
+                    <input type="checkbox" name="protein" value=""> Proteins<br>
+                    <input type="checkbox" name="salad" value=""> Salads<br>
+                    <input type="checkbox" name="carbohybrid" value=""> Carbohybrids<br>
+                </div>
                 <label>Location</label>
-                <input type="textfield"  class="form-control" name="location" placeholder="location" required="">
+                <input type="textfield" class="form-control" name="location" placeholder="location" required="">
                 <label>Start Time</label>
-                <input type="time"  class="form-control" name="location" required="">  
+                <input type="time" class="form-control" name="location" required="">
                 <label>End Time</label>
-                <input type="time"  class="form-control" name="location" required="">     
+                <input type="time" class="form-control" name="location" required="">
                 <label>Description</label>
-                <input type="textfield"  class="form-control" name="description" placeholder="describe your event here" required="">
-            
-                <input type="submit" class="btn btn-primary"  name="loginSubmit" value="SUBMIT">
+                <input type="textfield" class="form-control" name="description" placeholder="describe your event here" required="">
 
-                
+                <input type="submit" class="btn btn-primary" name="loginSubmit" value="SUBMIT">
+
+
             </div>
-            
-    </form>
+
+        </form>
     </div>
 </body>
-</html>    
+
+</html>

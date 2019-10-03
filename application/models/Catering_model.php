@@ -1,6 +1,6 @@
 <?php
 
-class HomePage_model extends CI_Model
+class Catering_model extends CI_Model
 {
     public function fetch_carbohdrates()
     {
@@ -49,10 +49,9 @@ Start_time VARCHAR(30) NOT NULL,
 End_time VARCHAR(30) NOT NULL
 )
     */
-    public function insert_data(){
+    public function insert_data($data)
+    {
 
-        $this->db->query("INSERT INTO catering(No_of_people, Carbohydrate, Protein, Salad, Drink, Description, Location, Start_time, Start_end) VALUES('$', '$', '$', '$', '$', '$')");
-
+        $this->db->insert("catering", $data);
     }
-
 }
