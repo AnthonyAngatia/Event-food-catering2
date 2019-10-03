@@ -40,7 +40,24 @@ class Users extends CI_Controller {
         }else{ 
             redirect('users/login'); 
         } 
-    } 
+    }
+    public function cater(){ 
+        $data = array(); 
+        if($this->isUserLoggedIn){ 
+            $con = array( 
+                'id' => $this->session->userdata('userId') 
+            ); 
+            $data['user'] = $this->user->getRows($con); 
+             
+            // Pass the user data and load view 
+            
+            $this->load->view('elements/header', $data); 
+            $this->load->view('users/CateringV.php', $data); 
+            $this->load->view('elements/footer'); 
+        }else{ 
+            redirect('users/login'); 
+        } 
+    }
  
     public function login(){ 
 

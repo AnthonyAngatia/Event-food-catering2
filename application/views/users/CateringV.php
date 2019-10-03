@@ -1,7 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 ?>
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -273,127 +272,50 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
     </header>
     <div class="nav">
-        <a href="<?php echo site_url('catering')  ?>"><button>Catering</button></a>
+        <a href="#" onclick = "window.location.replace('CateringC');"><button>Catering</button></a>
         <a class="Order" href=""><button>Order</button></a>
         <a class="Cart" href=""><button>Cart</button></a>
         <a class="About us" href=""><button>About us</button></a>
     </div>
-    <!--SlideShow-->
-    <div class="slideshow-container">
-        <div class="mySlides ">
-            <img src="<?php echo base_url("/Assets/brocoli.png"); ?>" style="width:100%;" />
-            <div class="text"><a href="#" onclick="window.location.replace('MenuC');"><button>Menu</button></a></div>
-        </div>
+    <div class="wrapper">
+    <form action="" method="post">
+            <div class="form-group">
+                <label>Number of Attendes</label>
+                <input type="range" list="tickmarks">
+                   <datalist id="tickmarks">
+                      <option value="0" label="0%"></option>
+                      <option value="10"></option>
+                      <option value="20"></option>
+                      <option value="30"></option>
+                      <option value="40"></option>
+                      <option value="50" label="50%"></option>
+                      <option value="60"></option>
+                      <option value="70"></option>
+                      <option value="80"></option>
+                      <option value="90"></option>
+                      <option value="100" label="100%"></option>
+                   </datalist>
+                
+                <input type="checkbox" name="drink"  value="Bike"> Drinks<br>
+                <input type="checkbox" name="protein"  value="Car"> Proteins<br>
+                <input type="checkbox" name="salad"  value="Boat"> Salads<br>
+                <input type="checkbox" name="carbohybrid" value="Boat"> Carbohybrids<br>
 
-        <div class="mySlides ">
-            <img src="<?php echo base_url("/Assets/chicken.png"); ?>" style="width:100%;
-          " />
-            <div class="text"><a href="#" onclick="window.location.replace('MenuC');"><button>Menu</button></a></div>
-        </div>
+                <label>Location</label>
+                <input type="textfield"  class="form-control" name="location" placeholder="location" required="">
+                <label>Start Time</label>
+                <input type="time"  class="form-control" name="location" required="">  
+                <label>End Time</label>
+                <input type="time"  class="form-control" name="location" required="">     
+                <label>Description</label>
+                <input type="textfield"  class="form-control" name="description" placeholder="describe your event here" required="">
+            
+                <input type="submit" class="btn btn-primary"  name="loginSubmit" value="SUBMIT">
 
-        <div class="mySlides ">
-            <img src="<?php echo base_url("/Assets/cheeseburger.png"); ?>" style="width:100%; ;
-" />
-            <div class="text"><a href="#" onclick="window.location.replace('MenuC');"><button>Menu</button></a></div>
-        </div>
+                
+            </div>
+            
+    </form>
     </div>
-    <br />
-
-    <div style="text-align:center; display:none;">
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-    </div>
-    <!--Foods-->
-    <h1 style="margin: 1em">Dishes</h1>
-    <div class="Dishes">
-        <div class="Dish1">
-            <img src="<?php echo base_url("/Assets/brocoli.png"); ?>" alt="Dish1" />
-        </div>
-        <div class="Dish2">
-            <img src="<?php echo base_url("/Assets/cheeseburger.png"); ?>" alt="Dish2" />
-        </div>
-        <div class="Dish3">
-            <img src="<?php echo base_url("/Assets/brocoli.png"); ?>" alt="Dish3" />
-        </div>
-    </div>
-
-
-
-    <div class="Description">
-        <div class="desc1">
-            <h3>Brocoli</h3>
-            <p>Price</p>
-        </div>
-        <div class="desc2">
-            <h3>Cheese Burger</h3>
-            <p>Price</p>
-        </div>
-        <div class="desc3">
-            <h3>Brocoli</h3>
-            <p>Price</p>
-        </div>
-    </div>
-    <button style="margin:1em"><a href="" style="text-decoration:none; color:white">See more</a></button>
-
-    <h1 style="margin: 1em">Extra</h1>
-    <div class="Extras">
-        <div class="Extra1">
-            <img src="<?php echo base_url("/Assets/Catering.jpg"); ?>" alt="Extra1" />
-        </div>
-        <div class="Extra2">
-            <img src="<?php echo base_url("/Assets/Waiter.jpg"); ?>" alt="Extra1" />
-        </div>
-        <div class="Extra3">
-            <img src="<?php echo base_url("/Assets/QualityFood.jpg"); ?>" alt="Extra3" />
-        </div>
-    </div>
-
-    <div class="Description">
-        <div class="desc1">
-            <h1>Catering Services</h1>
-
-            <button style=" margin:1em; padding:1em;"><a href="" style="text-decoration:none; color:white ">Find out more</a></button>
-        </div>
-        <div class="desc2">
-            <h1>Zero Waiting time</h1>
-            <button style=" margin:1em; padding:1em;"><a href="" style="text-decoration:none; color:white ">Find out more</a></button>
-        </div>
-        <div class="desc3">
-            <h1>Quality Food</h1>
-            <button style=" margin:1em; padding:1em;"><a href="" style="text-decoration:none; color:white ">Find out more</a></button>
-        </div>
-    </div>
-    <footer>
-        <p>CopyRight &copy; 2019</p>
-    </footer>
-
-    <script>
-        function myFunction() {
-            document.getElementByClassName("login").style.display = "block";
-        }
-        var slideIndex = 0;
-        showSlides();
-
-        function showSlides() {
-            var i;
-            var slides = document.getElementsByClassName("mySlides");
-            var dots = document.getElementsByClassName("dot");
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-            slideIndex++;
-            if (slideIndex > slides.length) {
-                slideIndex = 1;
-            }
-            for (i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" active", "");
-            }
-            slides[slideIndex - 1].style.display = "block";
-            dots[slideIndex - 1].className += " active";
-            setTimeout(showSlides, 5000); // Change image every 2 seconds
-        }
-    </script>
 </body>
-
-</html>
+</html>    
