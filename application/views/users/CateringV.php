@@ -263,6 +263,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
         #cont{
             background-image:url(<?php echo base_url("Assets/Catering.jpg"); ?>)
+        
+        }
+        .wrapper{
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6));
+            color:white;
+            
         }
     </style>
 </head>
@@ -286,7 +292,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <a class="About us" href=""><button>About us</button></a>
     </div>
     <div id="cont">
-    <div class="wrapper" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)); color:white;">
+    <div class="wrapper" style="border-radius: 0px; border:0px solid; margin-top:20px; width: 350px;">
     <form action="" method="post">
             <div class="form-group">
                 <label>Number of Attendes</label>
@@ -316,10 +322,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
                 <div class="food_types">
                 <h3>Drinks</h3>
-                <input type="checkbox" name="drink"  value="Bike"> Drinks<br>
-                <input type="checkbox" name="protein"  value="Car"> Proteins<br>
-                <input type="checkbox" name="salad"  value="Boat"> Salads<br>
-                <input type="checkbox" name="carbohybrid" value="Boat"> Carbohybrids<br>
+                <input type="checkbox" name="drink" class="inputGroup"  value="Bike"> Drinks<br>
+                <input type="checkbox" name="protein" class="inputGroup"   value="Car"> Proteins<br>
+                <input type="checkbox" name="salad" class="inputGroup"   value="Boat"> Salads<br>
+                <input type="checkbox" name="carbohybrid" class="inputGroup"  value="Boat"> Carbohybrids<br>
                 </div>
 
                 <div class="food_types">

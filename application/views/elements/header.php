@@ -19,7 +19,7 @@
 		border-radius: 25px;
 		background-color: white;
         border:1px solid;
-        margin-top:150px;
+        margin-top:70px;
         }
 
         .inputGroup {
