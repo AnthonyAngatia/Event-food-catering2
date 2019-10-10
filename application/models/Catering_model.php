@@ -2,7 +2,7 @@
 
 class Catering_model extends CI_Model
 {
-    public function fetch_carbohdrates()
+    public function fetch_carbohydrates()
     {
         //$query = $this->db->get("fooditems");
         $query = $this->db->query("SELECT foodName,  FROM fooditems WHERE foodType = 'Carbohydrates'");

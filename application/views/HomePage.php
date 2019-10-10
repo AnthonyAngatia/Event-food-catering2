@@ -336,7 +336,8 @@ if ($fetch_data->num_rows() > 0) {
 
   <div class="Description">
     <div class="desc1">
-      <h3><?php echo $data[0] ?></h3>
+      <h3><?php //echo $data[0] 
+          ?></h3>
       <p>Price</p>
     </div>
     <div class="desc2">

@@ -58,15 +58,31 @@ class Users extends CI_Controller
             // Pass the user data and load view 
 
             $this->load->view('elements/header', $data);
-            $this->load->view('users/CateringV.php', $data);
+            $this->load->view('users/CateringV', $data);
             $this->load->view('elements/footer');
         } else {
             redirect('users/login');
         }
         /*!Inserting to DB*/
-        $this->load->model("Catering_model");
+        // putting_data();
+    }
+    public function putting_data()
+    {
+        $data = $formData = array();
+        //$this->load->model("Catering_model");
+        if ($this->input->post('caterSubmit')) {
+            //echo $this->input->post();
+            $formData = $this->input->post('Carbohydrates');
+            print_r($formData);
+            $data = array(
+                "Proteins" => $this->input->post('Proteins')
+            );
+            echo "<br>";
+            print_r($data);
+        }
+
         $data = array(
-            //"No_of_people"->$this->input->post("No_of_people"),
+            /* "No_of_people"->$this->input->post("No_of_people"),
             "Carbohydrates"->$this->input->post("Carbohydrates[]"),
             "Proteins"->$this->input->post("Proteins[]"),
             "Salad"->$this->input->post("Salad[]"),
@@ -75,13 +91,10 @@ class Users extends CI_Controller
             "Location"->$this->input->post("Location"),
             "Start_time"->$this->input->post("Start_time"),
             "End_time"->$this->input->post("End_time")
-        );
+            */);
 
-        $this->Catering_model->insert_data($data);
+        //$this->Catering_model->insert_data($data);
     }
-    // public function putting_data(){
-
-    //}
     public function login()
     {
 

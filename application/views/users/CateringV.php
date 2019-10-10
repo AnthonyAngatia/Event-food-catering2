@@ -187,7 +187,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     </div>
 
     <div class="wrapper">
-        <form action="" method="post">
+        <form action="http://localhost/Event-food-catering3/index.php/Users/putting_data" method="post">
             <div class="form-group">
                 <label>Number of Attendes</label>
                 <input type="range" list="tickmarks" name="No_of_people">
@@ -206,42 +206,69 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 </datalist>
                 <div class="food_types">
                     <h3>Carbohydrates</h3>
-                    <input type="checkbox" name="drink" value=""> Drinks<br>
-                    <input type="checkbox" name="drink" value=""> Proteins<br>
-                    <input type="checkbox" name="drink" value=""> Salads<br>
-                    <input type="checkbox" name="drink" value=""> Carbohybrids<br>
+                    <input type="checkbox" name="Carbohydrates[]" value="100" id = "cab" onclick = "printChecked();"> Rice<br>
+                    <input type="checkbox" name="Carbohydrates[]" value="200" id = "cab"> Potatoes<br>
+                    <input type="checkbox" name="Carbohydrates[]" value="100" id = "cab"> Ugali<br>
+                    <input type="checkbox" name="Carbohydrates[]" value="200" id = "cab"> Spaghetti<br>
                 </div>
+                
+            
+            <script>
+function getValue(){
+var test1 = document.getElementById('test1');
+var test1Value = '';
+
+if(test1.checked){
+    //alert(test1.value);
+     test1Value = parseInt(test1.value);
+}
+    var test2 = document.getElementById('test2');
+    var test2Value = '';
+    if(test2.checked){
+    //alert(test1.value);
+     test2Value = parseInt(test2.value);
+}
+var totalPrice = 0;
+ totalPrice = test1Value + test2Value;
+   alert(totalPrice);
+}
+
+
+</script>
+            
                 <div class="food_types">
                     <h3>Proteins</h3>
-                    <input type="checkbox" name="drink" value=""> Drinks<br>
-                    <input type="checkbox" name="protein" value=""> Proteins<br>
-                    <input type="checkbox" name="salad" value=""> Salads<br>
-                    <input type="checkbox" name="carbohybrid" value=""> Carbohybrids<br>
+                    <input type="checkbox" name="Proteins[]" value="100"> Beef<br>
+                    <input type="checkbox" name="Proteins[]" value="150"> Pork<br>
+                    <input type="checkbox" name="Proteins[]" value="200"> Chicken<br>
+                    <input type="checkbox" name="Proteins[]" value="250"> Fish<br>
                 </div>
+                <!--     
                 <div class="food_types">
                     <h3>Salad</h3>
-                    <input type="checkbox" name="drink" value=""> Drinks<br>
-                    <input type="checkbox" name="protein" value=""> Proteins<br>
-                    <input type="checkbox" name="salad" value=""> Salads<br>
-                    <input type="checkbox" name="carbohybrid" value=""> Carbohybrids<br>
+                    <input type="checkbox" name="Salad[]" value="100"> Drinks<br>
+                    <input type="checkbox" name="Salad[]" value="200"> Proteins<br>
+                    <input type="checkbox" name="Salad[]" value="100"> Salads<br>
+                    <input type="checkbox" name="Salad[]" value="200"> Carbohybrids<br>
                 </div>
                 <div class="food_types">
                     <h3>Drinks</h3>
-                    <input type="checkbox" name="drink" value=""> Drinks<br>
-                    <input type="checkbox" name="protein" value=""> Proteins<br>
-                    <input type="checkbox" name="salad" value=""> Salads<br>
-                    <input type="checkbox" name="carbohybrid" value=""> Carbohybrids<br>
+                    <input type="checkbox" name="Drinks[]" value="100"> Drinks<br>
+                    <input type="checkbox" name="Drinks[]" value="200"> Proteins<br>
+                    <input type="checkbox" name="Drinks[]" value="100"> Salads<br>
+                    <input type="checkbox" name="Drinks[]" value="200"> Carbohybrids<br>
                 </div>
+    -->
                 <label>Location</label>
-                <input type="textfield" class="form-control" name="location" placeholder="location" required="">
+                <input type="textfield" class="form-control" name="Location" placeholder="location" required="">
                 <label>Start Time</label>
-                <input type="time" class="form-control" name="location" required="">
+                <input type="time" class="form-control" name="Start_time" required="">
                 <label>End Time</label>
-                <input type="time" class="form-control" name="location" required="">
+                <input type="time" class="form-control" name="End_time" required="">
                 <label>Description</label>
-                <input type="textfield" class="form-control" name="description" placeholder="describe your event here" required="">
+                <input type="textfield" class="form-control" name="Description" placeholder="describe your event here" required="">
 
-                <input type="submit" class="btn btn-primary" name="loginSubmit" value="SUBMIT">
+                <input type="submit" class="btn btn-primary" name="caterSubmit" value="SUBMIT">
 
 
             </div>
