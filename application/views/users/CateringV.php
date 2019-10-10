@@ -269,6 +269,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6));
             color:white;
             
+            
         }
     </style>
 </head>
@@ -292,7 +293,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <a class="About us" href=""><button>About us</button></a>
     </div>
     <div id="cont">
-    <div class="wrapper" style="border-radius: 0px; border:0px solid; margin-top:20px; width: 350px;">
+    <div class="wrapper" style="border-radius: 0px; border:0px solid; margin-top:20px; width: 350px; font-style: italic;">
     <form action="" method="post">
             <div class="form-group">
                 <label>Number of Attendes</label>

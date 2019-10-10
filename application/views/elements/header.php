@@ -26,7 +26,7 @@
     background-color: #fff;
     display: block;
     margin: 10px 0;
-    position: relative;
+    position: relative;ijn
         }
         .food{
             display:grid;
