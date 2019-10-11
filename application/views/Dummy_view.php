@@ -12,8 +12,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 </head>
 
 <body>
-    <form action="<?php echo base_url() ?>Dummy_controller/getPostData" method="post">
-        <label for="texta">Enter Number</label>
+    <!-- <form action="<?php //echo base_url() ?>Dummy_controller/getPostData" method="post"> -->
+    <form action="Localhost/event-food-catering3/Dummy_controller/getPostData" method="post">
+        <label for=" texta">Enter Number</label>
         <input type="text" name="texta" id="">
         <label for="textb">Enter food</label>
         <input type="text" name="textb" id="">
