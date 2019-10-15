@@ -10,6 +10,8 @@
 
 <!-- Stylesheet file -->
 <link href="<?php echo base_url('assets/css/style.css'); ?>" rel='stylesheet' type='text/css' />
+
+<link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
 <style type="text/css">
         body{ font: 14px sans-serif; }
         .wrapper{ width: 350px; padding: 20px; 
@@ -17,8 +19,23 @@
 		border-radius: 25px;
 		background-color: white;
         border:1px solid;
-        margin-top:150px;
+        margin-top:70px;
         }
+
+        .inputGroup {
+    background-color: #fff;
+    display: block;
+    margin: 10px 0;
+    position: relative;
+        }
+        .food{
+            display:grid;
+            grid-template-columns:1fr 1fr 1fr;
+        }
+        
+        
+
+
 </style>
 </head>
 <body>
