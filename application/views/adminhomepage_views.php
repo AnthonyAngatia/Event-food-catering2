@@ -1,7 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
+	<meta charset = "utf-8">
+	<meta http-equiv = "X-UA-Compatible" content = "IE=edge">
+	<title>  ADMIN DASHBOARD</title>
+	<script type = "text/javascript" src = "https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script type = "text/javascript" src = "https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+	<script type = "text/javascript " src = "https://cdn.datatables.net/1.10.15/jquery.dataTables.semanticui.min.js"> </script>
+	<script type = "text/javascript" src = "https://cdnjs.cloudfare.com/ajax/libs/semantic-ui/2.2.6/semantic.min.js"></script>
+	<script type = "text/javascript" src = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+	<script type = "text/javascript" src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style media = "screen">
 	#img
 	{
 
@@ -58,77 +67,193 @@
   
   		text-shadow: 1px 1px 1px black;
 	}
+	 <tr style="background-color: #EEE;">
+	* {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0px;
+    }
 
-	
+    h1 {
+      text-align: center;
+    }
+
+    header {
+      display: flex;
+      justify-content: flex-end;
+
+    }
+
+    .logo {
+      height: 60px;
+      width: 60px;
+      border: 1px solid tomato;
+      margin-right: auto;
+      padding: 5px;
+
+    }
+
+    .header h1 {
+      font-family: cursive;
+      margin-right: auto;
+      padding: 5px;
+
+    }
+
+    .Sign-up button {
+      border: 1px solid #003366;
+      color: #003366;
+      padding: 7px;
+      border-radius: 50px;
+      cursor: pointer;
+      background-color: white;
+    }
+
+    a {
+      padding: 15px;
+    }
+
+    .nav {
+
+      display: flex;
+      justify-content: space-evenly;
+      background-color: #003366;
+    }
+
+    button {
+      border: 1px solid aliceblue;
+      border-radius: 50px;
+      background-color: #003366;
+      padding: 7px;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      color: powderblue;
+    }
+		.header input[type=text] {
+  float: right;
+  padding: 6px;
+  border: none;
+  margin-top: 8px;
+  margin-right: 16px;
+  font-size: 17px;
+}	
 </style>
  </head>
+ <header class="header">
+    <img class="logo" src="<?php echo base_url("Assets/logo.jpg"); ?>" />
+    <h1>Taste of Africa</h1>
+    <a class="login" href="#" onclick="window.location.replace('users/login');"><button>Login</button></a>
+
+    <a class="Sign-up" href="#" onclick="window.location.replace('users/registration');"><button>Sign up</button></a>
+     <input type="text" placeholder="Search..">
+  </header>
 <body>
-<div id = "nav">
-	<div id = "img">
-	<img src = "<?php echo base_url('assets/logo.png'); ?>" style = "width:30px; height: 30px;">
-	</div>
-	<a class="active" href="#home">Home</a>
-  	<a href="#Logout">Logout</a>
-</div>
-<table id = "view">
+
+<div class="nav">
+    <a class="Category" href=""><button>Category</button></a>
+    <a class="Order" href=""><button>Order</button></a>
+    <a class="Cart" href=""><button>Cart</button></a>
+    <a class="About us" href=""><button>About us</button></a>
+  </div> 
+
+
+
+ ?>
+
+ <?php
+ if(isset($user_data))
+ {
+ 		
+ 		?>
+ 		<?php echo form_open_multipart('Ahomepage/update_data');?>
+ 			<input type = "hidden" name = "eid">
+ 		<label>Food Name </label> <input type = "text" name = "foodName" placeholder="Enter foodname">
+		<br><br><br>
+		<label> Food Price</label> <input type = "text" name = "foodPrice" placeholder="Enter food price">
+		<br><br><br>
+		<?php echo form_open_multipart('Admin/do_upload');?>
+		<label> Food Image</label> <input type = "file" name = "foodImage" placeholder="Upload foodImage">
+		<br><br><br>
+
+		<label> Food Type</label> <input type = "text" name = "foodType" placeholder="Enter food type">
+		<br><br>
+		<input type = "submit" value = "UPDATE DATA">
+	</form>
+
+ 		<?php
+ 	
+ }
+
+	?>
+<table > 
 	<tr>
 		<th> Foodname</th>
 		<th>Foodprice</th>
-		<th>FoodImage</th>
-		<th>Foodtype</th>
-		<th>Delete </th>
-
+		<th>FoodImage</th>	
+		<th>Foodtype</th> 
+		<th> Delete</th>
+		<th>Edit</th>
 	</tr>
+		
 	<?php
-	if($fetch_data -> num_rows() > 0)
+
+     $fetch_data = $this-> admin_model ->fetch_data();
+	if($fetch_data->num_rows() > 0)
 	{
-		foreach ($fetch_data -> result() as $row)
+		foreach($fetch_data -> result() as $row)
 		{
-			?>
+	?>
 			<tr>
 				<td> <?php echo $row -> foodName; ?> </td>
 				<td> <?php echo $row -> foodPrice; ?> </td>
-				<td> <?php echo $row -> foodImage; ?> </td>
+				<td><img src = "<?php echo base_url();?>uploads/<?php echo $row ->foodImage;?>" style = "width :90px; height: 90px;"></td>
 				<td> <?php echo $row -> foodType; ?> </td>
-				<td><a href = "#" class = "delete_data" id = "<?php echo $row-> id ;?>" >Delete</a></td>
-			</tr>
+				<td><a href = "<?php echo site_url();?>/ahomepage/delete_data/<?php echo $row -> id; ?> " onclick = "return confirm('Are you sure ?')"> Delete </td>
+					<br>
+				<td><a href = "<?php echo site_url();?>/ahomepage/edit_data/<?php echo $row -> id; ?>" > Edit </td>
+
+			</tr> 
 			<?php
 
 		}
-	}
+	} 
 	else
 	{
 	?>
 		<tr>
 		     <td colspan = "3"> No data was entered </td>
 		 </tr>
-	<?php
+		 <?php
+	
+
+	
 	}
-		?>
+	?>
+
+		
 </table>
-<script>
-	$(document).ready(function(){
-		$('.delete_data').click(function(){
-			var id = $(this).attr("id");
-			if(confirm("Are you sure you want to delete this?"))
-			{
-				window.location = "<?php echo base_url('index.php/Admin/delete_data'); ?>" + id;
-			}
-			else
-			{
-				return false;
-			}
 
-
-		});
-
-
-	});
-	</script>
 <br><br><br>
 <div id = "menu">
 <a onclick ="window.location.replace('Admin')" ><button> ADD TO MENU </button></a>
-</div>
+	<a onclick = "window.location.replace('Ahomepage')"><button>CHECK REPORTS </button></a>
+	</div>
 
 </body>
 </html>
+<script type = "text/javascript">
+	$(document).ready(function())
+	{
+
+		$('#datatable').dataTable();
+
+	}
+	</script>
+	<script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+</script>

@@ -11,6 +11,14 @@
 		
 
 	}
+	body
+	{
+			background-color : floralwhite;
+			border : 3px solid #000;
+			border-top :3px solid floralwhite;
+			text-align :center;
+
+	}
 	#nav
 	{
 			text-align: right;

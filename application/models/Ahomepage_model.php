@@ -8,5 +8,7 @@
   			$query = $this ->db->get("food_products");
   			return $query;
   		}
+
     }
+
    ?> 
