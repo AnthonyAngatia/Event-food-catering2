@@ -88,25 +88,23 @@
 <body>
 <!--Navbar-->
 			<header>
-      <img class="logo" src="<?php echo base_url("Assets/logo.jpg"); ?>" />				
-      <a class='login' href=''><button>Login</button></a>
-			<a class='Sign-up' href=''><button>Sign up</button></a>
+                <img class="logo" src="<?php echo base_url("Assets/logo.jpg"); ?>" />
+            	<a class='login' href=''><button>Login</button></a>
+				<a class='Sign-up' href=''><button>Sign up</button></a>
 			</header>
 			<div class='nav'>
-      <a class="Category" href=""><button>Category</button></a>
+            <a class="Category" href=""><button>Category</button></a>
     <a class="Order" href=""><button>Order</button></a>
     <a class="Cart" href="#" onclick="window.location.replace('CartC');"><button>Cart</button></a>
     <a class="viewPastOrders" href="#" onclick="window.location.replace('ViewPastOrdersC');"><button>View Past Orders</button></a>
       </div><br><br>
 
       <!--Order Items-->
-      <div align = 'center' style = 'color: #003366;font-style: oblique'><h1>Order Summary</h1></div><br><br>
+      <div align = 'center' style = 'color: #003366;font-style: oblique'><h1>Past Order History</h1></div><br><br>
       
-      <form action='OrderC/saveOrderData' method='post' align = 'center' style = 'color: #003366;'>
         
         <table id='customers'>
         <tr>
-            <th>Name</th>
             <th>Total Order Price</th>
             <th>Order Status</th>
             <th>Order Duration</th>
@@ -123,13 +121,11 @@
 
         </tr>
         <?php
-          $userName = $userDetails[0]["first_name"];
           foreach ($orderDetails as $row)
           {
            echo("
             
             <tr>
-              <td>"           .$userName                                       ."</td>
               <td>"           .$row['orderPrice']                              ."</td>
               <td>"           .$row['orderStatus']                             ."</td>
               <td>"           .$row['orderDuration']    ." minutes"            ."</td>
@@ -160,19 +156,17 @@
         </table><br><br><br><br>
 
         <div>
-          <button id = "confirmOrder"><input type = 'submit' name = 'Confirm_Order'  value = 'Confirm_Order' style = 'font-style: oblique;background-color: #003366; color: white; text-align: center; padding: 5px 5px; border: none; height: 60px; width: 160px; border-radius: 25px;' ></button>
+          <!--<button id = "confirmOrder"><input type = 'submit' name = 'Confirm_Order'  value = 'Confirm_Order' style = 'font-style: oblique;background-color: #003366; color: white; text-align: center; padding: 5px 5px; border: none; height: 60px; width: 160px; border-radius: 25px;' ></button>-->
           <!--<button id = "viewPastOrders"><a style = 'font-style: oblique;background-color: #003366; color: white; text-align: center; padding: 5px 5px; border: none; height: 60px; width: 160px; border-radius: 25px;' ></a></button>-->
         </div>
 
-        <script>
+        <!-- <script>
           document.getElementById('confirmOrder').addEventListener('click', showInfoWindow);
           function showInfoWindow(){
-              alert("You have successfully completed your order");
-            //window.location.replace('MenuC');
+            alert("You have successfully completed your order");
           }
-        </script>
+        </script> -->
       
-      </form>
 
 
 

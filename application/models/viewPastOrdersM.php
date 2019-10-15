@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-    class OrderM extends CI_Model{
+    class viewPastOrdersM extends CI_Model{
         function returnOrderDetails(){
             //Selecting from Order table
             //db connection
@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             //Getting DB parameters
             $userId = 1; //SESSION VAR NEEDED HERE
-            $orderStatus = "Pending";
+            $orderStatus = "Confirmed";
 
 
             //Select from db- orders table where userId = SESSION VAR AND status = Pending
@@ -21,9 +21,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             //Returning array to controller
             return $query->result_array();
             
-            
         }
 
+        //Might use these functions later
+        /*
         function returnUserDetails(){
             //Selecting from Users table
             //db connection
@@ -60,11 +61,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div ><a>window.location.replace('MenuC')</a></div>
                 </script>
             ");
-
-            redirect("/Homepage/index");
-            //header("Location: HomePage.php");
+            
+            header("Location: HomePage.php");
 
         }
+        */
 
         
         

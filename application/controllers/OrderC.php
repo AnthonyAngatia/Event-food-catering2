@@ -6,9 +6,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         public function index(){
 			
 			$this->load->model("orderM");
-            //$data["cartItems"] = $this->cartM->returnCartItems();
-            $this->load->view("orderV");
+            $data["orderDetails"] = $this->orderM->returnOrderDetails();
+            $data["userDetails"] = $this->orderM->returnUserDetails();
+            $this->load->view("orderV", $data);
 						
+        }
+
+        public function saveOrderData(){
+            //Loading model, storing data it returns
+            $this->load->model("orderM");
+            if($this->input->post("Confirm_Order")){
+
+                //db connection
+                $this->load->database();
+
+                //SESSION and DB VARS
+                $userId = 1;// SESSION VAR NEEDED!!
+                
+                $this->orderM->saveOrderData($userId);
+               
+            }            
+            
         }
 
     }

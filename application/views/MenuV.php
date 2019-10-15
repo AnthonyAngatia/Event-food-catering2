@@ -469,24 +469,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <body>
 		
 			<!--Navbar-->
-			<header>
-				<img class='logo' src='/Assets/Logo.jpg' alt='logo' />
-				<a class='login' href=''><button>Login</button></a>
-				<a class='Sign-up' href=''><button>Sign up</button></a>
-			</header>
+			<header >
+      <img class='logo' src='"); echo base_url("Assets/logo.jpg'/>");  
+      
+      
+      echo("
+      <!--<h1>Taste of Africa</h1>-->
+      <a class='login' href='#' onclick='window.location.replace('users/login');'><button>Login</button></a>
+      <a class='Sign-up' href='#' onclick='window.location.replace('users/registration');'><button>Sign up</button></a>  
+      </header>
+      
 			<div class='nav'>
-				<a class='Category' href=''><button>Category</button></a>
-				<a class='Order' href=''><button>Order</button></a>
-				<a class='Cart' href=''><button>Cart</button></a>
-				<a class='About us' href=''><button>About us</button></a>
+      <a class='Category' href=''><button>Category</button></a>
+      <a class='Order' href=''><button>Order</button></a>
+      <a class='Cart' href='#' onclick='window.location.replace('CartC');'><button>Cart</button></a>
+      <a class='viewPastOrders' href='#' onclick='window.location.replace('ViewPastOrdersC');'><button>View Past Orders</button></a>
 			</div>
             
 
             <!--Menu Heading-->
             <div align = 'center' style = 'color: #003366;font-style: oblique'><h1>Menu</h1></div>
-
-
-
 
             <!--Menu Items-->
         ");
@@ -505,29 +507,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         
             foreach ($menuItems as $row)
             {
-                echo('
-                    
-						<div id = "Pic" style = "background-color: white; float: left; border: 1px solid #003366; width: 100px; height: 100px;">'
-                        ."<img src = '".'C:\xampp\htdocs\CodeIgniter-3.1.10_SEng\application\views\Assets\	Images\beans.jpg' ."' height = '100' width = '100'>"    .'<br>' 
-                        .'</div>
+              //echo("<img class='logo' src='"); echo base_url("Assets/logo.jpg'/>"); 
 
-                        <div id = "Details" align = "center" style = "font-style: oblique; background-color: white; float: left; margin: 4px; border: 1px solid #003366; width: 1300px; height: 100px; color: #003366; line-height: 80px;border-radius: 25px;">   
-                            <!--Display data here from db-->' 
-                            .'<a style = "display: inline-block; width: 200px; text-align: left;"><h2>' .$row['foodName'] .'</h2></a>'
-							.'<a style = "display: inline-block; width: 200px; text-align: center;"><h2>' .$row['foodPrice'] .'</h2></a>'
-							.'<a style = "display: inline-block; width: 200px; text-align: right;"><h2>' .$row['foodDuration'] .'</h2></a>'
-						.'</div><br><br>'
+                echo("
+                    
+						<div id = 'Pic' style = 'background-color: white; float: left; border: 1px solid #003366; width: 100px; height: 100px;'>"
+                ."<img src = '"); echo base_url("Assets/fries.png'"  ." height = '100' width = '100'>"    ."<br>" 
+            ."</div>
+
+            
+            <div id = 'Details' align = 'center' style = 'font-style: oblique; background-color: white; float: left; margin: 4px; border: 1px solid #003366; width: 1300px; height: 100px; color: #003366; line-height: 80px;border-radius: 25px;'>   
+                <!--Display data here from db-->" 
+                ."<a style = 'display: inline-block; width: 200px; text-align: left;'><h2>" .$row['foodName'] ."</h2></a>"
+							  ."<a style = 'display: inline-block; width: 200px; text-align: center;'><h2>" .$row['foodPrice'] ."</h2></a>"
+							  ."<a style = 'display: inline-block; width: 200px; text-align: right;'><h2>" .$row['foodDuration'] ."</h2></a>"
+						."</div><br><br>"
 						
-						.'<div id = "checkBox" style = "float: right; margin: 4px; border: 1px solid #003366; width: 15px; height: 15px; color: #003366;">
-                
-              <input type = "checkbox" name = '.$row["foodName"] .'  value =' .$row["foodName"].' >
-							
+						."<div id = 'checkBox' style = 'float: right; margin: 4px; border: 1px solid #003366; width: 15px; height: 15px; color: #003366;'>
+                <input type = 'checkbox' name = " .$row['foodName'] ."  value =" .$row['foodName']." >
 						</div>	                          
 
                         
                     
-                    '); 
-					echo("<br><br><br><br><br><br><br><br><br><br>");
+          "); 
+          
+          
+          echo("<br><br><br><br><br><br><br><br><br><br>");
 					
 					
             }

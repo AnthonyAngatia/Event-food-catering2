@@ -92,15 +92,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		
 			<!--Navbar-->
 			<header>
-				<img class='logo' src='/Assets/Logo.jpg' alt='logo' />
+      <img class='logo' src='"); echo base_url("Assets/logo.jpg'/>");
+      
+      echo("
 				<a class='login' href=''><button>Login</button></a>
 				<a class='Sign-up' href=''><button>Sign up</button></a>
 			</header>
 			<div class='nav'>
-				<a class='Category' href=''><button>Category</button></a>
-				<a class='Order' href=''><button>Order</button></a>
-				<a class='Cart' href=''><button>Cart</button></a>
-				<a class='About us' href=''><button>About us</button></a>
+      <a class='Category' href=''><button>Category</button></a>
+      <a class='Order' href=''><button>Order</button></a>
+      <a class='Cart' href='#' onclick='window.location.replace('CartC');'><button>Cart</button></a>
+      <a class='viewPastOrders' href='#' onclick='window.location.replace('ViewPastOrdersC');'><button>View Past Orders</button></a>
 			</div>
             
 
@@ -116,9 +118,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <th>Unit Price</th>
                 <th>Preparation Duration</th>
                 <th>Quantity</th>
+                <th></th>
   	            
               </tr>
             ");
+            if(!empty($cartItems )){
             foreach ($cartItems as $row)
             {
              echo("
@@ -127,21 +131,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <td>" .$row['foodName']                                           ."</td>
                 <td>" ."Sh " .$row['foodPrice']                                   ."</td>
                 <td>" .$row['foodDuration'] ." minutes"                           ."</td>
-	              <td>" ."<input type = 'text' name = 'quantity' style = 'text-align: center; width: 70px;' >"                ."</td>
+                <td>" ."<input type = 'text' name = '" .$row['foodName'] ."' style = 'text-align: center; width: 70px;' >"  ."</td>
+                <td> <!--<form action = 'CartC/deleteCartItem' method = 'post'>-->
+                        <input type = 'submit' name = 'Delete' value = 'Delete' style = 'font-style: oblique;background-color: #003366; color: white; text-align: center; padding: 5px 5px; border: none; height: 60px; width: 70px; border-radius: 25px;'>
+                        <input type = 'hidden' name = 'cartItemToDelete' value = '" .$row['foodName'] ."'/>
+                      <!--</form>->
+                </td>
               
               </tr>
               ");
             }
+          }
+
 
             echo("
             
-            </table><br>
+            </table><br><br><br><br>
+            ");
+
+        if(!empty($cartItems)){
+            
+        echo("
 
 					
 					  <input type = 'submit' name = 'Checkout' value = 'Checkout' style = 'font-style: oblique;background-color: #003366; color: white; text-align: center; padding: 5px 5px; border: none; height: 60px; width: 70px; border-radius: 25px;' >
 					
           </form>
-              ");
+        ");
+            }
 
 
 		

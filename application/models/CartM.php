@@ -8,7 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->load->database();
 
             //Select from db cart table
-            $userID = 1;
+            $userID = 1;//SESSION VAR NEEDED HERE
             $selectCartItemsQuery = $this->db->query("SELECT * FROM cart WHERE userID = '$userID'");
             $cartItems = $selectCartItemsQuery->result_array();
             foreach ($cartItems as $row){
@@ -22,25 +22,60 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 //Returning array to controller
                 return $foodItems;
             }
-
-
-            function saveCartData(){
-
-                //db connection
-                $this->load->database();
-                $userID = 1;
-    
-                
-                }
-
-            /*
-            foreach ($sqlMenuDisplay->result() as $row)
-            {
-                echo $row->foodId;
-            }
-            */
         }
-        
-    }
+
+            function saveOrderData($orderItems){
+
+                //INSERT INTO Orders table and DELETE From Cart table
+                //Inserting into Cart
+                $orderDuration = $orderItems['totOrderDuration'];
+                $orderPrice = $orderItems['totOrderPrice'];
+                $orderStatus = $orderItems['orderStatus'];
+                $userId = $orderItems['userId'];
+
+                //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!AUOTINCREMENT FAILING HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                $insertIntoOrderQuery = $this->db->query("INSERT INTO orders(dateCreated, orderDuration, orderPrice, orderStatus, userId) VALUES(NOW(), '$orderDuration', '$orderPrice', '$orderStatus', '$userId')");
+                
+                //Redirect to Orders View Relation
+                redirect("http://localhost/Event-food-catering3/index.php/OrderC");
+
+
+                //for($i = 0; $i < count($rowDataPrices); $i++){
+                //    echo($rowDataPrices[$i]['fooditem'] ." - " .$rowDataPrices[$i]['price'] ."<br>");
+                //    if($foodPicked == $rowDataPrices[$i]['fooditem']){
+                //        $foodPickedPrice = $rowDataPrices[$i]['price'];
+                //        $foodPickedPrice = $foodPickedPrice * $foodSize;
+                //    }
+                //}
+
+                /*
+                foreach ($sqlMenuDisplay->result() as $row)
+                {
+                    echo $row->foodId;
+                }
+                */
+        }
+
+        function deleteCartItem($cartItemToDelete){
+            //SESSION and DB ARS HERE
+            $userID = 1;
+
+            //Get foodId of $cartItemToDelete
+            $selectFoodIDQuery = $this->db->query("SELECT foodID FROM fooditems WHERE foodName = '$cartItemToDelete'");
+
+            //Transform this into array
+            $rowCartItemToDeleteFoodID =  $selectFoodIDQuery->result_array();
+
+            foreach($rowCartItemToDeleteFoodID  as $row){
+                echo($row["foodID"]);
+                $foodID = $row["foodID"];
+                $deleteFromCartQuery = $this->db->query("DELETE FROM cart WHERE foodID = '$foodID' AND userID = '$userID'");
+            }
+
+            //Redirect to Cart Page
+            redirect("/CartC/index");
+        }
+
+}
     
 ?>

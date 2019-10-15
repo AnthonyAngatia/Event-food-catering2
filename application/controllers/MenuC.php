@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
 
         public function saveMenuData(){
-            echo("Harry");
+            //echo("Harry");
             //Loading model, storing data it returns
             $this->load->model("menuM");
             $menuItems = $this->menuM->returnMenuItems();
@@ -23,18 +23,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
                 //Getting post data
                 $postData = $this->input->post();
-                print_r($postData);
+                //print_r($postData);
 
                 //Inserting checked food items into db
                 foreach ($menuItems as $row){
-                    echo("Karani");
+                    //echo("Karani");
                     //Check whether the checkboxes were selected
                     if($this->input->post($row["foodName"]) !== null){
                         $this->menuM->saveFoodsPicked($row["foodName"]);
                     }
                 }
             }
-            echo("Mithika");
+            //echo("Mithika");
         }
             
     }
