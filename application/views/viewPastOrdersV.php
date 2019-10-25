@@ -87,17 +87,19 @@
 </head>
 <body>
 <!--Navbar-->
-			<header>
-                <img class="logo" src="<?php echo base_url("Assets/logo.jpg"); ?>" />
-            	<a class='login' href=''><button>Login</button></a>
-				<a class='Sign-up' href=''><button>Sign up</button></a>
-			</header>
-			<div class='nav'>
-            <a class="Category" href=""><button>Category</button></a>
-    <a class="Order" href=""><button>Order</button></a>
-    <a class="Cart" href="#" onclick="window.location.replace('CartC');"><button>Cart</button></a>
-    <a class="viewPastOrders" href="#" onclick="window.location.replace('ViewPastOrdersC');"><button>View Past Orders</button></a>
-      </div><br><br>
+<header class="header">
+    <img class="logo" src="<?php echo base_url("Assets/logo.jpg"); ?>" />
+    <h1>Taste of Africa</h1>
+    <a class="login" href="#" onclick="window.location.replace('users/login');"><button>Login</button></a>
+
+    <a class="Sign-up" href="#" onclick="window.location.replace('users/registration');"><button>Sign up</button></a>
+</header>
+<div class="nav">
+    <a class="Menu" href="" onclick="window.location.replace('MenuC')"><button>Menu</button></a>
+    <a class="Cart" href="" onclick="window.location.replace('CartC')"><button>Cart</button></a>
+    <a class="Catering" href="" onclick="window.location.replace('CateringMenuC')"><button>Catering</button></a>
+    <!--<a class='viewPastOrders' href='#' onclick='window.location.replace('ViewPastOrdersC');'><button>View Past Orders</button></a>-->
+</div><br><br>
 
       <!--Order Items-->
       <div align = 'center' style = 'color: #003366;font-style: oblique'><h1>Past Order History</h1></div><br><br>
