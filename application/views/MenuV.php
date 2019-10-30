@@ -220,86 +220,10 @@
         }
       }
     </style>
-  </head>
-  <body>
-    <header>
-      <img class="logo" src=src="<?php echo base_url("Assets/logo.jpg"); ?>" />
-      <a class="login" href=""><button>Login</button></a>
-      <a class="Sign-up" href=""><button>Sign up</button></a>
-    </header>
-    <div class="nav">
-      <a class="Category" href=""><button>Category</button></a>
-      <a class="Order" href=""><button>Order</button></a>
-      <a class="Cart" href=""><button>Cart</button></a>
-      <a class="About us" href=""><button>About us</button></a>
-    </div>
-    
-    
-  </body>
-</html>
--->
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
 
-    echo("
-        <!DOCTYPE html>
-        <html>
-        <head>
-			<link rel = 'stylesheet' type = 'text/css' href = 'MenuV.css'></link>
-		<meta charset='UTF-8' />
-		<meta name='viewport' content='width=device-width, initial-scale=1.0' />
-		<meta http-equiv='X-UA-Compatible' content='ie=edge' />
-		<title>Taste of Africa</title>	
-	<style>
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0px;
-      }
-      header {
-        display: flex;
-        justify-content: flex-end;
-        border: 1px solid greenyellow;
-      }
 
-      .logo {
-        height: 60px;
-        width: 60px;
-        border: 1px solid tomato;
-        margin-right: auto;
-        padding: 5px;
-      }
 
-      .Sign-up button {
-        border: 1px solid #003366;
-        color: #003366;
-        padding: 7px;
-        border-radius: 50px;
-        cursor: pointer;
-        background-color: white;
-      }
-      a {
-        padding: 15px;
-      }
-      .nav {
-        border: 1px solid greenyellow;
-        display: flex;
-        justify-content: space-evenly;
-        background-color: #003366;
-      }
-
-      button {
-        border: 1px solid aliceblue;
-        border-radius: 50px;
-        background-color: #003366;
-        padding: 7px;
-        color: white;
-        cursor: pointer;
-      }
-      button:hover {
-        color: powderblue;
-      }
-
+    <style2>
       @media (min-width: 768px) {
         .grid-container {
           display: grid;
@@ -462,6 +386,118 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         .text {
           font-size: 11px;
         }
+    </style2>
+
+
+
+  </head>
+  <body>
+    <header>
+      <img class="logo" src=src="<?php echo base_url("Assets/logo.jpg"); ?>" />
+      <a class="login" href=""><button>Login</button></a>
+      <a class="Sign-up" href=""><button>Sign up</button></a>
+    </header>
+    <div class="nav">
+      <a class="Category" href=""><button>Category</button></a>
+      <a class="Order" href=""><button>Order</button></a>
+      <a class="Cart" href=""><button>Cart</button></a>
+      <a class="About us" href=""><button>About us</button></a>
+    </div>
+    
+    
+  </body>
+</html>
+-->
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+    echo("
+        <!DOCTYPE html>
+        <html>
+        <head>
+        <link rel = 'stylesheet' type = 'text/css' href = 'MenuV.css'></link>
+        <meta charset='UTF-8' />
+        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+        <meta http-equiv='X-UA-Compatible' content='ie=edge' />
+			
+	<style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0px;
+      }
+      header {
+        display: flex;
+        justify-content: flex-end;
+        border: 1px solid greenyellow;
+      }
+
+      .logo {
+        height: 60px;
+        width: 60px;
+        border: 1px solid tomato;
+        margin-right: auto;
+        padding: 5px;
+      }
+
+      .Sign-up button {
+        border: 1px solid #003366;
+        color: #003366;
+        padding: 7px;
+        border-radius: 50px;
+        cursor: pointer;
+        background-color: white;
+      }
+      a {
+        padding: 15px;
+      }
+      .nav {
+        border: 1px solid greenyellow;
+        display: flex;
+        justify-content: space-evenly;
+        background-color: #003366;
+      }
+
+      button {
+        border: 1px solid aliceblue;
+        border-radius: 50px;
+        background-color: #003366;
+        padding: 7px;
+        color: white;
+        cursor: pointer;
+      }
+      button:hover {
+        color: powderblue;
+      }
+
+      
+      
+        .card-wrap {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+          grid-column-gap: 1em;
+          font-family: 'Source Sans Pro', sans-serif;
+          grid-auto-rows: minmax(300px, auto);
+          color: #333333;
+        }
+        .card-wrap img {
+          max-height: 300px;
+          height: 100%;
+          width: 100%;
+        }
+        .card-wrap > div {
+          background-color: #dddddd;
+          box-shadow: 0 8px 6px -6px black;
+        }
+        .card-wrap h4,
+        p {
+          padding-left: 1em;
+        }
+        .checkbox-input {
+          display: flex;
+          justify-content: space-between;
+        }
+
       }
     </style>
             
@@ -481,11 +517,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <a class='Menu' href='' onclick='window.location.replace('MenuC')'><button>Menu</button></a>
         <a class='Cart' href='' onclick='window.location.replace('CartC')'><button>Cart</button></a>
         <a class='Catering' href='' onclick='window.location.replace('CateringMenuC')'><button>Catering</button></a>
-        <!--<a class='viewPastOrders' href='#' onclick='window.location.replace('ViewPastOrdersC');'><button>View Past Orders</button></a>-->
+        <a class='viewPastOrders' href='#' onclick='window.location.replace('ViewPastOrdersC');'><button>View Past Orders</button></a>
       </div>
             
 
-            <!--Menu Heading-->
+            <!--Menu Heading--><br><br>
             <div align = 'center' style = 'color: #003366;font-style: oblique'><h1>Menu</h1></div>
 
             <!--Menu Items-->
@@ -496,44 +532,78 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     echo $row["foodName"];
             }
             */
+          //Former Menu Display 
+          //   foreach ($menuItems as $row)
+          //   {
+          //     //echo("<img class='logo' src='"); echo base_url("Assets/logo.jpg'/>"); 
+
+          //       echo("
+                    
+					// 	<div id = 'Pic' style = 'background-color: white; float: left; border: 1px solid #003366; width: 100px; height: 100px;'>"
+          //       ."<img src = '"); echo base_url("uploads/" .$row['foodImage']  ."' height = '100' width = '100'>"    ."<br>" 
+          //   ."</div>
+
+            
+          //   <div id = 'Details' align = 'center' style = 'font-style: oblique; background-color: white; float: left; margin: 4px; border: 1px solid #003366; width: 1300px; height: 100px; color: #003366; line-height: 80px;border-radius: 25px;'>   
+          //       <!--Display data here from db-->" 
+          //       ."<a style = 'display: inline-block; width: 200px; text-align: left;'><h2>" .$row['foodName'] ."</h2></a>"
+					// 		  ."<a style = 'display: inline-block; width: 200px; text-align: center;'><h2>" .$row['foodPrice'] ."</h2></a>"
+					// 		  ."<a style = 'display: inline-block; width: 200px; text-align: right;'><h2>" .$row['foodDuration'] ."</h2></a>"
+          //       ."</div><br><br>"
+						
+					// 	."<div id = 'checkBox' style = 'float: right; margin: 4px; border: 1px solid #003366; width: 15px; height: 15px; color: #003366;'>
+          //       <input type = 'checkbox' name = " .$row['foodName'] ."  value =" .$row['foodName']." >
+					// 	</div>	                          
+
+                        
+                    
+          // "); 
 
             echo('
 				<!--Outer Div-->
-                <div style = "background-color: #003366; color: #003366; border: 1px solid #003366;border-radius: 25px;"><br><br><br>
+                <div style = "background-color: white; color: #003366; border: 1px solid white;border-radius: 25px;"><br><br><br>
                 <form action ="MenuC/saveMenuData" method="post">
 				');
                         
-            foreach ($menuItems as $row)
-            {
-              //echo("<img class='logo' src='"); echo base_url("Assets/logo.jpg'/>"); 
-
-                echo("
-                    
-						<div id = 'Pic' style = 'background-color: white; float: left; border: 1px solid #003366; width: 100px; height: 100px;'>"
-                ."<img src = '"); echo base_url("uploads/" .$row['foodImage']  ."' height = '100' width = '100'>"    ."<br>" 
-            ."</div>
-
+        echo(
+          '<!--Footnote-->
+          <div class="card-wrap">
+          ');
+    
+          foreach ($menuItems as $row){
+            echo('
+            <div class="card">
+    
+              <img src="');  echo base_url('uploads/' .$row['foodImage']  .'" height = "100" width = "100">
+              
+              <div class="info" style = "font-style: oblique">
+                <h2> ' .$row['foodName'] .'</h2><br>
+                <h3> Sh ' .$row['foodPrice'] .'</h3><br>
+    
+    
+                <div class="checkbox-input">
+                <h3> Duration: ' .$row['foodDuration'] .' minutes</h3>
+                  <input
+                    type =  "checkbox"
+                    name =  "' .$row['foodName'] .'"
+                    value = "' .$row['foodName'] .'"
+                    id=""
+                    style="width:30px;height:30px;"
+                  />
+                </div><br>
+    
+              </div>
+    
+            </div>
+            ');
+          }
+          echo('
+          </div>'); 
+          
+          
+					
+					
             
-            <div id = 'Details' align = 'center' style = 'font-style: oblique; background-color: white; float: left; margin: 4px; border: 1px solid #003366; width: 1300px; height: 100px; color: #003366; line-height: 80px;border-radius: 25px;'>   
-                <!--Display data here from db-->" 
-                ."<a style = 'display: inline-block; width: 200px; text-align: left;'><h2>" .$row['foodName'] ."</h2></a>"
-							  ."<a style = 'display: inline-block; width: 200px; text-align: center;'><h2>" .$row['foodPrice'] ."</h2></a>"
-							  ."<a style = 'display: inline-block; width: 200px; text-align: right;'><h2>" .$row['foodDuration'] ."</h2></a>"
-                ."</div><br><br>"
-						
-						."<div id = 'checkBox' style = 'float: right; margin: 4px; border: 1px solid #003366; width: 15px; height: 15px; color: #003366;'>
-                <input type = 'checkbox' name = " .$row['foodName'] ."  value =" .$row['foodName']." >
-						</div>	                          
-
-                        
-                    
-          "); 
-          
-          
-          echo("<br><br><br><br><br><br><br><br><br><br>");
-					
-					
-            }
 			echo('</div>');
 			echo("<br><br>");
 			
@@ -547,14 +617,86 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
     
-			echo(
-			'<!--Footnote-->
 			
+      
 
+
+
+
+//   echo('
+
+//       <div class="card">
+//         <img src="Chicken.jpg" alt="" />
+//         <div class="info">
+//           <H4>Chicken</H4>
+//           <h4>Sh 100</h4>
+//           <div class="checkbox-input">
+//             <p>Duration: 30mins</p>
+//             <input
+//               type="checkbox"
+//               name="Foodx"
+//               id=""
+//               style="width:30px;height:30px;"
+//             />
+//           </div>
+//         </div>
+//       </div>
+//       <div class="card">
+//         <img src="Chicken.jpg" alt="" />
+//         <div class="info">
+//           <H4>Chicken</H4>
+//           <h4>Sh 100</h4>
+//           <div class="checkbox-input">
+//             <p>Duration: 30mins</p>
+//             <input
+//               type="checkbox"
+//               name="Foodx"
+//               id=""
+//               style="width:30px;height:30px;"
+//             />
+//           </div>
+// 		</div>
+		
+// 	  </div>
+// 	  <div class="card">
+// 			<img src="Chicken.jpg" alt="" />
+// 			<div class="info">
+// 			  <H4>Chicken</H4>
+// 			  <h4>Sh 100</h4>
+// 			  <div class="checkbox-input">
+// 				<p>Duration: 30mins</p>
+// 				<input
+// 				  type="checkbox"
+// 				  name="Foodx"
+// 				  id=""
+// 				  style="width:30px;height:30px;"
+// 				/>
+// 			  </div>
+// 			</div>
+//     </div>
+
+//     <div class="card">
+// 			<img src="Chicken.jpg" alt="" />
+// 			<div class="info">
+// 			  <H4>Chicken</H4>
+// 			  <h4>Sh 100</h4>
+// 			  <div class="checkbox-input">
+// 				<p>Duration: 30mins</p>
+// 				<input
+// 				  type="checkbox"
+// 				  name="Foodx"
+// 				  id=""
+// 				  style="width:30px;height:30px;"
+// 				/>
+// 			  </div>
+// 			</div>
+//     </div>
+
+// </div>
     
-</body>
-</html>
-          ');  
+// </body>
+// </html>
+//           ');  
 
 
 

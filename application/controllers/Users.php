@@ -100,6 +100,13 @@ class Users extends CI_Controller
     }
     public function login()
     {
+        //SESSION VARS
+        //Relaying user data to DB
+        $_SESSION["userEmail"] = $this->input->post('email');
+        $this->user->saveSessionVars($_SESSION["userEmail"]);
+        
+
+
 
         $data = array();
 

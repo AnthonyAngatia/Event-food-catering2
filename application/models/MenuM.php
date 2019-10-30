@@ -26,15 +26,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
 
         function saveFoodsPicked($menuFoodPicked){
-            $userID = 1;
+            $userID = $_SESSION["userID"];
             $selectFoodItemsQuery = $this->db->query("SELECT * FROM fooditems WHERE foodName = '$menuFoodPicked'");
             $foodItems = $selectFoodItemsQuery->result_array();
+            
             foreach ($foodItems as $row){
                 //Inserting into Cart
                 $foodID = $row["foodID"];
                 $insertIntoCartQuery = $this->db->query("INSERT INTO cart(foodID, userID) VALUES('$foodID', '$userID')");
                 
-                //redirect("http://localhost/Event-food-catering3/index.php/CartC");
                 //redirect(http://localhost/Event-food-catering3/index.php/CartC.php)
                 //  http://localhost/Event-food-catering3/index.php/CartC.php
             }

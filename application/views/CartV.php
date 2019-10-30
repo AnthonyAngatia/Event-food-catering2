@@ -5,10 +5,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <!DOCTYPE html>
         <html>
         <head>
-			<link rel = 'stylesheet' type = 'text/css' href = 'MenuV.css'></link>
-		<meta charset='UTF-8' />
-		<meta name='viewport' content='width=device-width, initial-scale=1.0' />
-		<meta http-equiv='X-UA-Compatible' content='ie=edge' />
+        <link rel = 'stylesheet' type = 'text/css' href = 'MenuV.css'></link>
+        <meta charset='UTF-8' />
+        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+        <meta http-equiv='X-UA-Compatible' content='ie=edge' />
 		<title>Taste of Africa</title>	
 	<style>
       * {
@@ -104,12 +104,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <a class='Cart' href='' onclick='window.location.replace('CartC')'><button>Cart</button></a>
         <a class='Catering' href='' onclick='window.location.replace('CateringMenuC')'><button>Catering</button></a>
         <!--<a class='viewPastOrders' href='#' onclick='window.location.replace('ViewPastOrdersC');'><button>View Past Orders</button></a>-->
-      </div>
+      </div><br>
 
             
 
             <!--Menu Heading-->
-            <div align = 'center' style = 'color: #003366;font-style: oblique'><h1>Cart</h1></div>
+            <div align = 'center' style = 'color: #003366;font-style: oblique'><h1>Cart</h1></div><br>
 
             <!--Cart Items-->
             <form action='CartC/saveCartData' method='post' align = 'center' style = 'color: #003366;'>
@@ -125,19 +125,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </tr>
             ");
             if(!empty($cartItems )){
-            foreach ($cartItems as $row)
+            for($i = 0; $i < count($cartItems); $i++ )
             {
              echo("
               
               <tr>
-                <td>" .$row['foodName']                                           ."</td>
-                <td>" ."Sh " .$row['foodPrice']                                   ."</td>
-                <td>" .$row['foodDuration'] ." minutes"                           ."</td>
-                <td>" ."<input type = 'text' name = '" .$row['foodName'] ."' style = 'text-align: center; width: 70px;' >"  ."</td>
+                <td>" .$cartItems[$i][0]['foodName']                                           ."</td>
+                <td>" ."Sh " .$cartItems[$i][0]['foodPrice']                                   ."</td>
+                <td>" .$cartItems[$i][0]['foodDuration'] ." minutes"                           ."</td>
+                <td>" ."<input type = 'number' name = '" .$cartItems[$i][0]['foodName'] ."' style = 'text-align: center; width: 50px; height: 20px; ' >"  ."</td>
                 <td> <!--<form action = 'CartC/deleteCartItem' method = 'post'>-->
                         <input type = 'submit' name = 'Delete' value = 'Delete' style = 'font-style: oblique;background-color: #003366; color: white; text-align: center; padding: 5px 5px; border: none; height: 60px; width: 70px; border-radius: 25px;'>
-                        <input type = 'hidden' name = 'cartItemToDelete' value = '" .$row['foodName'] ."'/>
-                      <!--</form>->
+                        <input type = 'hidden' name = 'cartItemToDelete' value = '" .$cartItems[$i][0]['foodName'] ."'/>
+                      <!--</form>-->
                 </td>
               
               </tr>
