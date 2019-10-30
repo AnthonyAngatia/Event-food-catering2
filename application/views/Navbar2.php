@@ -1,6 +1,5 @@
 <header class="header">
         <img class="logo" src="<?php echo base_url("Assets/logo.jpg"); ?>" />
-        <a href="<?php echo site_url('HomePage')  ?>" style = "visibility:hidden;">Homepage</a>
         <h1>Taste of Africa</h1>
         <div id="sessionVariable">
             <!-- <div id="login-signup-button">
@@ -15,6 +14,12 @@
             </div>
         </div>
 </header>
+<div class="nav">
+        <a href="<?php echo site_url('catering')  ?>"><button>Catering</button></a>
+        <a class="Order" href="<?php echo site_url('order')  ?>"><button>Order</button></a>
+        <a class="Cart" href="<?php echo site_url('cart')  ?>"><button>Cart</button></a>
+        <a class="About us" href="<?php echo site_url('OrderHistory')  ?>"><button>Past Orders</button></a>
+    </div>
 <script>
         function displayLogout(){
             document.getElementById('logout').style.display = "unset";

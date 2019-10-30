@@ -7,6 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             //Loading model, storing data it returns, loading view with data 
             $this->load->model("menuM");
             $data["menuItems"] = $this->menuM->returnMenuItems();
+            //$this->load->view("NavBar2", $data);
             $this->load->view("menuV", $data);
             
         }
@@ -36,6 +37,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
             }
+            
+            if($this->input->post("Select")){
+                
+                // //Getting post data
+                // $postData = $this->input->post();
+                // //print_r($postData);
+
+                //Inserting checked food items into db
+                foreach ($menuItems as $row){
+                    //Check whether the checkboxes were selected
+                    if($this->input->post($row["foodName"]) !== null){
+                        $this->menuM->saveFoodsPicked($row["foodName"]);
+                    }
+                }
+                redirect("http://localhost/Event-food-catering3/index.php/CartC");
+
+
+            }
+
+
             //echo("Mithika");
         }
             

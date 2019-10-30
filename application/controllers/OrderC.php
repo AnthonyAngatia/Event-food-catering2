@@ -18,7 +18,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             if($this->input->post("Confirm_Order")){
 
                 //db connection
-                $this->load->database();
+                // $this->load->database();
 
                 //SESSION and DB VARS
                 $userId = $_SESSION["userID"];// SESSION VAR NEEDED!!

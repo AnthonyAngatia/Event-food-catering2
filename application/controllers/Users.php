@@ -36,7 +36,11 @@ class Users extends CI_Controller
             );
             $data['user'] = $this->user->getRows($con);
 
-            // Pass the user data and load view 
+            // Pass the user data and load view
+
+            //Getting menu items from db
+            $this->load->model("menuM");
+            $data["menuItems"] = $this->menuM->returnMenuItems(); 
             $this->load->view('elements/header', $data);
             $this->load->view('Navbar2', $data);
             $this->load->view('users/account', $data);
@@ -57,7 +61,7 @@ class Users extends CI_Controller
             $data['user'] = $this->user->getRows($con);
 
             // Pass the user data and load view 
-
+            $this->load->view('NavBar2', $data);
             //$this->load->view('elements/header', $data);
             $this->load->view('users/CateringV', $data);
             $this->load->view('elements/footer');
@@ -98,6 +102,7 @@ class Users extends CI_Controller
         $this->load->view('Payment',$data);
         }
     }
+
     public function login()
     {
         //SESSION VARS
@@ -224,4 +229,52 @@ class Users extends CI_Controller
             return TRUE;
         }
     }
+
+    //SAVING MENU DATA INTO DB
+    public function saveMenuData(){
+        //echo("Harry");
+        //Loading model, storing data it returns
+        $this->load->model("menuM");
+        $menuItems = $this->menuM->returnMenuItems();
+        
+
+        //Checking whether "Add to Cart submit button has been clicked"
+        if($this->input->post("Add_to_Cart")){
+            
+            // //Getting post data
+            // $postData = $this->input->post();
+            // //print_r($postData);
+
+            //Inserting checked food items into db
+            foreach ($menuItems as $row){
+                //Check whether the checkboxes were selected
+                if($this->input->post($row["foodName"]) !== null){
+                    $this->menuM->saveFoodsPicked($row["foodName"]);
+                }
+            }
+            redirect("http://localhost/Event-food-catering3/index.php/CartC");
+
+
+        }
+        //echo("Mithika");
+    }
+        
 }
+    
+
+    /*
+    function displayMenuItems(){
+        $this->load->model("menuM");
+        $data["menuItems"] = $this->load->menuM->returnMenuItems();
+        $this->load->view("menuV", $data);
+    }
+    */
+
+
+
+
+
+
+
+
+

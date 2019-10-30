@@ -223,28 +223,15 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 <body >
     <!-- Header-->
-    <header class="header" >
-        <img class="logo" src="<?php echo base_url("Assets/logo.jpg"); ?>" />
+    <!-- <header class="header" >
+        <img class="logo" src="<?php// echo base_url("Assets/logo.jpg"); ?>" />
         <h1>Taste of Africa</h1>
         <div id="sessionVariable">
-            <img style = "margin-left:1em;" onclick = "displayLogout();" class="logo" src="<?php echo base_url("Assets/PRO.png"); ?>" />
-            <p onclick = "displayLogout();" ><b><?php echo $user['first_name'] . ' ' . $user['last_name']; ?></b></p>
-            <a href="<?php echo base_url('index.php/Users/login'); ?>" style = "display:none;" id = "logout"> Log Out </a>
+            <img style = "margin-left:1em;" onclick = "displayLogout();" class="logo" src="<?php //echo base_url("Assets/PRO.png"); ?>" />
+            <p onclick = "displayLogout();" ><b><?php //echo $user['first_name'] . ' ' . $user['last_name']; ?></b></p>
+            <a href="<?php //echo base_url('index.php/Users/login'); ?>" style = "display:none;" id = "logout"> Log Out </a>
         </div>
-        <script>
-        function displayLogout(){
-            document.getElementById('logout').style.display = "unset";
-
-        }
-        </script>
-
-    </header>
-    <div class="nav" >
-        <a href="#" onclick="window.location.replace('CateringC');"><button>Catering</button></a>
-        <a class="Order" href=""><button>Order</button></a>
-        <a class="Cart" href=""><button>Cart</button></a>
-        <a class="About us" href=""><button>About us</button></a>
-    </div>
+    </header> -->
 
     <div class="wrapper">
         <form action="http://localhost/Event-food-catering3/index.php/Users/putting_data2" method="post">

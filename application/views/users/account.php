@@ -354,12 +354,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
 </head>
 
 <body>
-    <div class="nav">
-        <a href="<?php echo site_url('catering')  ?>"><button>Catering</button></a>
-        <a class="Order" href=""><button>Order</button></a>
-        <a class="Cart" href=""><button>Cart</button></a>
-        <a class="About us" href=""><button>About us</button></a>
-    </div>
+    <!-- <div class="nav">
+        <a href="<?php //echo site_url('catering')  ?>"><button>Catering</button></a>
+        <a class="Order" href="<?php// echo site_url('order')  ?>"><button>Order</button></a>
+        <a class="Cart" href="<?php// echo site_url('cart')  ?>"><button>Cart</button></a>
+        <a class="About us" href="<?php //echo site_url('catering')  ?>"><button>Past Orders</button></a>
+    </div> -->
     <!--SlideShow-->
     <div class="slideshow-container">
         <div class="mySlides ">
@@ -388,7 +388,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     </div>
     <!--Foods-->
     <h1 style="margin: 1em">Dishes</h1>
-    <div class="Dishes">
+    <!-- <div class="Dishes">
         <div class="Dish1">
             <img src="<?php echo base_url("/Assets/brocoli.png"); ?>" alt="Dish1" />
         </div>
@@ -398,7 +398,78 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <div class="Dish3">
             <img src="<?php echo base_url("/Assets/brocoli.png"); ?>" alt="Dish3" />
         </div>
-    </div>
+    </div> -->
+
+<?php
+
+
+echo('
+<!--Outer Div-->
+<div style = "background-color: white; color: #003366; border: 1px solid white;border-radius: 25px;"><br><br><br>
+
+');
+        
+echo(
+'<!--Footnote-->
+<div class="card-wrap">
+');
+
+foreach ($menuItems as $row){
+echo('
+<div class="card">
+<form action ="MenuC/saveMenuData" method="post">
+<img src="');  echo base_url('uploads/' .$row['foodImage']  .'" height = "100" width = "100">
+
+<div class="info" style = "font-style: oblique">
+<h2> ' .$row['foodName'] .'</h2><br>
+<h3> Sh ' .$row['foodPrice'] .'</h3><br>
+
+
+<div class="checkbox-input">
+
+<h3> Duration: ' .$row['foodDuration'] .' minutes</h3>
+  <input
+    type =  "checkbox"
+    name =  "' .$row['foodName'] .'"
+    value = "' .$row['foodName'] .'"
+    id=""
+    style="width:30px;height:30px;"
+  />
+
+
+</div><br>
+
+</div>
+
+</div>
+');
+}
+echo('
+</div>'); 
+
+
+    
+    
+
+echo('</div>');
+
+
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
