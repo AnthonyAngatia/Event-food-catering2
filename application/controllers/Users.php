@@ -115,6 +115,13 @@ $this->Catering_model->insert_data($data);
     // TODO:END }
     public function login()
     {
+        //SESSION VARS
+        //Relaying user data to DB
+        $_SESSION["userEmail"] = $this->input->post('email');
+        $this->user->saveSessionVars($_SESSION["userEmail"]);
+        
+
+
 
         $data = array();
 

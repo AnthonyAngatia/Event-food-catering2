@@ -8,20 +8,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->load->database();
 
             //Select from db cart table
-            $userID = 1;//SESSION VAR NEEDED HERE
+            $userID = $_SESSION["userID"];//SESSION VAR NEEDED HERE
             $selectCartItemsQuery = $this->db->query("SELECT * FROM cart WHERE userID = '$userID'");
             $cartItems = $selectCartItemsQuery->result_array();
+
+            //Declare array to hold all foodItems
+            $foodItems = array();
+            $i = 0;
             foreach ($cartItems as $row){
                 //Selecting from fooditems table using foodId retrieved from cart table
                 $foodID = $row["foodID"];
                 $selectFoodItemsQuery = $this->db->query("SELECT * FROM fooditems WHERE foodID = '$foodID'");
 
                 //Transform this into array
-                $foodItems = $selectFoodItemsQuery->result_array();
-            
-                //Returning array to controller
-                return $foodItems;
+                $foodItem = $selectFoodItemsQuery->result_array();
+                
+                //Add this array to overall array
+                $foodItems[$i] = $foodItem;
+                $i++;
+                
             }
+
+            //Returning array to controller
+            return $foodItems;
+
         }
 
             function saveOrderData($orderItems){
@@ -58,7 +68,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         function deleteCartItem($cartItemToDelete){
             //SESSION and DB ARS HERE
-            $userID = 1;
+            $userID = $_SESSION["userID"];
 
             //Get foodId of $cartItemToDelete
             $selectFoodIDQuery = $this->db->query("SELECT foodID FROM fooditems WHERE foodName = '$cartItemToDelete'");
@@ -72,8 +82,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $deleteFromCartQuery = $this->db->query("DELETE FROM cart WHERE foodID = '$foodID' AND userID = '$userID'");
             }
 
+            
+
+
             //Redirect to Cart Page
-            redirect("/CartC/index");
+            redirect("http://localhost/Event-food-catering3/index.php/CartC/index");
         }
 
 }

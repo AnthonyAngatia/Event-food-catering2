@@ -21,18 +21,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             //Checking whether "Add to Cart submit button has been clicked"
             if($this->input->post("Add_to_Cart")){
                 
-                //Getting post data
-                $postData = $this->input->post();
-                //print_r($postData);
+                // //Getting post data
+                // $postData = $this->input->post();
+                // //print_r($postData);
 
                 //Inserting checked food items into db
                 foreach ($menuItems as $row){
-                    //echo("Karani");
                     //Check whether the checkboxes were selected
                     if($this->input->post($row["foodName"]) !== null){
                         $this->menuM->saveFoodsPicked($row["foodName"]);
                     }
                 }
+                redirect("http://localhost/Event-food-catering3/index.php/CartC");
+
+
             }
             //echo("Mithika");
         }

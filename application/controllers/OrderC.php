@@ -21,7 +21,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $this->load->database();
 
                 //SESSION and DB VARS
-                $userId = 1;// SESSION VAR NEEDED!!
+                $userId = $_SESSION["userID"];// SESSION VAR NEEDED!!
                 
                 $this->orderM->saveOrderData($userId);
                

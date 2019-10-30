@@ -8,12 +8,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->load->database();
 
             //Getting DB parameters
-            $userId = 1; //SESSION VAR NEEDED HERE
+            $userId = $_SESSION["userID"]; //SESSION VAR NEEDED HERE
             $orderStatus = "Confirmed";
 
 
             //Select from db- orders table where userId = SESSION VAR AND status = Pending
-            $query = $this->db->query("SELECT * FROM orders WHERE userId = '$userId' AND orderStatus = '$orderStatus'");
+            $query = $this->db->query("SELECT * FROM orders WHERE userId = '$userId'");
             
             //Transform this into array
             $query->result_array();

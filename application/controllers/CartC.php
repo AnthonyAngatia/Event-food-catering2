@@ -7,6 +7,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			
 			$this->load->model("cartM");
             $data["cartItems"] = $this->cartM->returnCartItems();
+            //echo("<pre>");
+            //print_r($data["cartItems"]);
+            //echo("</pre>");
             $this->load->view("cartV", $data);
 						
         }
@@ -17,7 +20,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $cartItemToDelete = $_POST["cartItemToDelete"];
                 $this->cartM->deleteCartItem($cartItemToDelete);
             }
-
 
             //Loading model, storing data it returns
             $this->load->model("cartM");
@@ -40,13 +42,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                 //db connection
                 $this->load->database();
-                $userID = 1;
+                $userID = $_SESSION["userID"];
 
                 //
                 //Select from db cart table
-                $userID = 1; // SESSION VAR NEEDED!!
+                $userID = $_SESSION["userID"]; // SESSION VAR NEEDED!!
                 $selectCartItemsQuery = $this->db->query("SELECT * FROM cart WHERE userID = '$userID'");
                 $cartItems = $selectCartItemsQuery->result_array();
+
+                
 
                 //Declare foodItems array to contain all the food items and incremental to increment it in for loop below
                 $foodItems = array(); 
@@ -59,6 +63,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     //Transform this into array
                     $foodItem = $selectFoodItemsQuery->result_array();
                     $foodItems[$y] = $foodItem[0];
+                    $y++;
 
                 }
 
@@ -70,7 +75,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $orderStatus = "Pending";
                 $orderItems['orderStatus'] = $orderStatus; 
 
-
+                
                 //Getting the Quantities 
                 //This function loops through each food item at a time
 
@@ -88,14 +93,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     $orderItems['totOrderDuration'] = $totOrderDuration;
                 }
                 $this->cartM->saveOrderData($orderItems);
+
                 
             }            
             
         }
 
         public function deleteCartItem(){
-            $cartItemToDelete = $_POST["cartItemToDelete"];
-            $this->cartM->deleteCartItem($cartItemToDelete);
+            if($this->input->post("Delete")){
+                $this->load->model("cartM");
+                $cartItemToDelete = $_POST["cartItemToDelete"];
+                $this->cartM->deleteCartItem($cartItemToDelete);
+            }
+            //$cartItemToDelete = $_POST["cartItemToDelete"];
+            //$this->cartM->deleteCartItem($cartItemToDelete);
         }
 
     }
