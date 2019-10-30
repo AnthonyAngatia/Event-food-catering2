@@ -403,48 +403,42 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <h1 style="margin: 1em">Dishes</h1>
     <!-- <div class="Dishes">
         <div class="Dish1">
-            <img src="<?php echo base_url("/Assets/brocoli.png"); ?>" alt="Dish1" />
-        </div>
+             <img src="<?php //echo base_url("/Assets/brocoli.png"); ?>" alt="Dish1" /> -->
+        <!-- </div>
         <div class="Dish2">
-            <img src="<?php echo base_url("/Assets/cheeseburger.png"); ?>" alt="Dish2" />
+            <img src="<?php //echo base_url("/Assets/cheeseburger.png"); ?>" alt="Dish2" />
         </div>
         <div class="Dish3">
-            <img src="<?php echo base_url("/Assets/brocoli.png"); ?>" alt="Dish3" />
-        </div>
+            <img src="<?php //echo base_url("/Assets/brocoli.png"); ?>" alt="Dish3" />
+        </div> 
     </div> -->
 
-    <?php
+  
 
 
-    echo ('
+ 
 <!--Outer Div-->
 <div style = "background-color: white; color: #003366; border: 1px solid white;border-radius: 25px;"><br><br><br>
 
-');
-
-    echo ('<!--Footnote-->
 <div class="card-wrap">
-');
-
-    foreach ($menuItems as $row) {
-        echo ('
+<?php 
+    foreach ($menuItems as $row) { ?>
 <div class="card">
 <form action ="MenuC/saveMenuData" method="post">
-<img src="');
-        echo base_url('uploads/' . $row['foodImage']  . '" height = "100" width = "100">
+<img src="<?php echo base_url('uploads/' . $row['foodImage']);  ?>" height = "100" width = "100">
 
 <div class="info" style = "font-style: oblique">
-<h2> ' . $row['foodName'] . '</h2><br>
-<h3> Sh ' . $row['foodPrice'] . '</h3><br>
+<h2> <?php $row['foodName'] ?></h2><br>
+<h3> Sh <?php $row['foodPrice'] ?></h3><br>
 
 
 <div class="checkbox-input">
 
-<h3> Duration: ' . $row['foodDuration'] . ' minutes</h3>
+<h3> Duration: <?php $row['foodDuration']; ?> minutes</h3>
   <input
     type =  "checkbox"
-    name =  "' . $row['foodName'] . '"
-    value = "' . $row['foodName'] . '"
+    name =  "<?php $row['foodName']; ?>"
+    value = "<?php $row['foodName']; } ?>"
     id=""
     style="width:30px;height:30px;"
   />
@@ -455,20 +449,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
 </div>
 
 </div>
-');
-    }
-    echo ('
-</div>');
+</div>
 
 
 
 
-
-    echo ('</div>');
-
-
-    ?>
-
+</div>
 
     <div class="Description">
         <div class="desc1">
