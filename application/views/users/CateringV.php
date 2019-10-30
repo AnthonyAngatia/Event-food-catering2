@@ -7,343 +7,275 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-   
+
     <title>Taste of Africa</title>
     <style>
-    @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0px;
-        font-family: 'Montserrat', sans-serif;
-        color:#333333;
-    }
+        @import url('https://fonts.googleapis.com/css?family=Montserrat:300&display=swap');
 
-    h1 {
-        text-align: center;
-    }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0px;
+            font-family: 'Montserrat', sans-serif;
+            color: #333333;
+        }
 
-    header {
-        display: flex;
-        justify-content: flex-end;
-
-    }
-
-    .logo {
-        height: 60px;
-        width: 60px;
-        /* border: 1px solid tomato; */
-        margin-right: auto;
-        padding: 5px;
-
-    }
-
-    .header h1 {
-        margin-right: auto;
-        padding: 5px;
-
-    }
-
-    .Sign-up button {
-        border: 1px solid #003366;
-        color: #003366;
-        padding: 7px;
-        border-radius: 50px;
-        cursor: pointer;
-        background-color: white;
-    }
-
-    a {
-        padding: 15px;
-    }
-
-    .nav {
-
-        display: flex;
-        justify-content: space-evenly;
-        background-color: #003366;
-    }
-
-    .nav button {
-        border: 1px solid aliceblue;
-        border-radius: 20px;
-        background-color: #003366;
-        padding: 7px;
-        color: white;
-        cursor: pointer;
-    }
-    .nav button:hover{
-        color: white;
-        border-color:#5a6268;
-        border:2px solid white;
-    }
-    
-    .form-group button{
-        border: 1px solid aliceblue;
-        border-radius: 10px;
-        background-color: #6c757d;
-        padding: 7px;
-        color: white;
-        cursor: pointer;
-    } 
-
-    .form-group button:hover {
-        color: white;
-        border-color:#5a6268;
-    }
+        header {
+            display: flex;
+            justify-content: flex-end;
 
 
-    /*  @media (min-width: 768px) */
+        }
+
+        header a {
+            margin-top: -10px;
+            margin-right: auto;
+        }
+
+        .logo {
+            height: 60px;
+            width: 60px;
+            padding: 5px;
+
+        }
+
+        .header h1 {
+            margin-right: auto;
+            margin-top: 15px;
+            padding: 5px;
+
+        }
+
+        .Sign-up button {
+            border: 1px solid #003366;
+            color: #003366;
+            padding: 7px;
+            border-radius: 50px;
+            cursor: pointer;
+            background-color: white;
+        }
+
+        a {
+            padding: 15px;
+        }
+
+        .nav {
+
+            display: flex;
+            justify-content: space-evenly;
+            background-color: #003366;
+        }
+
+        .nav button {
+            border: 1px solid aliceblue;
+            border-radius: 20px;
+            background-color: #003366;
+            padding: 7px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .nav button:hover {
+            color: white;
+            border-color: #5a6268;
+            border: 2px solid white;
+        }
+        #session-data{
+            cursor: pointer;
+        }
+        .btn-primary{
+            background-color: #003366;
+       color: white; 
+       text-align: center; 
+       padding: 5px 5px; 
+       border: none; 
+       height: 40px; 
+       min-width: 90px;
+        }
+        .btn-primary:hover{
+        cursor:pointer;
+      border-radius:10px;
+      
+      font-size:11pt;
+        }
+
+        .form-group button {
+            border: 1px solid aliceblue;
+            border-radius: 10px;
+            background-color: #6c757d;
+            padding: 7px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .form-group button:hover {
+            color: white;
+            border-color: #5a6268;
+        }
 
 
-
-    .Dishes {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-gap: 1em;
-        grid-auto-rows: minmax(300px, auto);
-
-        margin-left: 5px;
-        margin-right: 5px;
-    }
-
-    .Dishes img {
-        max-height: 300px;
-        height: 100%;
-        width: 100%;
-    }
-
-    .Extras {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-gap: 1em;
-        grid-auto-rows: minmax(300px, auto);
-
-        margin-left: 5px;
-        margin-right: 5px;
-    }
-
-    .Extras img {
-        max-height: 300px;
-        height: 100%;
-        width: 100%;
-    }
-
-    .Extras div {
-        background-color: #ddd;
-
-    }
-
-    .Description {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-gap: 1em;
-        grid-auto-rows: minmax(100px, auto);
-        margin-left: 5px;
-        margin-right: 5px;
-    }
-
-    .Description 2 {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-gap: 1em;
-        grid-auto-rows: minmax(100px, auto);
-        margin-left: 5px;
-        margin-right: 5px;
-    }
+        /*  @media (min-width: 768px) */
 
 
 
-    .Dishes div {
-        background-color: #ddd;
 
-    }
 
-    .Description div {
-        background-color: #dddd;
-        box-shadow: 0 8px 6px -6px black;
-        padding: 2em;
-    }
+        footer {
+            margin-top: 1em;
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            font-size: 24px;
+        }
 
-    .Description2 div {
-        background-color: #dddd;
-        box-shadow: 0 8px 6px -6px black;
-        padding: 2em;
-    }
+        .form-group {
+            font-family: "Source Sans Pro", sans-serif;
+            font-size: 28px;
+            border: 2px solid black;
+            margin: 2em 15em;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            min-width: 300px;
+        }
 
-    footer {
-        margin-top: 1em;
-        background-color: #003366;
-        color: white;
-        text-align: center;
-        font-size: 24px;
-    }
+        .form-group label,
+        input,
+        button {
+            padding: 5px;
+        }
 
-    .form-group {
-        font-family: "Source Sans Pro", sans-serif;
-        font-size: 28px;
-        border: 2px solid black;
-        margin: 2em 15em;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-        min-width:300px;
-    }
+        .form-group>* {
+            padding: 1px;
+            margin: 5px 0px;
 
-    .form-group label,
-    input,
-    button {
-        padding: 5px;
-    }
+        }
 
-    .form-group > *{
-    padding:1px;
-    margin:5px 0px;
+        .food-types-wrapper {
+            display: flex;
+            border: 2px solid grey;
+            justify-content: space-around;
+            display: none;
+            margin: 5em 1em;
 
-    }
+        }
 
-    .food-types-wrapper  {
-        display: flex;
-        border: 2px solid grey;
-        justify-content: space-around;
-        display: none;
-        margin:5em 1em;
-
-    }
-
-    .food_types {
-        min-width: 150px;
-        /* border: 1px solid; */
-        margin: 2em;
-        padding: 5px;
-    }
+        .food_types {
+            min-width: 150px;
+            /* border: 1px solid; */
+            margin: 2em;
+            padding: 5px;
+        }
     </style>
 </head>
 
-<body >
-    <!-- Header-->
-    <!-- <header class="header" >
-        <img class="logo" src="<?php// echo base_url("Assets/logo.jpg"); ?>" />
-        <h1>Taste of Africa</h1>
-        <div id="sessionVariable">
-            <img style = "margin-left:1em;" onclick = "displayLogout();" class="logo" src="<?php //echo base_url("Assets/PRO.png"); ?>" />
-            <p onclick = "displayLogout();" ><b><?php //echo $user['first_name'] . ' ' . $user['last_name']; ?></b></p>
-            <a href="<?php //echo base_url('index.php/Users/login'); ?>" style = "display:none;" id = "logout"> Log Out </a>
-        </div>
-    </header> -->
-
+<body>
     <div class="wrapper">
         <form action="http://localhost/Event-food-catering3/index.php/Users/putting_data2" method="post">
-            <div class="form-group" id = "form-group">
+
+            <div class="form-group" id="form-group">
+                <input type="text" name="id" value="<?php echo "GHBJN" . $_SESSION['userID'];  ?>">
                 <label>Number of Attendees</label>
-                <input type="number" name="No_of_people" id="No_of_people" value="9" min="9"
-                    style="font-size:18pt;height:42px;width:250px;" onkeypress = "false" />
-                <button type="button" onclick="openMenu();" id="menu-btn"
-                    style="font-size:18pt;height:42px;width:250px;">
-                    Click to Open Menu
+                <input type="number" name="No_of_people" id="No_of_people" value="9" min="9" style="font-size:18pt;height:42px;width:250px;" onkeypress="false" />
+                <button type="button" onclick="openMenu();" id="menu-btn" style="font-size:18pt;height:42px;width:250px;">
+                     Menu
                 </button>
                 <script>
-                function openMenu() {
-                    const menu = (document.querySelector(".food-types-wrapper").style.display = "flex");
-                    document.getElementById('form-group').style.display = "none";
-                    
+                    function openMenu() {
+                        const menu = (document.querySelector(".food-types-wrapper").style.display = "flex");
+                        document.getElementById('form-group').style.display = "none";
 
-                }
 
-                function closeMenu() {
-                    const menu = (document.querySelector(".food-types-wrapper").style.display = "none");
-                    document.getElementById('form-group').style.display = "flex";
-                }
+                    }
+
+                    function closeMenu() {
+                        const menu = (document.querySelector(".food-types-wrapper").style.display = "none");
+                        document.getElementById('form-group').style.display = "flex";
+                    }
                 </script>
-                
+
 
                 <label>Location</label>
-                <input onclick="closeMenu();" type="textfield" class="form-control" name="Location"
-                    placeholder="location" style="font-size:18pt;height:42px;width:250px;" />
+                <input onclick="closeMenu();" type="textfield" class="form-control" name="Location" placeholder="location" style="font-size:18pt;height:42px;width:250px;" />
                 <label>Start Time</label>
-                <input type="time" class="form-control" name="Start_time"
-                    style="font-size:18pt;height:42px;width:250px;" />
+                <input type="time" class="form-control" name="Start_time" style="font-size:18pt;height:42px;width:250px;" />
                 <label>End Time</label>
-                <input type="time" class="form-control" name="End_time"
-                    style="font-size:18pt;height:42px;width:250px;" />
+                <input type="time" class="form-control" name="End_time" style="font-size:18pt;height:42px;width:250px;" />
                 <label>Description</label>
-                <input type="textfield" class="form-control" name="Description" placeholder="describe your event here"
-                    style="font-size:18pt;height:42px;width:250px;" />
-                <button type="button"
-                    onclick="/*getCarbValue(); getProtValue(); getSaladValue(); getDrinkValue();*/ sumTotal();"
-                    style="font-size:18pt;height:42px;width:250px;">
+                <input type="textfield" class="form-control" name="Description" placeholder="describe your event here" style="font-size:18pt;height:42px;width:250px;" />
+                <button type="button" onclick="/*getCarbValue(); getProtValue(); getSaladValue(); getDrinkValue();*/ sumTotal();" style="font-size:18pt;height:42px;width:250px;">
                     Check Price
                 </button>
-                <input type="submit" class="btn btn-primary" name="caterSubmit" value="SUBMIT" />
+                <input type="submit" class="btn-primary" name="caterSubmit" value="SUBMIT" />
             </div>
-        
+
     </div>
 
     <div class="food-types-wrapper">
-                    <div class="food_types">
-                        <h3>Carbohydrates</h3>
-                        <input type="checkbox" name="Carbohydrates[]" value="Rice" id="carb1" data-value = "100"/>
-                        Rice<br />
-                        <input type="checkbox" name="Carbohydrates[]" value="Potatoes" id="carb2" data-value = "200"/>
-                        Potatoes<br />
-                        <input type="checkbox" name="Carbohydrates[]" value="Ugali" id="carb3" data-value = "300"/>
-                        Ugali<br />
-                        <input type="checkbox" name="Carbohydrates[]" value="Spaghetti" id="carb4" data-value = "400"/>
-                        Spaghetti<br />
-                        <input type="checkbox" name="Carbohydrates[]" value="Chips" id="carb5" data-value = "500"/>
-                        Chips<br />
-                    </div>
-                    <script>
-                        const value = document.getElementById('carb1').getAttribute('data-value');
-                        // alert(value);
-                    </script>
+        <div class="food_types">
+            <h3>Carbohydrates</h3>
+            <input type="checkbox" name="Carbohydrates[]" value="Rice" id="carb1" data-value="100" />
+            Rice<br />
+            <input type="checkbox" name="Carbohydrates[]" value="Potatoes" id="carb2" data-value="200" />
+            Potatoes<br />
+            <input type="checkbox" name="Carbohydrates[]" value="Ugali" id="carb3" data-value="300" />
+            Ugali<br />
+            <input type="checkbox" name="Carbohydrates[]" value="Spaghetti" id="carb4" data-value="400" />
+            Spaghetti<br />
+            <input type="checkbox" name="Carbohydrates[]" value="Chips" id="carb5" data-value="500" />
+            Chips<br />
+        </div>
+        <script>
+            const value = document.getElementById('carb1').getAttribute('data-value');
+            // alert(value);
+        </script>
 
-                    <div class="food_types">
-                        <h3>Proteins</h3>
-                        <input type="checkbox" name="Proteins[]" value="Beef" id="prot1" data-value = "100" />
-                        Beef<br />
-                        <input type="checkbox" name="Proteins[]" value="Pork" id="prot2" data-value = "200"/>
-                        Pork<br />
-                        <input type="checkbox" name="Proteins[]" value="Chicken" id="prot3" data-value = "300"/>
-                        Chicken<br />
-                        <input type="checkbox" name="Proteins[]" value="Fish" id="prot4" data-value = "400"/>
-                        Fish<br />
-                        <input type="checkbox" name="Proteins[]" value="Meat Ball" id="prot5" data-value = "500"/>
-                        Meat Ball<br />
-                    </div>
+        <div class="food_types">
+            <h3>Proteins</h3>
+            <input type="checkbox" name="Proteins[]" value="Beef" id="prot1" data-value="100" />
+            Beef<br />
+            <input type="checkbox" name="Proteins[]" value="Pork" id="prot2" data-value="200" />
+            Pork<br />
+            <input type="checkbox" name="Proteins[]" value="Chicken" id="prot3" data-value="300" />
+            Chicken<br />
+            <input type="checkbox" name="Proteins[]" value="Fish" id="prot4" data-value="400" />
+            Fish<br />
+            <input type="checkbox" name="Proteins[]" value="Meat Ball" id="prot5" data-value="500" />
+            Meat Ball<br />
+        </div>
 
-                    <div class="food_types">
-                        <h3>Salad</h3>
-                        <input type="checkbox" name="Salads[]" value="Fruit salad" id="salad1" data-value = "100"/>
-                        Salad 1<br />
-                        <input type="checkbox" name="Salads[]" value="Veg salad" id="salad2" data-value = "200"/>
-                        Salad 2<br />
-                        <input type="checkbox" name="Salads[]" value="Kachumbari" id="salad3" data-value = "300"/>
-                        Salad 3<br />
-                        <input type="checkbox" name="Salads[]" value="200" id="salad4" data-value = "400"/>
-                        Salad 4<br/>
-                        <input type="checkbox" name="Salads[]" value="200" id="salad5" data-value = "500"/>
-                        Salad 5<br/>
-                    </div>
-                    <div class="food_types">
-                        <h3>Drinks</h3>
-                        <input type="checkbox" name="Drinks[]" value="Soda" id="drink1" data-value = "100"/>
-                        Soda<br />
-                        <input type="checkbox" name="Drinks[]" value="Beer" id="drink2" data-value = "100" data-value = "200"/>
-                        Beer<br />
-                        <input type="checkbox" name="Drinks[]" value="Cocktail" id="drink3" data-value = "300"/>
-                        Cocktail<br />
-                        <input type="checkbox" name="Drinks[]" value="Wine" id="drink4" data-value = "400"/>
-                        Wine<br />
-                        <input type="checkbox" name="Drinks[]" value="Water" id="drink5" data-value = "500"/>
-                        Water<br />
-                    </div>
-                    </form>
-                    <a onclick = "closeMenu();" style = "display:unset; position:absolute; margin-top:9em;">Close</a>     
-                </div>
+        <div class="food_types">
+            <h3>Salad</h3>
+            <input type="checkbox" name="Salads[]" value="Fruit salad" id="salad1" data-value="100" />
+            Salad 1<br />
+            <input type="checkbox" name="Salads[]" value="Veg salad" id="salad2" data-value="200" />
+            Salad 2<br />
+            <input type="checkbox" name="Salads[]" value="Kachumbari" id="salad3" data-value="300" />
+            Salad 3<br />
+            <input type="checkbox" name="Salads[]" value="200" id="salad4" data-value="400" />
+            Salad 4<br />
+            <input type="checkbox" name="Salads[]" value="200" id="salad5" data-value="500" />
+            Salad 5<br />
+        </div>
+        <div class="food_types">
+            <h3>Drinks</h3>
+            <input type="checkbox" name="Drinks[]" value="Soda" id="drink1" data-value="100" />
+            Soda<br />
+            <input type="checkbox" name="Drinks[]" value="Beer" id="drink2" data-value="100" data-value="200" />
+            Beer<br />
+            <input type="checkbox" name="Drinks[]" value="Cocktail" id="drink3" data-value="300" />
+            Cocktail<br />
+            <input type="checkbox" name="Drinks[]" value="Wine" id="drink4" data-value="400" />
+            Wine<br />
+            <input type="checkbox" name="Drinks[]" value="Water" id="drink5" data-value="500" />
+            Water<br />
+        </div>
+        </form>
+        <a onclick="closeMenu();" style="display:unset; position:absolute; margin-top:9em; cursor:pointer;">Close</a>
+    </div>
     <script>
-    //!For now you cannot miss to pick a food item and submit
+        //!For now you cannot miss to pick a food item and submit
         function getCarbValue() {
             //TODO:One Carb
             var carb1 = document.getElementById('carb1');
@@ -440,7 +372,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             var totalProtPrice = parseInt(0);
             totalProtPrice = parseInt(prot1Value + prot2Value + prot3Value + prot4Value + prot5Value);
             var totalProtPrice = parseInt(totalProtPrice);
-        // alert(totalProtPrice);
+            // alert(totalProtPrice);
             return totalProtPrice;
 
         }

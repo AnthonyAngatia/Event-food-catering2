@@ -1,7 +1,7 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-    echo("
+echo ("
         <!DOCTYPE html>
         <html>
         <head>
@@ -11,54 +11,81 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <meta http-equiv='X-UA-Compatible' content='ie=edge' />
 		<title>Taste of Africa</title>	
 	<style>
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0px;
-      }
-      header {
-        display: flex;
-        justify-content: flex-end;
-        border: 1px solid greenyellow;
-      }
+  @import url('https://fonts.googleapis.com/css?family=Montserrat:300&display=swap');
 
-      .logo {
-        height: 60px;
-        width: 60px;
-        border: 1px solid tomato;
-        margin-right: auto;
-        padding: 5px;
-      }
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0px;
+    font-family: 'Montserrat', sans-serif;
+    color: #333333;
+  }
 
-      .Sign-up button {
-        border: 1px solid #003366;
-        color: #003366;
-        padding: 7px;
-        border-radius: 50px;
-        cursor: pointer;
-        background-color: white;
-      }
-      a {
-        padding: 15px;
-      }
-      .nav {
-        border: 1px solid greenyellow;
-        display: flex;
-        justify-content: space-evenly;
-        background-color: #003366;
-      }
+  header {
+    display: flex;
+    justify-content: flex-end;
 
-      button {
-        border: 1px solid aliceblue;
-        border-radius: 50px;
-        background-color: #003366;
-        padding: 7px;
-        color: white;
-        cursor: pointer;
-      }
-      button:hover {
-        color: powderblue;
-      }
+
+  }
+
+  header a {
+    margin-top: -10px;
+    margin-right: auto;
+  }
+
+  .logo {
+    height: 60px;
+    width: 60px;
+    padding: 5px;
+    cursor: pointer;
+
+  }
+
+  .header h1 {
+    margin-right: auto;
+    margin-top: 15px;
+    padding: 5px;
+
+  }
+
+  .Sign-up button {
+    border: 1px solid #003366;
+    color: #003366;
+    padding: 7px;
+    border-radius: 50px;
+    cursor: pointer;
+    background-color: white;
+  }
+
+  a {
+    padding: 15px;
+  }
+
+  .nav {
+
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #003366;
+  }
+
+  .nav button {
+    border: 1px solid aliceblue;
+    border-radius: 20px;
+    background-color: #003366;
+    padding: 7px;
+    color: white;
+    cursor: pointer;
+  }
+
+  .nav button:hover {
+    color: white;
+    border-color: #5a6268;
+    border: 2px solid white;
+  }
+  #session-data{
+    cursor: pointer;
+  }
+
 
 		#customers {
 		font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif;
@@ -81,7 +108,38 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		text-align: left;
 		background-color: #003366;
 		color: white;
-		}
+    }
+    #checkout {
+      cursor: pointer;
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      padding: 5px 5px;
+      border: none;
+      height: 60px;
+      width: 160px;
+    }
+
+    #checkout:hover {
+      border: 2px solid white;
+    }
+    #delete{
+      background-color: #003366;
+       color: white; 
+       text-align: center; 
+       padding: 5px 5px; 
+       border: none; 
+       height: 40px; 
+       min-width: 90px;
+    }
+    #delete:hover{
+      cursor:pointer;
+      border:2px solid red;
+      border-radius:10px;
+      border-color:red;
+      font-size:11pt;
+      
+    }
 
 		
 		
@@ -91,25 +149,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <body>
 		
 			<!--Navbar-->
-			<header class='header'>
-      <img class='logo' src='"); echo base_url("Assets/logo.jpg'/>");
-      echo("<h1>Taste of Africa</h1>");  
-      echo("
-      <a class='login' href='#' onclick='window.location.replace('users/login');'><button>Login</button></a>
-      <a class='Sign-up' href='#' onclick='window.location.replace('users/registration');'><button>Sign up</button></a>
-      </header>
-      
-			<div class='nav'>
-        <a class='Menu' href='' onclick='window.location.replace('MenuC')'><button>Menu</button></a>
-        <a class='Cart' href='' onclick='window.location.replace('CartC')'><button>Cart</button></a>
-        <a class='Catering' href='' onclick='window.location.replace('CateringMenuC')'><button>Catering</button></a>
-        <!--<a class='viewPastOrders' href='#' onclick='window.location.replace('ViewPastOrdersC');'><button>View Past Orders</button></a>-->
-      </div><br>
+			
 
             
 
             <!--Menu Heading-->
-            <div align = 'center' style = 'color: #003366;font-style: oblique'><h1>Cart</h1></div><br>
+            <div align = 'center' style = 'color: #003366; margin-top:1em;'><h1>Cart</h1></div><br>
 
             <!--Cart Items-->
             <form action='CartC/saveCartData' method='post' align = 'center' style = 'color: #003366;'>
@@ -124,62 +169,51 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   	            
               </tr>
             ");
-            if(!empty($cartItems )){
-            for($i = 0; $i < count($cartItems); $i++ )
-            {
-             echo("
+if (!empty($cartItems)) {
+  for ($i = 0; $i < count($cartItems); $i++) {
+    echo ("
               
               <tr>
-                <td>" .$cartItems[$i][0]['foodName']                                           ."</td>
-                <td>" ."Sh " .$cartItems[$i][0]['foodPrice']                                   ."</td>
-                <td>" .$cartItems[$i][0]['foodDuration'] ." minutes"                           ."</td>
-                <td>" ."<input type = 'number' name = '" .$cartItems[$i][0]['foodName'] ."' style = 'text-align: center; width: 50px; height: 20px; ' >"  ."</td>
+                <td>" . $cartItems[$i][0]['foodName']                                           . "</td>
+                <td>" . "Sh " . $cartItems[$i][0]['foodPrice']                                   . "</td>
+                <td>" . $cartItems[$i][0]['foodDuration'] . " minutes"                           . "</td>
+                <td>" . "<input type = 'number' name = '" . $cartItems[$i][0]['foodName'] . "' style = 'text-align: center; width: 80px; height: 30px; ' >"  . "</td>
                 <td> <!--<form action = 'CartC/deleteCartItem' method = 'post'>-->
-                        <input type = 'submit' name = 'Delete' value = 'Delete' style = 'font-style: oblique;background-color: #003366; color: white; text-align: center; padding: 5px 5px; border: none; height: 60px; width: 70px; border-radius: 25px;'>
-                        <input type = 'hidden' name = 'cartItemToDelete' value = '" .$cartItems[$i][0]['foodName'] ."'/>
+                        <input id = 'delete' type = 'submit' name = 'Delete' value = 'Delete' style = ''>
+                        <input type = 'hidden' name = 'cartItemToDelete' value = '" . $cartItems[$i][0]['foodName'] . "'/>
                       <!--</form>-->
                 </td>
               
               </tr>
               ");
-            }
-          }
+  }
+}
 
 
-            echo("
+echo ("
             
             </table><br><br><br><br>
             ");
 
-        if(!empty($cartItems)){
-            
-        echo("
+if (!empty($cartItems)) {
 
-					
-					  <input type = 'submit' name = 'Checkout' value = 'Checkout' style = 'font-style: oblique;background-color: #003366; color: white; text-align: center; padding: 5px 5px; border: none; height: 60px; width: 70px; border-radius: 25px;' >
+  echo ("
+
+  <button id='checkout'><input type = 'submit' name = 'Checkout' value = 'Checkout' style='background-color: #003366; color: white; border:none; cursor:pointer;'></button>
+					  
 					
           </form>
         ");
-            }
+}
 
 
-		
 
-    
-			echo(
-			'<!--Footnote-->
+
+
+echo ('<!--Footnote-->
 			
 
     
       </body>
     </html>
-          ');  
-
-
-
-
-?>
-
-
-
-
+          ');

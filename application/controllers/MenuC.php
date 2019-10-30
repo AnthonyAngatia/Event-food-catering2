@@ -3,7 +3,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     class MenuC extends CI_Controller {
 
+        function __construct()
+        {
+            parent::__construct();
+            // Load form validation ibrary & user model 
+            $this->load->model('user');
+            $this->load->library('session');
+    
+            // User login status 
+            $this->isUserLoggedIn = $this->session->userdata('isUserLoggedIn');
+        }
+
         public function index(){
+            $data = array();
+            if ($this->isUserLoggedIn) {
+                $con = array(
+                    'id' => $this->session->userdata('userId')
+                );
+                $data['user'] = $this->user->getRows($con);
+            }
+            $this->load->view('NavBar2', $data);
             //Loading model, storing data it returns, loading view with data 
             $this->load->model("menuM");
             $data["menuItems"] = $this->menuM->returnMenuItems();
@@ -37,7 +56,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
             }
-            
+
             if($this->input->post("Select")){
                 
                 // //Getting post data
@@ -52,8 +71,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     }
                 }
                 redirect("http://localhost/Event-food-catering3/index.php/CartC");
-
-
             }
 
 
@@ -70,7 +87,3 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->load->view("menuV", $data);
         }
         */
-
-    
-
-?>

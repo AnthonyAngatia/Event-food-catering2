@@ -10,37 +10,46 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Taste of Africa</title>
     <style>
-         @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
-        * {
+        @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 
+        * {
             box-sizing: border-box;
             margin: 0;
             padding: 0px;
             font-family: 'Montserrat', sans-serif;
+            color: #333333;
         }
 
         h1 {
-            text-align: center;
+            /* text-align: center; */
         }
 
         header {
             display: flex;
             justify-content: flex-end;
+
+
+        }
+
+        header a {
+            margin-top: -10px;
+            margin-right: auto;
         }
 
         .logo {
             height: 60px;
             width: 60px;
-            /* border: 1px solid tomato; */
-            margin-right: auto;
             padding: 5px;
+
         }
 
         .header h1 {
-            
             margin-right: auto;
+            margin-top: 15px;
             padding: 5px;
+
         }
+
 
         .Sign-up button {
             border: 1px solid #002147;
@@ -355,10 +364,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 <body>
     <!-- <div class="nav">
-        <a href="<?php //echo site_url('catering')  ?>"><button>Catering</button></a>
-        <a class="Order" href="<?php// echo site_url('order')  ?>"><button>Order</button></a>
-        <a class="Cart" href="<?php// echo site_url('cart')  ?>"><button>Cart</button></a>
-        <a class="About us" href="<?php //echo site_url('catering')  ?>"><button>Past Orders</button></a>
+        <a href="<?php //echo site_url('catering')  
+                    ?>"><button>Catering</button></a>
+        <a class="Order" href="<? php // echo site_url('order')  
+                                ?>"><button>Order</button></a>
+        <a class="Cart" href="<? php // echo site_url('cart')  
+                                ?>"><button>Cart</button></a>
+        <a class="About us" href="<?php //echo site_url('catering')  
+                                    ?>"><button>Past Orders</button></a>
     </div> -->
     <!--SlideShow-->
     <div class="slideshow-container">
@@ -370,13 +383,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <div class="mySlides ">
             <img src="<?php echo base_url("/Assets/chicken.png"); ?>" style="width:100%;
           " />
-            <div class="text"><a href= "<?php echo site_url('menu')  ?>"><button>Menu</button></a></div>
+            <div class="text"><a href="<?php echo site_url('menu')  ?>"><button>Menu</button></a></div>
         </div>
 
         <div class="mySlides ">
             <img src="<?php echo base_url("/Assets/cheeseburger.png"); ?>" style="width:100%; ;
 " />
-            <div class="text"><a href= "<?php echo site_url('menu')  ?>"><button>Menu</button></a></div>
+            <div class="text"><a href="<?php echo site_url('menu')  ?>"><button>Menu</button></a></div>
         </div>
     </div>
     <br />
@@ -400,38 +413,38 @@ defined('BASEPATH') or exit('No direct script access allowed');
         </div>
     </div> -->
 
-<?php
+    <?php
 
 
-echo('
+    echo ('
 <!--Outer Div-->
 <div style = "background-color: white; color: #003366; border: 1px solid white;border-radius: 25px;"><br><br><br>
 
 ');
-        
-echo(
-'<!--Footnote-->
+
+    echo ('<!--Footnote-->
 <div class="card-wrap">
 ');
 
-foreach ($menuItems as $row){
-echo('
+    foreach ($menuItems as $row) {
+        echo ('
 <div class="card">
 <form action ="MenuC/saveMenuData" method="post">
-<img src="');  echo base_url('uploads/' .$row['foodImage']  .'" height = "100" width = "100">
+<img src="');
+        echo base_url('uploads/' . $row['foodImage']  . '" height = "100" width = "100">
 
 <div class="info" style = "font-style: oblique">
-<h2> ' .$row['foodName'] .'</h2><br>
-<h3> Sh ' .$row['foodPrice'] .'</h3><br>
+<h2> ' . $row['foodName'] . '</h2><br>
+<h3> Sh ' . $row['foodPrice'] . '</h3><br>
 
 
 <div class="checkbox-input">
 
-<h3> Duration: ' .$row['foodDuration'] .' minutes</h3>
+<h3> Duration: ' . $row['foodDuration'] . ' minutes</h3>
   <input
     type =  "checkbox"
-    name =  "' .$row['foodName'] .'"
-    value = "' .$row['foodName'] .'"
+    name =  "' . $row['foodName'] . '"
+    value = "' . $row['foodName'] . '"
     id=""
     style="width:30px;height:30px;"
   />
@@ -443,34 +456,18 @@ echo('
 
 </div>
 ');
-}
-echo('
-</div>'); 
-
-
-    
-    
-
-echo('</div>');
-
-
-?>
+    }
+    echo ('
+</div>');
 
 
 
 
 
+    echo ('</div>');
 
 
-
-
-
-
-
-
-
-
-
+    ?>
 
 
     <div class="Description">
@@ -578,30 +575,30 @@ echo('</div>');
     </footer>
 
     <script>
-    function myFunction() {
-        document.getElementByClassName("login").style.display = "block";
-    }
-    var slideIndex = 0;
-    showSlides();
+        function myFunction() {
+            document.getElementByClassName("login").style.display = "block";
+        }
+        var slideIndex = 0;
+        showSlides();
 
-    function showSlides() {
-        var i;
-        var slides = document.getElementsByClassName("mySlides");
-        var dots = document.getElementsByClassName("dot");
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
+        function showSlides() {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1;
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+            setTimeout(showSlides, 5000); // Change image every 2 seconds
         }
-        slideIndex++;
-        if (slideIndex > slides.length) {
-            slideIndex = 1;
-        }
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-        }
-        slides[slideIndex - 1].style.display = "block";
-        dots[slideIndex - 1].className += " active";
-        setTimeout(showSlides, 5000); // Change image every 2 seconds
-    }
     </script>
 </body>
 

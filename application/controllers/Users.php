@@ -40,7 +40,7 @@ class Users extends CI_Controller
 
             //Getting menu items from db
             $this->load->model("menuM");
-            $data["menuItems"] = $this->menuM->returnMenuItems(); 
+            $data["menuItems"] = $this->menuM->returnMenuItems();
             $this->load->view('elements/header', $data);
             $this->load->view('Navbar2', $data);
             $this->load->view('users/account', $data);
@@ -71,35 +71,36 @@ class Users extends CI_Controller
         /*!Inserting to DB*/
         // putting_data();
     }
-    public function putting_data2(){
+    public function putting_data2()
+    {
         //?Load the model class
         $this->load->model("Catering_model");
         $data = array(
-                    "No_of_people"=>$this->input->post("No_of_people"),
-                    "Carbohydrate"=>implode("," , $this->input->post("Carbohydrates", TRUE)),
-                    "Protein"=>implode(",", $this->input->post("Proteins", TRUE)),
-                    "Salad"=>implode(",", $this->input->post("Salads", TRUE)),
-                    "Drink"=>implode(",", $this->input->post("Drinks", TRUE)),
+            "No_of_people" => $this->input->post("No_of_people"),
+            "Carbohydrate" => implode(",", $this->input->post("Carbohydrates", TRUE)),
+            "Protein" => implode(",", $this->input->post("Proteins", TRUE)),
+            "Salad" => implode(",", $this->input->post("Salads", TRUE)),
+            "Drink" => implode(",", $this->input->post("Drinks", TRUE)),
 
-                    "Description"=>$this->input->post("Description"),
-                    "Location"=>$this->input->post("Location"),
-                    "Start_time"=>$this->input->post("Start_time"),
-                    "End_time"=>$this->input->post("End_time")
+            "Description" => $this->input->post("Description"),
+            "Location" => $this->input->post("Location"),
+            "Start_time" => $this->input->post("Start_time"),
+            "End_time" => $this->input->post("End_time")
         );
-//?Put the array of data in the model function
+        //?Put the array of data in the model function
         $this->Catering_model->insert_data($data);
-
     }
 
-    public function payment(){
+    public function payment()
+    {
         $data = array();
         if ($this->isUserLoggedIn) {
             $con = array(
                 'id' => $this->session->userdata('userId')
             );
             $data['user'] = $this->user->getRows($con);
-        $this->load->view('NavBar2');
-        $this->load->view('Payment',$data);
+            $this->load->view('NavBar2');
+            $this->load->view('Payment', $data);
         }
     }
 
@@ -109,7 +110,7 @@ class Users extends CI_Controller
         //Relaying user data to DB
         $_SESSION["userEmail"] = $this->input->post('email');
         $this->user->saveSessionVars($_SESSION["userEmail"]);
-        
+
 
 
 
@@ -231,34 +232,32 @@ class Users extends CI_Controller
     }
 
     //SAVING MENU DATA INTO DB
-    public function saveMenuData(){
+    public function saveMenuData()
+    {
         //echo("Harry");
         //Loading model, storing data it returns
         $this->load->model("menuM");
         $menuItems = $this->menuM->returnMenuItems();
-        
+
 
         //Checking whether "Add to Cart submit button has been clicked"
-        if($this->input->post("Add_to_Cart")){
-            
+        if ($this->input->post("Add_to_Cart")) {
+
             // //Getting post data
             // $postData = $this->input->post();
             // //print_r($postData);
 
             //Inserting checked food items into db
-            foreach ($menuItems as $row){
+            foreach ($menuItems as $row) {
                 //Check whether the checkboxes were selected
-                if($this->input->post($row["foodName"]) !== null){
+                if ($this->input->post($row["foodName"]) !== null) {
                     $this->menuM->saveFoodsPicked($row["foodName"]);
                 }
             }
             redirect("http://localhost/Event-food-catering3/index.php/CartC");
-
-
         }
         //echo("Mithika");
     }
-        
 }
     
 
@@ -269,12 +268,3 @@ class Users extends CI_Controller
         $this->load->view("menuV", $data);
     }
     */
-
-
-
-
-
-
-
-
-

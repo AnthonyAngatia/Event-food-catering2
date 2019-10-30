@@ -421,43 +421,76 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <meta http-equiv='X-UA-Compatible' content='ie=edge' />
 			
 	<style>
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0px;
-      }
-      header {
-        display: flex;
-        justify-content: flex-end;
-        border: 1px solid greenyellow;
-      }
+  @import url('https://fonts.googleapis.com/css?family=Montserrat:300&display=swap');
 
-      .logo {
-        height: 60px;
-        width: 60px;
-        border: 1px solid tomato;
-        margin-right: auto;
-        padding: 5px;
-      }
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0px;
+    font-family: 'Montserrat', sans-serif;
+    color: #333333;
+  }
 
-      .Sign-up button {
-        border: 1px solid #003366;
-        color: #003366;
-        padding: 7px;
-        border-radius: 50px;
-        cursor: pointer;
-        background-color: white;
-      }
-      a {
-        padding: 15px;
-      }
-      .nav {
-        border: 1px solid greenyellow;
-        display: flex;
-        justify-content: space-evenly;
-        background-color: #003366;
-      }
+  header {
+    display: flex;
+    justify-content: flex-end;
 
+
+  }
+
+  header a {
+    margin-top: -10px;
+    margin-right: auto;
+  }
+
+  .logo {
+    height: 60px;
+    width: 60px;
+    padding: 5px;
+
+  }
+
+  .header h1 {
+    margin-right: auto;
+    margin-top: 15px;
+    padding: 5px;
+
+  }
+
+  .Sign-up button {
+    border: 1px solid #003366;
+    color: #003366;
+    padding: 7px;
+    border-radius: 50px;
+    cursor: pointer;
+    background-color: white;
+  }
+
+  a {
+    padding: 15px;
+  }
+
+  .nav {
+
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #003366;
+  }
+
+  .nav button {
+    border: 1px solid aliceblue;
+    border-radius: 20px;
+    background-color: #003366;
+    padding: 7px;
+    color: white;
+    cursor: pointer;
+  }
+
+  .nav button:hover {
+    color: white;
+    border-color: #5a6268;
+    border: 2px solid white;
+  }
       button {
         border: 1px solid aliceblue;
         border-radius: 50px;
@@ -497,6 +530,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           display: flex;
           justify-content: space-between;
         }
+        #cart_btn{
+          cursor: pointer;
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      padding: 5px 5px;
+      border: none;
+      height: 60px;
+      width: 160px;
+        }
+        #cart_btn:hover {
+          border: 2px solid white;
+        }
 
       }
     </style>
@@ -505,24 +551,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <body>
 		
 			<!--Navbar-->
-			<header class='header'>
-      <img class='logo' src='"); echo base_url("Assets/logo.jpg'/>");
-      echo("<h1>Taste of Africa</h1>");  
-      echo("
-      <a class='login' href='#' onclick='window.location.replace('users/login');'><button>Login</button></a>
-      <a class='Sign-up' href='#' onclick='window.location.replace('users/registration');'><button>Sign up</button></a>
-      </header>
-      
-			<div class='nav'>
-        <a class='Menu' href='' onclick='window.location.replace('MenuC')'><button>Menu</button></a>
-        <a class='Cart' href='' onclick='window.location.replace('CartC')'><button>Cart</button></a>
-        <a class='Catering' href='' onclick='window.location.replace('CateringMenuC')'><button>Catering</button></a>
-        <a class='viewPastOrders' href='#' onclick='window.location.replace('ViewPastOrdersC');'><button>View Past Orders</button></a>
-      </div>
-            
 
             <!--Menu Heading--><br><br>
-            <div align = 'center' style = 'color: #003366;font-style: oblique'><h1>Menu</h1></div>
+            <div align = 'center' style = 'color: #003366;'><h1>Menu</h1></div>
 
             <!--Menu Items-->
         ");
@@ -544,7 +575,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           //   ."</div>
 
             
-          //   <div id = 'Details' align = 'center' style = 'font-style: oblique; background-color: white; float: left; margin: 4px; border: 1px solid #003366; width: 1300px; height: 100px; color: #003366; line-height: 80px;border-radius: 25px;'>   
+          //   <div id = 'Details' align = 'center' style = ' background-color: white; float: left; margin: 4px; border: 1px solid #003366; width: 1300px; height: 100px; color: #003366; line-height: 80px;border-radius: 25px;'>   
           //       <!--Display data here from db-->" 
           //       ."<a style = 'display: inline-block; width: 200px; text-align: left;'><h2>" .$row['foodName'] ."</h2></a>"
 					// 		  ."<a style = 'display: inline-block; width: 200px; text-align: center;'><h2>" .$row['foodPrice'] ."</h2></a>"
@@ -576,7 +607,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     
               <img src="');  echo base_url('uploads/' .$row['foodImage']  .'" height = "100" width = "100">
               
-              <div class="info" style = "font-style: oblique">
+              <div class="info" style = "">
                 <h2> ' .$row['foodName'] .'</h2><br>
                 <h3> Sh ' .$row['foodPrice'] .'</h3><br>
     
@@ -609,7 +640,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			
       echo('
           <div id = "formButtons"align = "center">
-					<input align = "center" type = "submit" name = "Add_to_Cart"  value = "Add_to_Cart" style = "font-style: oblique;background-color: #003366; color: white; text-align: center; padding: 5px 5px; border: none; height: 60px; width: 90px; border-radius: 25px;" >
+					<input id = "cart_btn" align = "center" type = "submit" name = "Add_to_Cart"  value = "Add to Cart" style = "" >
           </div>
         </form>
 				
