@@ -38,9 +38,11 @@ class Users extends CI_Controller
 
             // Pass the user data and load view 
             $this->load->view('elements/header', $data);
+            $this->load->view('Navbar2', $data);
             $this->load->view('users/account', $data);
             $this->load->view('elements/footer');
         } else {
+            // $this->load->view('Navbar1');
             redirect('users/login');
         }
     }
@@ -68,51 +70,34 @@ class Users extends CI_Controller
     public function putting_data2(){
         //?Load the model class
         $this->load->model("Catering_model");
-$data = array(
-            "No_of_people"=>$this->input->post("No_of_people"),
-            "Carbohydrate"=>implode("," , $this->input->post("Carbohydrates", TRUE)),
-            "Protein"=>implode(",", $this->input->post("Proteins", TRUE)),
-            "Salad"=>implode(",", $this->input->post("Salads", TRUE)),
-            "Drink"=>implode(",", $this->input->post("Drinks", TRUE)),
+        $data = array(
+                    "No_of_people"=>$this->input->post("No_of_people"),
+                    "Carbohydrate"=>implode("," , $this->input->post("Carbohydrates", TRUE)),
+                    "Protein"=>implode(",", $this->input->post("Proteins", TRUE)),
+                    "Salad"=>implode(",", $this->input->post("Salads", TRUE)),
+                    "Drink"=>implode(",", $this->input->post("Drinks", TRUE)),
 
-            "Description"=>$this->input->post("Description"),
-            "Location"=>$this->input->post("Location"),
-            "Start_time"=>$this->input->post("Start_time"),
-            "End_time"=>$this->input->post("End_time")
-);
+                    "Description"=>$this->input->post("Description"),
+                    "Location"=>$this->input->post("Location"),
+                    "Start_time"=>$this->input->post("Start_time"),
+                    "End_time"=>$this->input->post("End_time")
+        );
 //?Put the array of data in the model function
-$this->Catering_model->insert_data($data);
+        $this->Catering_model->insert_data($data);
 
     }
-    // TODO:public function putting_data()
-    // {
-    //     $data = $formData = array();
-    //     //$this->load->model("Catering_model");
-    //     if ($this->input->post('caterSubmit')) {
-    //         //echo $this->input->post();
-    //         $formData = $this->input->post('Carbohydrates');
-    //         print_r($formData);
-    //         $data = array(
-    //             "Proteins" => $this->input->post('Proteins')
-    //         );
-    //         echo "<br>";
-    //         print_r($data);
-    //     }
 
-    //     $data = array(
-    //         /* "No_of_people"->$this->input->post("No_of_people"),
-    //         "Carbohydrates"->$this->input->post("Carbohydrates[]"),
-    //         "Proteins"->$this->input->post("Proteins[]"),
-    //         "Salad"->$this->input->post("Salad[]"),
-    //         "Drink"->$this->input->post("Drink[]"),
-    //         "Description"->$this->input->post("Description"),
-    //         "Location"->$this->input->post("Location"),
-    //         "Start_time"->$this->input->post("Start_time"),
-    //         "End_time"->$this->input->post("End_time")
-    //         */);
-
-    //     //$this->Catering_model->insert_data($data);
-    // TODO:END }
+    public function payment(){
+        $data = array();
+        if ($this->isUserLoggedIn) {
+            $con = array(
+                'id' => $this->session->userdata('userId')
+            );
+            $data['user'] = $this->user->getRows($con);
+        $this->load->view('NavBar2');
+        $this->load->view('Payment',$data);
+        }
+    }
     public function login()
     {
         //SESSION VARS
@@ -164,6 +149,7 @@ $this->Catering_model->insert_data($data);
 
         // Load view 
         $this->load->view('elements/header', $data);
+        $this->load->view('Navbar1.php');
         $this->load->view('users/login', $data);
         $this->load->view('elements/footer');
     }
