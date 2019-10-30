@@ -86,6 +86,18 @@ class Users extends CI_Controller
         $this->Catering_model->insert_data($data);
 
     }
+
+    public function payment(){
+        $data = array();
+        if ($this->isUserLoggedIn) {
+            $con = array(
+                'id' => $this->session->userdata('userId')
+            );
+            $data['user'] = $this->user->getRows($con);
+        $this->load->view('NavBar2');
+        $this->load->view('Payment',$data);
+        }
+    }
     public function login()
     {
 
@@ -130,6 +142,7 @@ class Users extends CI_Controller
 
         // Load view 
         $this->load->view('elements/header', $data);
+        $this->load->view('Navbar1.php');
         $this->load->view('users/login', $data);
         $this->load->view('elements/footer');
     }

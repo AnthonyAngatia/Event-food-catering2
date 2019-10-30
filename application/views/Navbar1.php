@@ -1,4 +1,4 @@
-
+<!--This nav has no session -->
 <header class="header">
         <img class="logo" src="<?php echo base_url("Assets/logo.jpg"); ?>" />
         <h1>Taste of Africa</h1>

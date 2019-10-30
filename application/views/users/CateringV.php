@@ -7,12 +7,16 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+   
     <title>Taste of Africa</title>
     <style>
+    @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
     * {
         box-sizing: border-box;
         margin: 0;
-        padding: 5px;
+        padding: 0px;
+        font-family: 'Montserrat', sans-serif;
+        color:#333333;
     }
 
     h1 {
@@ -28,14 +32,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
     .logo {
         height: 60px;
         width: 60px;
-        border: 1px solid tomato;
+        /* border: 1px solid tomato; */
         margin-right: auto;
         padding: 5px;
 
     }
 
     .header h1 {
-        font-family: cursive;
         margin-right: auto;
         padding: 5px;
 
@@ -61,17 +64,32 @@ defined('BASEPATH') or exit('No direct script access allowed');
         background-color: #003366;
     }
 
-    button {
+    .nav button {
         border: 1px solid aliceblue;
-        border-radius: 50px;
+        border-radius: 20px;
         background-color: #003366;
         padding: 7px;
         color: white;
         cursor: pointer;
     }
+    .nav button:hover{
+        color: white;
+        border-color:#5a6268;
+        border:2px solid white;
+    }
+    
+    .form-group button{
+        border: 1px solid aliceblue;
+        border-radius: 10px;
+        background-color: #6c757d;
+        padding: 7px;
+        color: white;
+        cursor: pointer;
+    } 
 
-    button:hover {
-        color: powderblue;
+    .form-group button:hover {
+        color: white;
+        border-color:#5a6268;
     }
 
 
@@ -170,6 +188,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         justify-content: center;
         flex-direction: column;
         align-items: center;
+        min-width:300px;
     }
 
     .form-group label,
@@ -178,11 +197,18 @@ defined('BASEPATH') or exit('No direct script access allowed');
         padding: 5px;
     }
 
-    .food-types-wrapper {
+    .form-group > *{
+    padding:1px;
+    margin:5px 0px;
+
+    }
+
+    .food-types-wrapper  {
         display: flex;
         border: 2px solid grey;
         justify-content: space-around;
         display: none;
+        margin:5em 1em;
 
     }
 
@@ -196,18 +222,24 @@ defined('BASEPATH') or exit('No direct script access allowed');
 </head>
 
 <body >
-    <!--Header-->
-    <header class="header">
+    <!-- Header-->
+    <header class="header" >
         <img class="logo" src="<?php echo base_url("Assets/logo.jpg"); ?>" />
         <h1>Taste of Africa</h1>
         <div id="sessionVariable">
-            <img class="logo" src="<?php echo base_url("Assets/PRO.png"); ?>" />
-            <p><b><?php echo $user['first_name'] . ' ' . $user['last_name']; ?></b></p>
-            <a href="<?php echo base_url('index.php/Users/login'); ?>"> Log Out </a>
+            <img style = "margin-left:1em;" onclick = "displayLogout();" class="logo" src="<?php echo base_url("Assets/PRO.png"); ?>" />
+            <p onclick = "displayLogout();" ><b><?php echo $user['first_name'] . ' ' . $user['last_name']; ?></b></p>
+            <a href="<?php echo base_url('index.php/Users/login'); ?>" style = "display:none;" id = "logout"> Log Out </a>
         </div>
+        <script>
+        function displayLogout(){
+            document.getElementById('logout').style.display = "unset";
+
+        }
+        </script>
 
     </header>
-    <div class="nav">
+    <div class="nav" >
         <a href="#" onclick="window.location.replace('CateringC');"><button>Catering</button></a>
         <a class="Order" href=""><button>Order</button></a>
         <a class="Cart" href=""><button>Cart</button></a>
@@ -216,28 +248,52 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
     <div class="wrapper">
         <form action="http://localhost/Event-food-catering3/index.php/Users/putting_data2" method="post">
-            <div class="form-group">
+            <div class="form-group" id = "form-group">
                 <label>Number of Attendees</label>
-                <input type="number" name="No_of_people" id="No_of_people" value="10" min="10"
-                    style="font-size:18pt;height:42px;width:250px;" />
+                <input type="number" name="No_of_people" id="No_of_people" value="9" min="9"
+                    style="font-size:18pt;height:42px;width:250px;" onkeypress = "false" />
                 <button type="button" onclick="openMenu();" id="menu-btn"
                     style="font-size:18pt;height:42px;width:250px;">
                     Click to Open Menu
                 </button>
                 <script>
                 function openMenu() {
-                    const menu = (document.querySelector(
-                        ".food-types-wrapper"
-                    ).style.display = "flex");
+                    const menu = (document.querySelector(".food-types-wrapper").style.display = "flex");
+                    document.getElementById('form-group').style.display = "none";
+                    
+
                 }
 
                 function closeMenu() {
-                    const menu = (document.querySelector(
-                        ".food-types-wrapper"
-                    ).style.display = "none");
+                    const menu = (document.querySelector(".food-types-wrapper").style.display = "none");
+                    document.getElementById('form-group').style.display = "flex";
                 }
                 </script>
-                <div class="food-types-wrapper">
+                
+
+                <label>Location</label>
+                <input onclick="closeMenu();" type="textfield" class="form-control" name="Location"
+                    placeholder="location" style="font-size:18pt;height:42px;width:250px;" />
+                <label>Start Time</label>
+                <input type="time" class="form-control" name="Start_time"
+                    style="font-size:18pt;height:42px;width:250px;" />
+                <label>End Time</label>
+                <input type="time" class="form-control" name="End_time"
+                    style="font-size:18pt;height:42px;width:250px;" />
+                <label>Description</label>
+                <input type="textfield" class="form-control" name="Description" placeholder="describe your event here"
+                    style="font-size:18pt;height:42px;width:250px;" />
+                <button type="button"
+                    onclick="/*getCarbValue(); getProtValue(); getSaladValue(); getDrinkValue();*/ sumTotal();"
+                    style="font-size:18pt;height:42px;width:250px;">
+                    Check Price
+                </button>
+                <input type="submit" class="btn btn-primary" name="caterSubmit" value="SUBMIT" />
+            </div>
+        
+    </div>
+
+    <div class="food-types-wrapper">
                     <div class="food_types">
                         <h3>Carbohydrates</h3>
                         <input type="checkbox" name="Carbohydrates[]" value="Rice" id="carb1" data-value = "100"/>
@@ -296,29 +352,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         <input type="checkbox" name="Drinks[]" value="Water" id="drink5" data-value = "500"/>
                         Water<br />
                     </div>
+                    </form>
+                    <a onclick = "closeMenu();" style = "display:unset; position:absolute; margin-top:9em;">Close</a>     
                 </div>
-
-                <label>Location</label>
-                <input onclick="closeMenu();" type="textfield" class="form-control" name="Location"
-                    placeholder="location" style="font-size:18pt;height:42px;width:250px;" />
-                <label>Start Time</label>
-                <input type="time" class="form-control" name="Start_time"
-                    style="font-size:18pt;height:42px;width:250px;" />
-                <label>End Time</label>
-                <input type="time" class="form-control" name="End_time"
-                    style="font-size:18pt;height:42px;width:250px;" />
-                <label>Description</label>
-                <input type="textfield" class="form-control" name="Description" placeholder="describe your event here"
-                    style="font-size:18pt;height:42px;width:250px;" />
-                <button type="button"
-                    onclick="/*getCarbValue(); getProtValue(); getSaladValue(); getDrinkValue();*/ sumTotal();"
-                    style="font-size:18pt;height:42px;width:250px;">
-                    Check Price
-                </button>
-                <input type="submit" class="btn btn-primary" name="caterSubmit" value="SUBMIT" />
-            </div>
-        </form>
-    </div>
     <script>
     //!For now you cannot miss to pick a food item and submit
         function getCarbValue() {
@@ -368,7 +404,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             var totalCarbPrice = parseInt(0);
             totalCarbPrice = parseInt(carb1Value + carb2Value + carb3Value + carb4Value + carb5Value);
             var totalCarbPrice = parseInt(totalCarbPrice);
-            // alert(totalCarbPrice);
+            //  alert("Carbprice"+totalCarbPrice);
             return totalCarbPrice;
         }
 

@@ -10,11 +10,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Taste of Africa</title>
     <style>
-
+         @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
         * {
+
             box-sizing: border-box;
             margin: 0;
             padding: 0px;
+            font-family: 'Montserrat', sans-serif;
         }
 
         h1 {
@@ -29,13 +31,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
         .logo {
             height: 60px;
             width: 60px;
-            border: 1px solid tomato;
+            /* border: 1px solid tomato; */
             margin-right: auto;
             padding: 5px;
         }
 
         .header h1 {
-            font-family: cursive;
+            
             margin-right: auto;
             padding: 5px;
         }
