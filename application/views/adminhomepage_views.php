@@ -4,12 +4,15 @@
 	<meta charset = "utf-8">
 	<meta http-equiv = "X-UA-Compatible" content = "IE=edge">
 	<title>  ADMIN DASHBOARD</title>
+  <link rel = "stylesheet" href = "<?php echo base_url('resources/bootstrap.min.css');?>"/>
 	<script type = "text/javascript" src = "https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script type = "text/javascript" src = "https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
 	<script type = "text/javascript " src = "https://cdn.datatables.net/1.10.15/jquery.dataTables.semanticui.min.js"> </script>
 	<script type = "text/javascript" src = "https://cdnjs.cloudfare.com/ajax/libs/semantic-ui/2.2.6/semantic.min.js"></script>
 	<script type = "text/javascript" src = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 	<script type = "text/javascript" src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <style media = "screen">
 	#img
 	{
@@ -140,6 +143,36 @@
   margin-right: 16px;
   font-size: 17px;
 }	
+.card-wrapper{
+	display:grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-gap:1em
+	grid-auto-row :minmax(300px,auto);
+	}
+	 .Dishes {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-gap: 1em;
+      grid-auto-rows: minmax(300px, auto);
+
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+
+    .Dishes img {
+      max-height: 300px;
+      height: 100%;
+      width: 100%;
+    }
+    .Description {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-gap: 1em;
+      grid-auto-rows: minmax(100px, auto);
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+
 </style>
  </head>
  <header class="header">
@@ -152,12 +185,33 @@
   </header>
 <body>
 
-<div class="nav">
-    <a class="Category" href=""><button>Category</button></a>
-    <a class="Order" href=""><button>Order</button></a>
-    <a class="Cart" href=""><button>Cart</button></a>
-    <a class="About us" href=""><button>About us</button></a>
-  </div> 
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Features</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Pricing</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">About</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search">
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
 
 
 
@@ -207,15 +261,17 @@
 		{
 	?>
 			<tr>
+
 				<td> <?php echo $row -> foodName; ?> </td>
 				<td> <?php echo $row -> foodPrice; ?> </td>
-				<td><img src = "<?php echo base_url();?>uploads/<?php echo $row ->foodImage;?>" style = "width :90px; height: 90px;"></td>
+				<td><img src = "<?php echo base_url();?>uploads/<?php echo $row ->foodImage;?>" style = "width :100px; height: 100px;"></td>
 				<td> <?php echo $row -> foodType; ?> </td>
 				<td><a href = "<?php echo site_url();?>/ahomepage/delete_data/<?php echo $row -> id; ?> " onclick = "return confirm('Are you sure ?')"> Delete </td>
 					<br>
 				<td><a href = "<?php echo site_url();?>/ahomepage/edit_data/<?php echo $row -> id; ?>" > Edit </td>
 
-			</tr> 
+			</tr>
+
 			<?php
 
 		}
@@ -235,11 +291,46 @@
 
 		
 </table>
+<div class="Dishes">
+    <div class="Dish1">
+      <img src="<?php echo base_url("/Assets/brocoli.png"); ?>" alt="Dish1" />
+
+
+    </div>
+    <div class="Dish2">
+      <img src="<?php echo base_url("/Assets/cheeseburger.png"); ?>" alt="Dish2" />
+    </div>
+    <div class="Dish3">
+      <img src="<?php echo base_url("/Assets/brocoli.png"); ?>" alt="Dish3" />
+    </div>
+    <div class="Dish4">
+      <img src="<?php echo base_url("/Assets/brocoli.png"); ?>" alt="Dish3" />
+    </div>
+  </div>
+  <div class="Description">
+    <div class="desc1">
+      <h3><?php echo $row->foodName
+          ?></h3>
+      <p>Price : <?php echo $row->foodPrice;?></p>
+    </div>
+    <div class="desc2">
+      <h3><?php echo $row->foodName;?></h3>
+      <p>Price: <?php echo $row->foodPrice;?></p>
+    </div>
+    <div class="desc3">
+      <h3>Brocoli</h3>
+      <p>Price</p>
+    </div>
+    <div class="desc4">
+      <h3>Brocoli</h3>
+      <p>Price</p>
+    </div>
+  </div>
 
 <br><br><br>
 <div id = "menu">
 <a onclick ="window.location.replace('Admin')" ><button> ADD TO MENU </button></a>
-	<a onclick = "window.location.replace('Ahomepage')"><button>CHECK REPORTS </button></a>
+	<a onclick = "window.location.replace('controllereports')"><button>CHECK REPORTS </button></a>
 	</div>
 
 </body>
