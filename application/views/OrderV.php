@@ -184,8 +184,10 @@
               <td>"           . $row['dateCreated']                             . "</td>
               
             </tr>
+            <input type='hidden' name='TotPrice' value = ' " .$row['orderPrice'] ."' >
             ");
       }
+      
 
       // TEST
       // echo("<pre>");

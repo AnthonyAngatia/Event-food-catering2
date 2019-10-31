@@ -42,6 +42,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $orderPrice = $orderItems['totOrderPrice'];
                 $orderStatus = $orderItems['orderStatus'];
                 $userId = $orderItems['userId'];
+                echo "gyhnjmk";
 
                 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!AUOTINCREMENT FAILING HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 $insertIntoOrderQuery = $this->db->query("INSERT INTO orders(dateCreated, orderDuration, orderPrice, orderStatus, userId) VALUES(NOW(), '$orderDuration', '$orderPrice', '$orderStatus', '$userId')");

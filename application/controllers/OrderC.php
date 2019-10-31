@@ -39,10 +39,37 @@ class OrderC extends CI_Controller
             //db connection
             $this->load->database();
 
-            //SESSION and DB VARS
-            $userId = $_SESSION["userID"]; // SESSION VAR NEEDED!!
+            
 
-            $this->orderM->saveOrderData($userId);
+            $TotPrice = $this->input->post("TotPrice");
+            $this->payment($TotPrice);
+
         }
     }
+    public function payment($totPrice)
+    {
+        $data = array();
+        if ($this->isUserLoggedIn) {
+            $con = array(
+                'id' => $this->session->userdata('userId')
+            );
+            $data['user'] = $this->user->getRows($con);
+            // $this->load->view('NavBar2');
+            $data['totPrice'] = $totPrice;
+            $this->load->view('Payment', $data);
+        }
+    }
+
+    public function payParameters(){
+        $totPrice = $this->input->post("TotPrice");
+        $phoneNo = $this->input->post("PhoneNo");
+        $this->load->model('Payment_model');
+        $this->Payment_model->mpesaSendMoney( $phoneNo, $totPrice);
+
+        $this->load->model("orderM");
+        //SESSION and DB VARS
+        $userId = $_SESSION["userID"]; // SESSION VAR NEEDED!!
+        $this->orderM->saveOrderData($userId);
+    }
+
 }

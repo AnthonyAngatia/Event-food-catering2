@@ -123,11 +123,6 @@ class Users extends CI_Controller
             $data['totPrice'] = $totPrice;
             $this->load->view('Payment', $data);
         }
-
-        if($this->input->post("PhoneNo")){
-            $this->account();
-        }
-        
     }
 
     public function payParameters(){

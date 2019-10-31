@@ -55,13 +55,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $updateOrdersFinal = $this->db->query("UPDATE orders SET orderStatus = '$newOrderStatus' WHERE userId = '$userId' AND orderStatus = '$oldOrderStatus'") ;
 
             //Delete all items from Cart for this user
-            $deleteAllFtomCart = $this->db->query("DELETE FROM cart WHERE userId = '$userId' ") ;
+             $deleteAllFtomCart = $this->db->query("DELETE FROM cart WHERE userId = '$userId' ") ;
             
-            echo("
-                <script>
-                    <div ><a>window.location.replace('MenuC')</a></div>
-                </script>
-            ");
+            // echo("
+            //     <script>
+            //         <div ><a>window.location.replace('MenuC')</a></div>
+            //     </script>
+
+
+            // ");
 
             // redirect("/Homepage/index");
             //header("Location: HomePage.php");
