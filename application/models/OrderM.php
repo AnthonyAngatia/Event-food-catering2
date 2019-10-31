@@ -63,7 +63,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </script>
             ");
 
-            redirect("/Homepage/index");
+            // redirect("/Homepage/index");
             //header("Location: HomePage.php");
 
         }

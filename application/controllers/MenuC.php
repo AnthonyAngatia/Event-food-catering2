@@ -57,6 +57,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             }
 
+
+            
+
             if($this->input->post("Select")){
                 
                 // //Getting post data
@@ -75,6 +78,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
             //echo("Mithika");
+        }
+        public function saveHomeFoodPicked(){
+            //if($this->input->post("submit")){
+                $this->load->model("menuM");
+                $homeFoodPicked = $this->input->post("homeFoodPicked");
+                $this->menuM->saveFoodsPicked($homeFoodPicked);
+                echo $homeFoodPicked;
+            //}
+            $homeFoodPicked = $this->input->post("homeFoodPicked");
+            
+            redirect("http://localhost/Event-food-catering3/index.php/CartC");
+
         }
             
     }

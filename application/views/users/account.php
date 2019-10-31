@@ -359,6 +359,31 @@ defined('BASEPATH') or exit('No direct script access allowed');
             padding-top: 6px;
             font-size: 0.75em
         }
+        .card-wrap {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+          grid-column-gap: 1em;
+          font-family: 'Source Sans Pro', sans-serif;
+          grid-auto-rows: minmax(300px, auto);
+          color: #333333;
+        }
+        .card-wrap img {
+          max-height: 300px;
+          height: 100%;
+          width: 100%;
+        }
+        .card-wrap > div {
+          background-color: #dddddd;
+          box-shadow: 0 8px 6px -6px black;
+        }
+        .card-wrap h4,
+        p {
+          padding-left: 1em;
+        }
+        .checkbox-input {
+          display: flex;
+          justify-content: space-between;
+        }
     </style>
 </head>
 
@@ -418,45 +443,48 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
  
 <!--Outer Div-->
-<div style = "background-color: white; color: #003366; border: 1px solid white;border-radius: 25px;"><br><br><br>
+<!-- <div style = "background-color: white; color: #003366; border: 1px solid white;border-radius: 25px;"><br><br><br> -->
 
 <div class="card-wrap">
-<?php 
-    foreach ($menuItems as $row) { ?>
-<div class="card">
-<form action ="MenuC/saveMenuData" method="post">
-<img src="<?php echo base_url('uploads/' . $row['foodImage']);  ?>" height = "100" width = "100">
+    <?php  
+        //print_r($menuItems);
+        foreach ($menuItems as $row) { 
+    ?>
 
-<div class="info" style = "font-style: oblique">
-<h2> <?php $row['foodName'] ?></h2><br>
-<h3> Sh <?php $row['foodPrice'] ?></h3><br>
+    <div class="card">
+        <form action ="<?php echo site_url("saveHomePicked")?>" method="post">
+            <img src="<?php echo base_url('uploads/' . $row['foodImage']);  ?>" height = "100" width = "100">
+            <div class="info" style = "font-style: oblique">    
+                <h2> <?php echo $row['foodName'] ?></h2><br>
+                <h3> Sh <?php echo $row['foodPrice'] ?></h3><br>
+                <div class="checkbox-input">
 
+                    <h3> Duration: <?php echo $row['foodDuration']; ?> minutes</h3>
+                    <input type="hidden" name="homeFoodPicked" value = "<?php echo $row['foodName']; ?>">
+                    <input
+                        type =  "submit"
+                        name =  "<?php $row['foodName']; ?>"
+                        value = "submit"
+                        id=""
+                        style="width:30px;height:30px;"
+                    />
+                </div><br>
 
-<div class="checkbox-input">
+            </div>
+        </form >
+    </div>
 
-<h3> Duration: <?php $row['foodDuration']; ?> minutes</h3>
-  <input
-    type =  "checkbox"
-    name =  "<?php $row['foodName']; ?>"
-    value = "<?php $row['foodName']; } ?>"
-    id=""
-    style="width:30px;height:30px;"
-  />
-
-
-</div><br>
-
+    <?php
+        }
+    ?>
 </div>
 
-</div>
-</div>
 
 
 
+<!-- </div> -->
 
-</div>
-
-    <div class="Description">
+    <!-- <div class="Description">
         <div class="desc1">
             <h3>Brocoli</h3>
             <p>Price</p>
@@ -483,9 +511,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <div class="Extra3">
             <img src="<?php echo base_url("/Assets/QualityFood.jpg"); ?>" alt="Extra3" />
         </div>
-    </div>
+    </div> -->
 
-    <div class="Description">
+    <!-- <div class="Description">
         <div class="desc1">
             <h1>Catering Services</h1>
 
@@ -502,7 +530,19 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <button style=" margin:1em; padding:1em;"><a href="" style="text-decoration:none; color:white ">Find out
                     more</a></button>
         </div>
-    </div>
+    </div> -->
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <footer>
         <div class="footer" id="footer">
             <div class="container">
