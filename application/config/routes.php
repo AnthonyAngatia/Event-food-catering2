@@ -59,5 +59,10 @@ $route['Home'] = 'Users/account';//todo Homepage logged in
 $route['HomeU'] = 'Homepage';// NOT LOOGEG IN
 $route['order'] = 'OrderC';
 $route['OrderHistory'] = 'viewPastOrdersC';
+$route['PayModel'] = 'Users/payParameters';
+$route['saveHomePicked'] = 'MenuC/saveHomeFoodPicked';
+
+
+
 
 

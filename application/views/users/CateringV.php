@@ -1,5 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
+$this->load->library('session');
 ?>
 <html lang="en">
 
@@ -175,7 +176,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <form action="http://localhost/Event-food-catering3/index.php/Users/putting_data2" method="post">
 
             <div class="form-group" id="form-group">
-                <input type="text" name="id" value="<?php echo "GHBJN" . $_SESSION['userID'];  ?>">
+                <?php ;?>
+                <input type="hidden" name="id" value="<?php  print_r($userID);  ?>">
                 <label>Number of Attendees</label>
                 <input type="number" name="No_of_people" id="No_of_people" value="9" min="9" style="font-size:18pt;height:42px;width:250px;" onkeypress="false" />
                 <button type="button" onclick="openMenu();" id="menu-btn" style="font-size:18pt;height:42px;width:250px;">
@@ -202,12 +204,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <input type="time" class="form-control" name="Start_time" style="font-size:18pt;height:42px;width:250px;" />
                 <label>End Time</label>
                 <input type="time" class="form-control" name="End_time" style="font-size:18pt;height:42px;width:250px;" />
-                <label>Description</label>
+                <label onclick = "getValueOfItems();">Description</label>
                 <input type="textfield" class="form-control" name="Description" placeholder="describe your event here" style="font-size:18pt;height:42px;width:250px;" />
                 <button type="button" onclick="/*getCarbValue(); getProtValue(); getSaladValue(); getDrinkValue();*/ sumTotal();" style="font-size:18pt;height:42px;width:250px;">
                     Check Price
                 </button>
-                <input type="submit" class="btn-primary" name="caterSubmit" value="SUBMIT" />
+                <input type="submit" class="btn-primary" name="caterSubmit" value="SUBMIT" onclick = "getValueOfItems();"/>
+                <input type="hidden" name="price" id="Price" value = "1" >
             </div>
 
     </div>
@@ -271,6 +274,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <input type="checkbox" name="Drinks[]" value="Water" id="drink5" data-value="500" />
             Water<br />
         </div>
+    
         </form>
         <a onclick="closeMenu();" style="display:unset; position:absolute; margin-top:9em; cursor:pointer;">Close</a>
     </div>
@@ -479,8 +483,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
             var people = document.getElementById('No_of_people').value;
             var sumTotalPrice = getCarbValue() + getProtValue() + getSaladValue() + getDrinkValue();
             var sumTotalPrice = parseInt(sumTotalPrice) * people;
-            alert(sumTotalPrice);
-            return sumTotalPrice;
+            // alert(sumTotalPrice);
+            return parseInt(sumTotalPrice);
+        }
+        function getValueOfItems(){
+            // alert('xdfcgbh');
+            var price = document.getElementById('Price');
+            price.value = sumTotal();
+            alert(document.getElementById('Price').value);
         }
     </script>
 </body>
