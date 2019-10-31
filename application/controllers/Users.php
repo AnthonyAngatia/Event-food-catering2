@@ -12,6 +12,7 @@ class Users extends CI_Controller
         $this->load->library('form_validation');
         $this->load->model('user');
         $this->load->library('session');
+        // $this->load->payment();
 
 
         // User login status 
@@ -60,9 +61,12 @@ class Users extends CI_Controller
             );
             $data['user'] = $this->user->getRows($con);
 
+            $this->load->model("orderM");   
             // Pass the user data and load view 
             $this->load->view('NavBar2', $data);
             //$this->load->view('elements/header', $data);
+            $data["userID"] = $con['id'];
+            //echo $con['id'];
             $this->load->view('users/CateringV', $data);
             $this->load->view('elements/footer');
         } else {
@@ -82,16 +86,32 @@ class Users extends CI_Controller
             "Salad" => implode(",", $this->input->post("Salads", TRUE)),
             "Drink" => implode(",", $this->input->post("Drinks", TRUE)),
 
+            "Total_Price" => $this->input->post("price"),
             "Description" => $this->input->post("Description"),
             "Location" => $this->input->post("Location"),
             "Start_time" => $this->input->post("Start_time"),
             "End_time" => $this->input->post("End_time")
         );
+        //?PaymentPage
+        // $data2 = array();
+        // if ($this->isUserLoggedIn) {
+        //     $con = array(
+        //         'id' => $this->session->userdata('userId')
+        //     );
+        //     $data2['user'] = $this->user->getRows($con);
+        //     // $this->load->view('NavBar2');
+        //     $payment_data = array('planet' => $planet   );
+
+        //     $this->load->view('Payment', $payment_data);
+        // }
+        
         //?Put the array of data in the model function
-        $this->Catering_model->insert_data($data);
+        // $this->Catering_model->insert_data($data);
+        $totPrice = $data["Total_Price"];
+        $this->payment($totPrice);
     }
 
-    public function payment()
+    public function payment($totPrice)
     {
         $data = array();
         if ($this->isUserLoggedIn) {
@@ -99,9 +119,22 @@ class Users extends CI_Controller
                 'id' => $this->session->userdata('userId')
             );
             $data['user'] = $this->user->getRows($con);
-            $this->load->view('NavBar2');
+            // $this->load->view('NavBar2');
+            $data['totPrice'] = $totPrice;
             $this->load->view('Payment', $data);
         }
+
+        if($this->input->post("PhoneNo")){
+            $this->account();
+        }
+        
+    }
+
+    public function payParameters(){
+        $totPrice = $this->input->post("TotPrice");
+        $phoneNo = $this->input->post("PhoneNo");
+        $this->load->model('Payment_model');
+        $this->Payment_model->mpesaSendMoney( $phoneNo, $totPrice);
     }
 
     public function login()
