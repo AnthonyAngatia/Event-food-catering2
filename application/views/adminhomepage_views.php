@@ -28,6 +28,7 @@
 			text-align: right;
 			height : 40px;
 			border-bottom: 1px solid #000;
+      background-color: #003366;
 
 	}
 	#nav a 
@@ -172,6 +173,16 @@
       margin-left: 5px;
       margin-right: 5px;
     }
+    #update
+    {
+      background-color: floralwhite;
+      border:3px solid #003366;
+      width:600px;
+      text-align: center;
+      padding :30px;
+      margin-left: 400px;
+      margin-top: 100px;
+    }
 
 </style>
  </head>
@@ -215,16 +226,18 @@
 
 
 
- ?>
+ 
 
  <?php
  if(isset($user_data))
  {
  		
  		?>
- 		<?php echo form_open_multipart('Ahomepage/update_data');?>
+    <form id = "update">
+      <h2> UPDATE FORM</h2>
+ 		<?php echo form_open_multipart('ahomepage/update_data');?>
  			<input type = "hidden" name = "eid">
- 		<label>Food Name </label> <input type = "text" name = "foodName" placeholder="Enter foodname">
+
 		<br><br><br>
 		<label> Food Price</label> <input type = "text" name = "foodPrice" placeholder="Enter food price">
 		<br><br><br>
@@ -233,8 +246,12 @@
 		<br><br><br>
 
 		<label> Food Type</label> <input type = "text" name = "foodType" placeholder="Enter food type">
-		<br><br>
-		<input type = "submit" value = "UPDATE DATA">
+		<br><br><br>
+    <label>Food Name </label> <input type = "text" name = "foodDuration" placeholder="Enter Food Duration">
+    <br><br><br>
+    <label>Food Name </label> <input type = "text" name = "foodName" placeholder="Enter foodname">
+  <br><br><br>
+		<input type = "submit" value = "UPDATE DATA" name = "update">
 	</form>
 
  		<?php
@@ -244,10 +261,13 @@
 	?>
 <table > 
 	<tr>
-		<th> Foodname</th>
-		<th>Foodprice</th>
-		<th>FoodImage</th>	
-		<th>Foodtype</th> 
+		<th> Food Id</th>
+		<th>Food Price</th>
+		<th>Food Image</th>	
+		<th>Food Type</th> 
+    <th>Food Duration</th> 
+    <th>Food Name</th> 
+
 		<th> Delete</th>
 		<th>Edit</th>
 	</tr>
@@ -262,13 +282,15 @@
 	?>
 			<tr>
 
-				<td> <?php echo $row -> foodName; ?> </td>
+				<td> <?php echo $row -> foodID; ?> </td>
 				<td> <?php echo $row -> foodPrice; ?> </td>
-				<td><img src = "<?php echo base_url();?>uploads/<?php echo $row ->foodImage;?>" style = "width :100px; height: 100px;"></td>
+				<td><img src = "<?php echo base_url();?>uploads/<?php echo $row -> foodImage;?>" style = "width :100px; height: 100px;"></td>
 				<td> <?php echo $row -> foodType; ?> </td>
-				<td><a href = "<?php echo site_url();?>/ahomepage/delete_data/<?php echo $row -> id; ?> " onclick = "return confirm('Are you sure ?')"> Delete </td>
+          <td> <?php echo $row -> foodDuration; ?> </td>
+            <td> <?php echo $row -> foodName; ?> </td>
+				<td><a href = "<?php echo site_url();?>/ahomepage/delete_data/<?php echo $row -> foodID; ?> " onclick = "return confirm('Are you sure ?')"> Delete </td>
 					<br>
-				<td><a href = "<?php echo site_url();?>/ahomepage/edit_data/<?php echo $row -> id; ?>" > Edit </td>
+				<td><a href = "<?php echo site_url();?>/ahomepage/edit_data/<?php echo $row -> foodID; ?>" > Edit </td>
 
 			</tr>
 
@@ -283,50 +305,13 @@
 		     <td colspan = "3"> No data was entered </td>
 		 </tr>
 		 <?php
-	
-
-	
 	}
-	?>
-
-		
+	?>		
 </table>
-<div class="Dishes">
-    <div class="Dish1">
-      <img src="<?php echo base_url("/Assets/brocoli.png"); ?>" alt="Dish1" />
 
-
-    </div>
-    <div class="Dish2">
-      <img src="<?php echo base_url("/Assets/cheeseburger.png"); ?>" alt="Dish2" />
-    </div>
-    <div class="Dish3">
-      <img src="<?php echo base_url("/Assets/brocoli.png"); ?>" alt="Dish3" />
-    </div>
-    <div class="Dish4">
-      <img src="<?php echo base_url("/Assets/brocoli.png"); ?>" alt="Dish3" />
-    </div>
-  </div>
-  <div class="Description">
-    <div class="desc1">
-      <h3><?php echo $row->foodName
-          ?></h3>
-      <p>Price : <?php echo $row->foodPrice;?></p>
-    </div>
-    <div class="desc2">
-      <h3><?php echo $row->foodName;?></h3>
-      <p>Price: <?php echo $row->foodPrice;?></p>
-    </div>
-    <div class="desc3">
-      <h3>Brocoli</h3>
-      <p>Price</p>
-    </div>
-    <div class="desc4">
-      <h3>Brocoli</h3>
-      <p>Price</p>
-    </div>
-  </div>
-
+<br>
+<br>
+ 
 <br><br><br>
 <div id = "menu">
 <a onclick ="window.location.replace('Admin')" ><button> ADD TO MENU </button></a>

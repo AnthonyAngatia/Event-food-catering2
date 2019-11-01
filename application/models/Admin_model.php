@@ -4,34 +4,34 @@
   {
   		public function insert_data($data)
   		{ 
-  			$this ->db -> insert("food_products",$data);
+  			$this ->db -> insert("fooditems",$data);
 
   		}
       
   		public function fetch_data()
   		{   $this->load->database();
-  			$query = $this ->db->get("food_products");
+  			$query = $this ->db->get("fooditems");
   			return $query;
   		}
-  		public function delete_data($id)
+  		public function delete_data($foodID)
       { 
         
-        $this->db->delete('food_products', array('id' => $id));
+        $this->db->delete('fooditems', array('FoodID' => $foodID));
       
       }
-      public function fetch_single_data($id)
+      public function fetch_single_data($foodID)
       {
         
-        $this->db->where("id",$id);
-        $query = $this->db->get("food_products",$id);
+        $this->db->where("foodID",$foodID);
+        $query = $this->db->get("fooditems",$foodID);
         return $query ;
-        
+      
         
       }
      
       public function File_upload()
       {
-        $this-> db-> insert('food_products',$data);
+        $this-> db-> insert('fooditems',$data);
         if($qry)
         {
           echo "File Upload Success";
@@ -41,12 +41,13 @@
           echo "File Upload Error";
         }
       }
-      public function updateuserbyid($data,$id)
+
+      public function update_id($foodID)
       {
         $this->load->database();
-        $this->db->where('id',$id);
-        $this->db->set("food_products",$data);
-        return true; 
+        $this->db->where('foodID',$foodID);
+        $this->db->update("fooditems",$data);
+       
       }
 
 

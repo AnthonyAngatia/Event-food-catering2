@@ -2,10 +2,15 @@
 <html>
 <head> 
 	<style>
+
 	* {
       box-sizing: border-box;
       margin: 0;
       padding: 0px;
+    }
+    body
+    {
+      background-color: floralwhite;
     }
 
     h1 {
@@ -66,7 +71,16 @@
     button:hover {
       color: powderblue;
     }
+    .insert
+    {
+      border:9px solid #003366;
+      width:600px;
+      margin-left: 400px;
+      margin-top: 200px;
+      padding:30px;
+      text-align: center;
 
+    }
 	</style>
 </head>
  <header class="header">
@@ -83,9 +97,8 @@
     <a class="About us" href=""><button>About us</button></a>
   </div>
 <body>
-	<form method = "post" action = "admin/form_validation">
-<label>Food Name </label> <input type = "text" name = "foodName" placeholder="Enter foodname">
-<br><br><br>
+	<form method = "post" action = "admin/form_validation" class = "insert">
+<br>
 <label> Food Price</label> <input type = "text" name = "foodPrice" placeholder="Enter food price">
 <br><br><br>
 <?php echo form_open_multipart('Admin/do_upload');?>
@@ -93,6 +106,11 @@
 <br><br><br>
 
 <label> Food Type</label> <input type = "text" name = "foodType" placeholder="Enter food type">
+<br><br><br>
+<label> Food Duration</label> <input type = "text" name = "foodDuration" placeholder="Enter food type">
+<br><br><br>
+<label> Food Name</label> <input type = "text" name = "foodName" placeholder="Enter food type">
+
 <br><br>
 <input type = "submit" value = "insert">
 

@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title> MENU</title>
+	<title>CATERING PAGE</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <style>
-    * {
+	<style>
+		* {
       box-sizing: border-box;
-      margin: 0;s
+      margin: 0;
       padding: 0px;
     }
 
@@ -71,23 +71,17 @@
     button:hover {
       color: powderblue;
     }
-    .h3
-    {
-      text-align: center;
-    }
 
-  </style>
+	</style>
 </head>
 <body>
-
-   <header class="header">
-      <img class= "logo" src ="<?php echo base_url('Assets/logo.jpg'); ?>" />
+	 <header class="header">
+    <img class="logo" src="<?php echo base_url('Assets/logo.jpg'); ?>" />
     <h1>Taste of Africa</h1>
     <a class="login" href="#" onclick="window.location.replace('users/login');"><button>Login</button></a>
 
     <a class="Sign-up" href="#" onclick="window.location.replace('users/registration');"><button>Sign up</button></a>
   </header>
-
   <div class="nav">
     <a class="Category" href=""><button>Category</button></a>
     <a class="Order" href=""><button>Order</button></a>
@@ -109,38 +103,53 @@
 </div>
 <br>
 <br>
-     
-      <p class="h3">TASTE OF AFRICA MENU</p>
 <br>
 <table class="table">
   <thead class="thead-light">
     <tr>
-      <th scope="col">Food ID</th>
-      <th scope="col">Food Price</th>
-      <th scope="col">Food Image</th>
-      <th scope="col">Food Type</th>
-      <th scope="col">Food Duration</th>
-      <th scope="col">Food Name</th>
+     
 
- 
+      <th scope="col">Catering ID</th>
+      <th scope="col">Number of People</th>
+      <th scope="col">Carbohydrate</th>
+      <th scope="col">Protein</th>
+      <th scope="col">Salad</th>
+      <th scope="col">Drink</th>
+      <th scope="col">Description</th>
+      <th scope="col">Location</th>
+      <th scope="col">Start Time</th>
+      <th scope="col">End Time</th>
+      <th scope="col">Order Time</th>
+      <th scope="col">User Id</th>
+
+
+
     </tr>
   </thead>
-  <tbody> 
+  <tbody>
     <?php   
-    $fetch_data = $this-> Menu_model ->fetch_data();
+    $fetch_data = $this-> Cateringe_model ->fetch_data();
     if($fetch_data->num_rows() > 0)
   {
     foreach($fetch_data -> result() as $row)
     {
   ?>
       <tr>
-        <td><?php echo $row -> foodID;?> </td>
-        <td> <?php echo $row -> foodPrice; ?> </td>
-       
-        <td><img src = "<?php echo base_url();?>uploads/<?php echo $row ->foodImage;?>" style = "width :100px; height: 100px;"></td>
-        <td> <?php echo $row -> foodType; ?> </td>
-        <td> <?php echo $row -> foodDuration; ?> </td>
-        <td> <?php echo $row -> foodName; ?> </td>
+        <td><?php echo $row -> Catering_id;?> </td>
+        <td> <?php echo $row -> No_of_people; ?> </td>
+        <td> <?php echo $row -> Carbohydrate; ?> </td>
+        <td> <?php echo $row -> Protein; ?> </td>
+        <td> <?php echo $row -> Salad; ?> </td>
+        <td> <?php echo $row -> Drink; ?> </td>
+        <td> <?php echo $row -> Description; ?> </td>
+        <td> <?php echo $row -> Location; ?> </td>
+        <td> <?php echo $row -> Start_time; ?> </td>
+        <td> <?php echo $row -> End_time; ?> </td>
+        <td> <?php echo $row -> Order_Time; ?> </td>
+        <td> <?php echo $row -> User_Id; ?> </td>
+
+
+
 
             </tr>
 
@@ -162,15 +171,13 @@
   ?>  
 
 
-    
-  
+   
+
+
   </tbody>
 </table>
 
-<a onclick ="window.location.replace('Ahomepage')" ><button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Edit The Menu </button></a>
-
-<a onclick ="window.location.replace('Admin')" ><button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Add Food To Menu </button></a>
-
 
 </body>
+
 </html>

@@ -5,7 +5,7 @@
   	
   		public function fetch_data()
   		{
-  			$query = $this ->db->get("food_products");
+  			$query = $this ->db->get("fooditems");
   			return $query;
   		}
 

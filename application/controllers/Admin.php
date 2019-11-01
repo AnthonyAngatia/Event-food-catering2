@@ -46,10 +46,12 @@ class Admin extends CI_Controller
 	{
 
 		$this-> load->library('form_validation');
-		$this-> form_validation->set_rules("foodName","Food Name",'required');
 		$this-> form_validation->set_rules("foodPrice","Food Price",'required');
 		$this-> form_validation->set_rules("foodImage","Food Image",'required');
 		$this-> form_validation->set_rules("foodType","Food Type",'required');
+		$this-> form_validation->set_rules("foodDuration","Food Type",'required');
+		$this-> form_validation->set_rules("foodName","Food Type",'required');
+
 
 		if($this-> form_validation-> run())
 		{
@@ -57,11 +59,12 @@ class Admin extends CI_Controller
 		
    			
 			$data = array(
-			"foodName" => $this -> input-> post ("foodName"),
 			"foodPrice" => $this -> input-> post ("foodPrice"),
-
 			"foodImage" => $this -> input-> post ("foodImage"),
-			"foodType" => $this -> input-> post ("foodType"));
+			"foodType" => $this -> input-> post ("foodType"),
+			"foodDuration" => $this -> input-> post ("foodDuration"),
+			"foodName" => $this -> input-> post ("foodName"));
+
 			  $this -> admin_model -> insert_data($data);
 			  redirect('Ahomepage','refresh');
 			

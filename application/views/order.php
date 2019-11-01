@@ -107,16 +107,52 @@
 <table class="table">
   <thead class="thead-light">
     <tr>
+     
+
       <th scope="col">order ID</th>
       <th scope="col">Order Status</th>
       <th scope="col">Order Duration</th>
       <th scope="col">Order Price</th>
-      <th scope="col">User Id</th>
-        <th scope="col">Date</th>
-      <th scope="col">Time</th>
+      <th scope="col">Date of Order</th>
+      <th scope="col">User ID</th>
     </tr>
   </thead>
   <tbody>
+    <?php   
+    $fetch_data = $this-> Order_model ->fetch_data();
+    if($fetch_data->num_rows() > 0)
+  {
+    foreach($fetch_data -> result() as $row)
+    {
+  ?>
+      <tr>
+        <td><?php echo $row -> orderID;?> </td>
+        <td> <?php echo $row -> orderStatus; ?> </td>
+        <td> <?php echo $row -> orderDuration; ?> </td>
+        <td> <?php echo $row -> orderPrice; ?> </td>
+        <td> <?php echo $row -> dateCreated; ?> </td>
+        <td> <?php echo $row -> userID; ?> </td>
+
+            </tr>
+
+      <?php
+
+    }
+  } 
+  else
+  {
+  ?>
+    <tr>
+         <td colspan = "3"> No data was entered </td>
+     </tr>
+     <?php
+  
+
+  
+  }
+  ?>  
+
+
    
 
 
