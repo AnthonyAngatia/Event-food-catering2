@@ -67,5 +67,15 @@ class User extends CI_Model{
             return $insert?$this->db->insert_id():false; 
         } 
         return false; 
-    } 
+    }
+    
+    public function saveSessionVars($userEmail){
+        $selectUserDetails = $this->db->query("SELECT * FROM users WHERE email = '$userEmail'");
+        $userDetails = $selectUserDetails->result_array();
+        $_SESSION["userID"] = $userDetails[0]["id"];
+        $_SESSION["userFname"] = $userDetails[0]["first_name"];
+        $_SESSION["userLname"] = $userDetails[0]["last_name"];
+        $_SESSION["userEmail"] = $userDetails[0]["email"];
+        $_SESSION["userPhone"] = $userDetails[0]["phone"]; 
+    }
 }

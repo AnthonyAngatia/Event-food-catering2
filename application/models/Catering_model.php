@@ -48,6 +48,9 @@ Location VARCHAR(30) NOT NULL,
 Start_time VARCHAR(30) NOT NULL,
 End_time VARCHAR(30) NOT NULL
 )
+ALTER TABLE `catering` ADD `Order_Time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER `End_time`;
+ALTER TABLE catering ADD User_Id INT
+ALTER TABLE `catering` ADD `Total_Price` INT NOT NULL AFTER `User_Id`;  
     */
     public function insert_data($data)
     {

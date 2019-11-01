@@ -10,60 +10,83 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Taste of Africa</title>
     <style>
+        @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0px;
+            font-family: 'Montserrat', sans-serif;
+            color: #333333;
         }
+
         h1 {
-            text-align: center;
+            /* text-align: center; */
         }
+
         header {
             display: flex;
             justify-content: flex-end;
+
+
         }
+
+        header a {
+            margin-top: -10px;
+            margin-right: auto;
+        }
+
         .logo {
             height: 60px;
             width: 60px;
-            border: 1px solid tomato;
-            margin-right: auto;
             padding: 5px;
+
         }
+
         .header h1 {
-            font-family: cursive;
             margin-right: auto;
+            margin-top: 15px;
             padding: 5px;
+
         }
+
+
         .Sign-up button {
-            border: 1px solid #003366;
-            color: #003366;
+            border: 1px solid #002147;
+            color: #002147;
             padding: 7px;
             border-radius: 50px;
             cursor: pointer;
             background-color: white;
         }
+
         a {
             padding: 15px;
         }
+
         .nav {
             display: flex;
             justify-content: space-evenly;
-            background-color: #003366;
+            background-color: #002147;
         }
+
         button {
             border: 1px solid aliceblue;
             border-radius: 50px;
-            background-color: #003366;
+            background-color: #002147;
             padding: 7px;
             color: white;
             cursor: pointer;
         }
+
         button:hover {
             color: powderblue;
         }
+
         .mySlides {
             display: none;
         }
+
         /* Slideshow container */
         .slideshow-container {
             max-width: 100%;
@@ -72,9 +95,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
             max-height: 900px;
             background-color: #ddd;
         }
+
         .mySlides img {
             max-height: 610px;
         }
+
         /* Caption text */
         .text {
             color: #f2f2f2;
@@ -85,11 +110,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
             width: 100%;
             text-align: center;
         }
+
         .text button {
             font-size: 24px;
             border-radius: 0px;
             width: 150px;
         }
+
         /* Number text (1/3 etc) */
         .numbertext {
             color: #f2f2f2;
@@ -98,6 +125,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             position: absolute;
             top: 0;
         }
+
         /* The dots/bullets/indicators */
         .dot {
             height: 15px;
@@ -108,9 +136,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
             display: inline-block;
             transition: background-color 0.6s ease;
         }
+
         .active {
             background-color: #717171;
         }
+
         /* Fading animation */
         .fade {
             -webkit-animation-name: fade;
@@ -118,28 +148,34 @@ defined('BASEPATH') or exit('No direct script access allowed');
             animation-name: slide;
             animation-duration: 0.5s;
         }
+
         @-webkit-keyframes fade {
             from {
                 opacity: 0.4;
             }
+
             to {
                 opacity: 1;
             }
         }
+
         @keyframes fade {
             from {
                 opacity: 0.4;
             }
+
             to {
                 opacity: 1;
             }
         }
+
         /* On smaller screens, decrease text size */
         @media only screen and (max-width: 300px) {
             .text {
                 font-size: 11px;
             }
         }
+
         /*  @media (min-width: 768px) */
         .Dishes {
             display: grid;
@@ -149,11 +185,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
             margin-left: 5px;
             margin-right: 5px;
         }
+
         .Dishes img {
             max-height: 300px;
             height: 100%;
             width: 100%;
         }
+
         .Extras {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
@@ -162,14 +200,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
             margin-left: 5px;
             margin-right: 5px;
         }
+
         .Extras img {
             max-height: 300px;
             height: 100%;
             width: 100%;
         }
+
         .Extras div {
             background-color: #ddd;
         }
+
         .Description {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
@@ -178,6 +219,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             margin-left: 5px;
             margin-right: 5px;
         }
+
         .Description 2 {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
@@ -186,64 +228,193 @@ defined('BASEPATH') or exit('No direct script access allowed');
             margin-left: 5px;
             margin-right: 5px;
         }
+
         .Dishes div {
             background-color: #ddd;
         }
+
         .Description div {
             background-color: #dddd;
             box-shadow: 0 8px 6px -6px black;
             padding: 2em;
         }
+
         .Description2 div {
             background-color: #dddd;
             box-shadow: 0 8px 6px -6px black;
             padding: 2em;
         }
-        footer {
-            margin-top: 1em;
-            background-color: #003366;
+
+        .full {
+            width: 100%;
+        }
+
+        .gap {
+            height: 30px;
+            width: 100%;
+            clear: both;
+            display: block;
+        }
+
+        .footer {
+            background: #002147;
+            height: auto;
+            padding-bottom: 30px;
+            position: relative;
+            width: 100%;
+            border-bottom: 1px solid #CCCCCC;
+            border-top: 1px solid #DDDDDD;
+        }
+
+        .footer p {
+            margin: 0;
+        }
+
+        .footer img {
+            max-width: 100%;
+        }
+
+        .footer h3 {
             color: white;
-            text-align: center;
-            font-size: 24px;
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 27px;
+            padding: 40px 0 0px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .footer h4 {
+            color: white;
+            font-size: 2em;
+            font-weight: 600;
+            line-height: 38px;
+            padding: 40px 0 10px;
+            font-family: cursive;
+            font-weight: lighter
+        }
+
+        .footer ul {
+            font-size: 13px;
+            list-style-type: none;
+            margin-left: 0;
+            padding-left: 0;
+            margin-top: 0px;
+            color: #7F8C8D;
+            padding: 0 0 8px 0;
+        }
+
+        .email {
+            border-bottom: 3px solid #fff;
+        }
+
+        .footer ul li a {
+            padding: 0 0 12px 0;
+            display: block;
+        }
+
+        .footer a {
+            color: white;
+            font-weight: lighter;
+        }
+
+        .footer p {
+            color: white;
+            font-weight: lighter;
+            font-size:
+        }
+
+        .footer a:hover {
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .supportLi h4 {
+            font-size: 20px;
+            font-weight: lighter;
+            line-height: normal;
+            margin-bottom: 0 !important;
+            padding-bottom: 0;
+        }
+
+        .bg-gray {
+            background-image: -moz-linear-gradient(center bottom, #BBBBBB 0%, #F0F0F0 100%);
+            box-shadow: 0 1px 0 #B4B3B3;
+        }
+
+        }
+
+        .footer a {
+            color: #78828D
+        }
+
+        .footer-bottom {
+            margin-top: 2em;
+            border-top: 1px solid #DDDDDD;
+            padding-top: 20px;
+            padding-bottom: 10px;
+        }
+
+        .footer-bottom p.pull-left {
+            padding-top: 6px;
+            font-size: 0.75em
+        }
+        .card-wrap {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+          grid-column-gap: 1em;
+          font-family: 'Source Sans Pro', sans-serif;
+          grid-auto-rows: minmax(300px, auto);
+          color: #333333;
+        }
+        .card-wrap img {
+          max-height: 300px;
+          height: 100%;
+          width: 100%;
+        }
+        .card-wrap > div {
+          background-color: #dddddd;
+          box-shadow: 0 8px 6px -6px black;
+        }
+        .card-wrap h4,
+        p {
+          padding-left: 1em;
+        }
+        .checkbox-input {
+          display: flex;
+          justify-content: space-between;
         }
     </style>
 </head>
 
 <body>
-    <!--Header-->
-    <header class="header">
-        <img class="logo" src="<?php echo base_url("Assets/logo.jpg"); ?>" />
-        <h1>Taste of Africa</h1>
-        <div id="sessionVariable">
-        <img class="logo" src="<?php echo base_url("Assets/PRO.png"); ?>" />
-        <p><b><?php echo $user['first_name'].' '.$user['last_name']; ?></b></p>
-        <a href="<?php echo base_url('index.php/Users/login'); ?>"> Log Out </a>
-        </div>
-
-    </header>
-    <div class="nav">
-        <a href="<?php echo site_url('catering')  ?>"><button>Catering</button></a>
-        <a class="Order" href=""><button>Order</button></a>
-        <a class="Cart" href=""><button>Cart</button></a>
-        <a class="About us" href=""><button>About us</button></a>
-    </div>
+    <!-- <div class="nav">
+        <a href="<?php //echo site_url('catering')  
+                    ?>"><button>Catering</button></a>
+        <a class="Order" href="<? php // echo site_url('order')  
+                                ?>"><button>Order</button></a>
+        <a class="Cart" href="<? php // echo site_url('cart')  
+                                ?>"><button>Cart</button></a>
+        <a class="About us" href="<?php //echo site_url('catering')  
+                                    ?>"><button>Past Orders</button></a>
+    </div> -->
     <!--SlideShow-->
     <div class="slideshow-container">
         <div class="mySlides ">
             <img src="<?php echo base_url("/Assets/brocoli.png"); ?>" style="width:100%;" />
-            <div class="text"><a href="#" onclick="window.location.replace('MenuC');"><button>Menu</button></a></div>
+            <div class="text"><a href="<?php echo site_url('menu')  ?>"><button>Menu</button></a></div>
         </div>
 
         <div class="mySlides ">
             <img src="<?php echo base_url("/Assets/chicken.png"); ?>" style="width:100%;
           " />
-            <div class="text"><a href="#" onclick="window.location.replace('MenuC');"><button>Menu</button></a></div>
+            <div class="text"><a href="<?php echo site_url('menu')  ?>"><button>Menu</button></a></div>
         </div>
 
         <div class="mySlides ">
             <img src="<?php echo base_url("/Assets/cheeseburger.png"); ?>" style="width:100%; ;
 " />
-            <div class="text"><a href="#" onclick="window.location.replace('MenuC');"><button>Menu</button></a></div>
+            <div class="text"><a href="<?php echo site_url('menu')  ?>"><button>Menu</button></a></div>
         </div>
     </div>
     <br />
@@ -255,21 +426,65 @@ defined('BASEPATH') or exit('No direct script access allowed');
     </div>
     <!--Foods-->
     <h1 style="margin: 1em">Dishes</h1>
-    <div class="Dishes">
+    <!-- <div class="Dishes">
         <div class="Dish1">
-            <img src="<?php echo base_url("/Assets/brocoli.png"); ?>" alt="Dish1" />
-        </div>
+             <img src="<?php //echo base_url("/Assets/brocoli.png"); ?>" alt="Dish1" /> -->
+        <!-- </div>
         <div class="Dish2">
-            <img src="<?php echo base_url("/Assets/cheeseburger.png"); ?>" alt="Dish2" />
+            <img src="<?php //echo base_url("/Assets/cheeseburger.png"); ?>" alt="Dish2" />
         </div>
         <div class="Dish3">
-            <img src="<?php echo base_url("/Assets/brocoli.png"); ?>" alt="Dish3" />
-        </div>
+            <img src="<?php //echo base_url("/Assets/brocoli.png"); ?>" alt="Dish3" />
+        </div> 
+    </div> -->
+
+  
+
+
+ 
+<!--Outer Div-->
+<!-- <div style = "background-color: white; color: #003366; border: 1px solid white;border-radius: 25px;"><br><br><br> -->
+
+<div class="card-wrap">
+    <?php  
+        //print_r($menuItems);
+        foreach ($menuItems as $row) { 
+    ?>
+
+    <div class="card">
+        <form action ="<?php echo site_url("saveHomePicked")?>" method="post">
+            <img src="<?php echo base_url('uploads/' . $row['foodImage']);  ?>" height = "100" width = "100">
+            <div class="info" style = "font-style: oblique">    
+                <h2> <?php echo $row['foodName'] ?></h2><br>
+                <h3> Sh <?php echo $row['foodPrice'] ?></h3><br>
+                <div class="checkbox-input">
+
+                    <h3> Duration: <?php echo $row['foodDuration']; ?> minutes</h3>
+                    <input type="hidden" name="homeFoodPicked" value = "<?php echo $row['foodName']; ?>">
+                    <input
+                        type =  "submit"
+                        name =  "<?php $row['foodName']; ?>"
+                        value = "submit"
+                        id=""
+                        style="width:30px;height:30px;"
+                    />
+                </div><br>
+
+            </div>
+        </form >
     </div>
 
+    <?php
+        }
+    ?>
+</div>
 
 
-    <div class="Description">
+
+
+<!-- </div> -->
+
+    <!-- <div class="Description">
         <div class="desc1">
             <h3>Brocoli</h3>
             <p>Price</p>
@@ -296,25 +511,93 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <div class="Extra3">
             <img src="<?php echo base_url("/Assets/QualityFood.jpg"); ?>" alt="Extra3" />
         </div>
-    </div>
+    </div> -->
 
-    <div class="Description">
+    <!-- <div class="Description">
         <div class="desc1">
             <h1>Catering Services</h1>
 
-            <button style=" margin:1em; padding:1em;"><a href="" style="text-decoration:none; color:white ">Find out more</a></button>
+            <button style=" margin:1em; padding:1em;"><a href="" style="text-decoration:none; color:white ">Find out
+                    more</a></button>
         </div>
         <div class="desc2">
             <h1>Zero Waiting time</h1>
-            <button style=" margin:1em; padding:1em;"><a href="" style="text-decoration:none; color:white ">Find out more</a></button>
+            <button style=" margin:1em; padding:1em;"><a href="" style="text-decoration:none; color:white ">Find out
+                    more</a></button>
         </div>
         <div class="desc3">
             <h1>Quality Food</h1>
-            <button style=" margin:1em; padding:1em;"><a href="" style="text-decoration:none; color:white ">Find out more</a></button>
+            <button style=" margin:1em; padding:1em;"><a href="" style="text-decoration:none; color:white ">Find out
+                    more</a></button>
         </div>
-    </div>
+    </div> -->
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <footer>
-        <p>CopyRight &copy; 2019</p>
+        <div class="footer" id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <h4> Taste of Africa </h4>
+                    </div>
+                    <div class="col-lg-3 col-sm-2 col-xs-3">
+                        <h3> Contact </h3>
+                        <ul>
+                            <li><a class="email" href="#"> TasteOfAfrica@gmail.com </a></li>
+                            <br />
+                            <li>
+                                <p>0700000000 </p>
+                            </li>
+                            <li>
+                                <p> 0700000000 </p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-sm-2 col-xs-3">
+                        <ul>
+                            <li>
+                                <h5> <a href="#" style="margin-top: 5em"> ABOUT US</a>
+                                    <h5>
+                            </li>
+                            <li>
+                                <h5><a href="#"> CURRENT SERIES </a>
+                                    <h5>
+                            </li>
+                            <li>
+                                <h5><a href="#"> THE HOUSE </a>
+                                    <h5>
+                            </li>
+                            <li>
+                                <h5><a href="#"> LOOKING BACK </a>
+                                    <h5>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!--/.row-->
+                </div>
+                <!--/.container-->
+            </div>
+            <!--/.footer-->
+
+            <div class="footer-bottom">
+                <div class="container">
+                    <p class="pull-left copyright"> Copyright © Footer 2019. All right reserved. </p>
+
+                </div>
+            </div>
+            <!--/.footer-bottom-->
+
     </footer>
 
     <script>
@@ -323,6 +606,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         }
         var slideIndex = 0;
         showSlides();
+
         function showSlides() {
             var i;
             var slides = document.getElementsByClassName("mySlides");

@@ -1,64 +1,91 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-    echo("
+echo ("
         <!DOCTYPE html>
         <html>
         <head>
-			<link rel = 'stylesheet' type = 'text/css' href = 'MenuV.css'></link>
-		<meta charset='UTF-8' />
-		<meta name='viewport' content='width=device-width, initial-scale=1.0' />
-		<meta http-equiv='X-UA-Compatible' content='ie=edge' />
+        <link rel = 'stylesheet' type = 'text/css' href = 'MenuV.css'></link>
+        <meta charset='UTF-8' />
+        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+        <meta http-equiv='X-UA-Compatible' content='ie=edge' />
 		<title>Taste of Africa</title>	
 	<style>
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0px;
-      }
-      header {
-        display: flex;
-        justify-content: flex-end;
-        border: 1px solid greenyellow;
-      }
+  @import url('https://fonts.googleapis.com/css?family=Montserrat:300&display=swap');
 
-      .logo {
-        height: 60px;
-        width: 60px;
-        border: 1px solid tomato;
-        margin-right: auto;
-        padding: 5px;
-      }
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0px;
+    font-family: 'Montserrat', sans-serif;
+    color: #333333;
+  }
 
-      .Sign-up button {
-        border: 1px solid #003366;
-        color: #003366;
-        padding: 7px;
-        border-radius: 50px;
-        cursor: pointer;
-        background-color: white;
-      }
-      a {
-        padding: 15px;
-      }
-      .nav {
-        border: 1px solid greenyellow;
-        display: flex;
-        justify-content: space-evenly;
-        background-color: #003366;
-      }
+  header {
+    display: flex;
+    justify-content: flex-end;
 
-      button {
-        border: 1px solid aliceblue;
-        border-radius: 50px;
-        background-color: #003366;
-        padding: 7px;
-        color: white;
-        cursor: pointer;
-      }
-      button:hover {
-        color: powderblue;
-      }
+
+  }
+
+  header a {
+    margin-top: -10px;
+    margin-right: auto;
+  }
+
+  .logo {
+    height: 60px;
+    width: 60px;
+    padding: 5px;
+    cursor: pointer;
+
+  }
+
+  .header h1 {
+    margin-right: auto;
+    margin-top: 15px;
+    padding: 5px;
+
+  }
+
+  .Sign-up button {
+    border: 1px solid #003366;
+    color: #003366;
+    padding: 7px;
+    border-radius: 50px;
+    cursor: pointer;
+    background-color: white;
+  }
+
+  a {
+    padding: 15px;
+  }
+
+  .nav {
+
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #003366;
+  }
+
+  .nav button {
+    border: 1px solid aliceblue;
+    border-radius: 20px;
+    background-color: #003366;
+    padding: 7px;
+    color: white;
+    cursor: pointer;
+  }
+
+  .nav button:hover {
+    color: white;
+    border-color: #5a6268;
+    border: 2px solid white;
+  }
+  #session-data{
+    cursor: pointer;
+  }
+
 
 		#customers {
 		font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif;
@@ -81,7 +108,38 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		text-align: left;
 		background-color: #003366;
 		color: white;
-		}
+    }
+    #checkout {
+      cursor: pointer;
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      padding: 5px 5px;
+      border: none;
+      height: 60px;
+      width: 160px;
+    }
+
+    #checkout:hover {
+      border: 2px solid white;
+    }
+    #delete{
+      background-color: #003366;
+       color: white; 
+       text-align: center; 
+       padding: 5px 5px; 
+       border: none; 
+       height: 40px; 
+       min-width: 90px;
+    }
+    #delete:hover{
+      cursor:pointer;
+      border:2px solid red;
+      border-radius:10px;
+      border-color:red;
+      font-size:11pt;
+      
+    }
 
 		
 		
@@ -91,21 +149,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <body>
 		
 			<!--Navbar-->
-			<header>
-				<img class='logo' src='/Assets/Logo.jpg' alt='logo' />
-				<a class='login' href=''><button>Login</button></a>
-				<a class='Sign-up' href=''><button>Sign up</button></a>
-			</header>
-			<div class='nav'>
-				<a class='Category' href=''><button>Category</button></a>
-				<a class='Order' href=''><button>Order</button></a>
-				<a class='Cart' href=''><button>Cart</button></a>
-				<a class='About us' href=''><button>About us</button></a>
-			</div>
+			
+
             
 
             <!--Menu Heading-->
-            <div align = 'center' style = 'color: #003366;font-style: oblique'><h1>Cart</h1></div>
+            <div align = 'center' style = 'color: #003366; margin-top:1em;'><h1>Cart</h1></div><br>
 
             <!--Cart Items-->
             <form action='CartC/saveCartData' method='post' align = 'center' style = 'color: #003366;'>
@@ -116,51 +165,55 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <th>Unit Price</th>
                 <th>Preparation Duration</th>
                 <th>Quantity</th>
+                <th></th>
   	            
               </tr>
             ");
-            foreach ($cartItems as $row)
-            {
-             echo("
+if (!empty($cartItems)) {
+  for ($i = 0; $i < count($cartItems); $i++) {
+    echo ("
               
               <tr>
-                <td>" .$row['foodName']                                           ."</td>
-                <td>" ."Sh " .$row['foodPrice']                                   ."</td>
-                <td>" .$row['foodDuration'] ." minutes"                           ."</td>
-	              <td>" ."<input type = 'text' name = 'quantity' style = 'text-align: center; width: 70px;' >"                ."</td>
+                <td>" . $cartItems[$i][0]['foodName']                                           . "</td>
+                <td>" . "Sh " . $cartItems[$i][0]['foodPrice']                                   . "</td>
+                <td>" . $cartItems[$i][0]['foodDuration'] . " minutes"                           . "</td>
+                <td>" . "<input type = 'number' name = '" . $cartItems[$i][0]['foodName'] . "' style = 'text-align: center; width: 80px; height: 30px; ' >"  . "</td>
+                <td> <!--<form action = 'CartC/deleteCartItem' method = 'post'>-->
+                        <input id = 'delete' type = 'submit' name = 'Delete' value = 'Delete' style = ''>
+                        <input type = 'hidden' name = 'cartItemToDelete' value = '" . $cartItems[$i][0]['foodName'] . "'/>
+                      <!--</form>-->
+                </td>
               
               </tr>
               ");
-            }
+  }
+}
 
-            echo("
+
+echo ("
             
-            </table><br>
+            </table><br><br><br><br>
+            ");
 
-					
-					  <input type = 'submit' name = 'Checkout' value = 'Checkout' style = 'font-style: oblique;background-color: #003366; color: white; text-align: center; padding: 5px 5px; border: none; height: 60px; width: 70px; border-radius: 25px;' >
+if (!empty($cartItems)) {
+
+  echo ("
+
+  <button id='checkout'><input type = 'submit' name = 'Checkout' value = 'Checkout' style='background-color: #003366; color: white; border:none; cursor:pointer;'></button>
+					  
 					
           </form>
-              ");
+        ");
+}
 
 
-		
 
-    
-			echo(
-			'<!--Footnote-->
+
+
+echo ('<!--Footnote-->
 			
 
     
       </body>
     </html>
-          ');  
-
-
-
-
-?>
-
-
-
-
+          ');

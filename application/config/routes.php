@@ -53,3 +53,16 @@ $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['catering'] = 'Users/cater';
+$route['menu'] = 'MenuC';
+$route['cart'] = 'CartC';
+$route['Home'] = 'Users/account';//todo Homepage logged in
+$route['HomeU'] = 'Homepage';// NOT LOOGEG IN
+$route['order'] = 'OrderC';
+$route['OrderHistory'] = 'viewPastOrdersC';
+$route['PayModel'] = 'Users/payParameters';
+$route['saveHomePicked'] = 'MenuC/saveHomeFoodPicked';
+
+
+
+
+

@@ -12,6 +12,7 @@ class Users extends CI_Controller
         $this->load->library('form_validation');
         $this->load->model('user');
         $this->load->library('session');
+        // $this->load->payment();
 
 
         // User login status 
@@ -36,11 +37,17 @@ class Users extends CI_Controller
             );
             $data['user'] = $this->user->getRows($con);
 
-            // Pass the user data and load view 
+            // Pass the user data and load view
+
+            //Getting menu items from db
+            $this->load->model("menuM");
+            $data["menuItems"] = $this->menuM->returnMenuItems();
             $this->load->view('elements/header', $data);
+            $this->load->view('Navbar2', $data);
             $this->load->view('users/account', $data);
             $this->load->view('elements/footer');
         } else {
+            // $this->load->view('Navbar1');
             redirect('users/login');
         }
     }
@@ -54,9 +61,12 @@ class Users extends CI_Controller
             );
             $data['user'] = $this->user->getRows($con);
 
+            $this->load->model("orderM");   
             // Pass the user data and load view 
-
+            $this->load->view('NavBar2', $data);
             //$this->load->view('elements/header', $data);
+            $data["userID"] = $con['id'];
+            //echo $con['id'];
             $this->load->view('users/CateringV', $data);
             $this->load->view('elements/footer');
         } else {
@@ -65,56 +75,72 @@ class Users extends CI_Controller
         /*!Inserting to DB*/
         // putting_data();
     }
-    public function putting_data2(){
+    public function putting_data2()
+    {
         //?Load the model class
         $this->load->model("Catering_model");
-$data = array(
-            "No_of_people"=>$this->input->post("No_of_people"),
-            "Carbohydrate"=>implode("," , $this->input->post("Carbohydrates", TRUE)),
-            "Protein"=>implode(",", $this->input->post("Proteins", TRUE)),
-            "Salad"=>implode(",", $this->input->post("Salads", TRUE)),
-            "Drink"=>implode(",", $this->input->post("Drinks", TRUE)),
+        $data = array(
+            "No_of_people" => $this->input->post("No_of_people"),
+            "Carbohydrate" => implode(",", $this->input->post("Carbohydrates", TRUE)),
+            "Protein" => implode(",", $this->input->post("Proteins", TRUE)),
+            "Salad" => implode(",", $this->input->post("Salads", TRUE)),
+            "Drink" => implode(",", $this->input->post("Drinks", TRUE)),
 
-            "Description"=>$this->input->post("Description"),
-            "Location"=>$this->input->post("Location"),
-            "Start_time"=>$this->input->post("Start_time"),
-            "End_time"=>$this->input->post("End_time")
-);
-//?Put the array of data in the model function
-$this->Catering_model->insert_data($data);
+            "Total_Price" => $this->input->post("price"),
+            "Description" => $this->input->post("Description"),
+            "Location" => $this->input->post("Location"),
+            "Start_time" => $this->input->post("Start_time"),
+            "End_time" => $this->input->post("End_time")
+        );
+        //?PaymentPage
+        // $data2 = array();
+        // if ($this->isUserLoggedIn) {
+        //     $con = array(
+        //         'id' => $this->session->userdata('userId')
+        //     );
+        //     $data2['user'] = $this->user->getRows($con);
+        //     // $this->load->view('NavBar2');
+        //     $payment_data = array('planet' => $planet   );
 
+        //     $this->load->view('Payment', $payment_data);
+        // }
+        
+        //?Put the array of data in the model function
+        // $this->Catering_model->insert_data($data);
+        $totPrice = $data["Total_Price"];
+        $this->payment($totPrice);
     }
-    // TODO:public function putting_data()
-    // {
-    //     $data = $formData = array();
-    //     //$this->load->model("Catering_model");
-    //     if ($this->input->post('caterSubmit')) {
-    //         //echo $this->input->post();
-    //         $formData = $this->input->post('Carbohydrates');
-    //         print_r($formData);
-    //         $data = array(
-    //             "Proteins" => $this->input->post('Proteins')
-    //         );
-    //         echo "<br>";
-    //         print_r($data);
-    //     }
 
-    //     $data = array(
-    //         /* "No_of_people"->$this->input->post("No_of_people"),
-    //         "Carbohydrates"->$this->input->post("Carbohydrates[]"),
-    //         "Proteins"->$this->input->post("Proteins[]"),
-    //         "Salad"->$this->input->post("Salad[]"),
-    //         "Drink"->$this->input->post("Drink[]"),
-    //         "Description"->$this->input->post("Description"),
-    //         "Location"->$this->input->post("Location"),
-    //         "Start_time"->$this->input->post("Start_time"),
-    //         "End_time"->$this->input->post("End_time")
-    //         */);
+    public function payment($totPrice)
+    {
+        $data = array();
+        if ($this->isUserLoggedIn) {
+            $con = array(
+                'id' => $this->session->userdata('userId')
+            );
+            $data['user'] = $this->user->getRows($con);
+            // $this->load->view('NavBar2');
+            $data['totPrice'] = $totPrice;
+            $this->load->view('Payment', $data);
+        }
+    }
 
-    //     //$this->Catering_model->insert_data($data);
-    // TODO:END }
+    public function payParameters(){
+        $totPrice = $this->input->post("TotPrice");
+        $phoneNo = $this->input->post("PhoneNo");
+        $this->load->model('Payment_model');
+        $this->Payment_model->mpesaSendMoney( $phoneNo, $totPrice);
+    }
+
     public function login()
     {
+        //SESSION VARS
+        //Relaying user data to DB
+        $_SESSION["userEmail"] = $this->input->post('email');
+        $this->user->saveSessionVars($_SESSION["userEmail"]);
+
+
+
 
         $data = array();
 
@@ -157,6 +183,7 @@ $this->Catering_model->insert_data($data);
 
         // Load view 
         $this->load->view('elements/header', $data);
+        $this->load->view('Navbar1.php');
         $this->load->view('users/login', $data);
         $this->load->view('elements/footer');
     }
@@ -231,4 +258,41 @@ $this->Catering_model->insert_data($data);
             return TRUE;
         }
     }
+
+    //SAVING MENU DATA INTO DB
+    public function saveMenuData()
+    {
+        //echo("Harry");
+        //Loading model, storing data it returns
+        $this->load->model("menuM");
+        $menuItems = $this->menuM->returnMenuItems();
+
+
+        //Checking whether "Add to Cart submit button has been clicked"
+        if ($this->input->post("Add_to_Cart")) {
+
+            // //Getting post data
+            // $postData = $this->input->post();
+            // //print_r($postData);
+
+            //Inserting checked food items into db
+            foreach ($menuItems as $row) {
+                //Check whether the checkboxes were selected
+                if ($this->input->post($row["foodName"]) !== null) {
+                    $this->menuM->saveFoodsPicked($row["foodName"]);
+                }
+            }
+            redirect("http://localhost/Event-food-catering3/index.php/CartC");
+        }
+        //echo("Mithika");
+    }
 }
+    
+
+    /*
+    function displayMenuItems(){
+        $this->load->model("menuM");
+        $data["menuItems"] = $this->load->menuM->returnMenuItems();
+        $this->load->view("menuV", $data);
+    }
+    */
