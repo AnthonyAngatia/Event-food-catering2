@@ -9,54 +9,93 @@
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <script src="main.js"></script>
     <style>
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0px;
-      }
-      header {
-        display: flex;
-        justify-content: flex-end;
-        border: 1px solid greenyellow;
-      }
+   @import url('https://fonts.googleapis.com/css?family=Montserrat:300&display=swap');
 
-      .logo {
-        height: 60px;
-        width: 60px;
-        border: 1px solid tomato;
-        margin-right: auto;
-        padding: 5px;
-      }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0px;
+    font-family: 'Montserrat', sans-serif;
+    color: #333333;
+}
 
-      .Sign-up button {
-        border: 1px solid #003366;
-        color: #003366;
-        padding: 7px;
-        border-radius: 50px;
-        cursor: pointer;
-        background-color: white;
-      }
-      a {
-        padding: 15px;
-      }
-      .nav {
-        border: 1px solid greenyellow;
-        display: flex;
-        justify-content: space-evenly;
-        background-color: #003366;
-      }
+header {
+    display: flex;
+    justify-content: flex-end;
 
-      button {
-        border: 1px solid aliceblue;
-        border-radius: 50px;
-        background-color: #003366;
-        padding: 7px;
-        color: white;
-        cursor: pointer;
-      }
-      button:hover {
-        color: powderblue;
-      }
+
+}
+
+header a {
+    margin-top: -10px;
+    margin-right: auto;
+}
+
+.logo {
+    height: 60px;
+    width: 60px;
+
+}
+
+.header h1 {
+    margin-right: auto;
+    margin-top: 15px;
+    padding: 5px;
+
+}
+
+.Sign-up button {
+    border: 1px solid #003366;
+    color: #003366;
+    padding: 7px;
+    border-radius: 50px;
+    cursor: pointer;
+    background-color: white;
+}
+
+a {
+    padding: 15px;
+}
+
+.nav {
+
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #003366;
+}
+
+.nav button {
+    border: 1px solid aliceblue;
+    border-radius: 20px;
+    background-color: #003366;
+    padding: 7px;
+    color: white;
+    cursor: pointer;
+}
+
+        .nav button:hover {
+    color: white;
+    border-color: #5a6268;
+    border: 2px solid white;
+}
+
+        button {
+            border: 1px solid aliceblue;
+            border-radius: 50px;
+            background-color: #003366;
+            padding: 7px;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #002147;
+            color:white;
+            border: 2px solid white;
+        }
+
+#session-data{
+    cursor: pointer;
+}
 
 		#customers {
 		font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif;
@@ -87,8 +126,8 @@
 </head>
 <body>
 <!--Navbar-->
-<header class="header">
-    <img class="logo" src="<?php echo base_url("Assets/logo.jpg"); ?>" />
+<!-- <header class="header">
+    <img class="logo" src="<?php //echo base_url("Assets/logo.jpg"); ?>" />
     <h1>Taste of Africa</h1>
     <a class="login" href="#" onclick="window.location.replace('users/login');"><button>Login</button></a>
 
@@ -98,8 +137,8 @@
     <a class="Menu" href="" onclick="window.location.replace('MenuC')"><button>Menu</button></a>
     <a class="Cart" href="" onclick="window.location.replace('CartC')"><button>Cart</button></a>
     <a class="Catering" href="" onclick="window.location.replace('CateringMenuC')"><button>Catering</button></a>
-    <!--<a class='viewPastOrders' href='#' onclick='window.location.replace('ViewPastOrdersC');'><button>View Past Orders</button></a>-->
-</div><br><br>
+    <!--<a class='viewPastOrders' href='#' onclick='window.location.replace('ViewPastOrdersC');'><button>View Past Orders</button></a>
+</div><br><br> -->
 
       <!--Order Items-->
       <div align = 'center' style = 'color: #003366;font-style: oblique'><h1>Past Order History</h1></div><br><br>

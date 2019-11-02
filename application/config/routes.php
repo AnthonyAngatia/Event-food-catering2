@@ -61,6 +61,7 @@ $route['order'] = 'OrderC';
 $route['OrderHistory'] = 'viewPastOrdersC';
 $route['PayModel'] = 'Users/payParameters';
 $route['saveHomePicked'] = 'MenuC/saveHomeFoodPicked';
+$route['AfterCart'] = 'CartC/saveCartData';
 
 
 

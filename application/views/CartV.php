@@ -157,7 +157,7 @@ echo ("
             <div align = 'center' style = 'color: #003366; margin-top:1em;'><h1>Cart</h1></div><br>
 
             <!--Cart Items-->
-            <form action='CartC/saveCartData' method='post' align = 'center' style = 'color: #003366;'>
+            <form action='http://localhost/Event-food-catering3/index.php/CartC/saveCartData' method='post' align = 'center' style = 'color: #003366;'>
         
             <table id='customers'>
             <tr>

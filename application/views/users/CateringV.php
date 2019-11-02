@@ -36,7 +36,6 @@ $this->load->library('session');
         .logo {
             height: 60px;
             width: 60px;
-            padding: 5px;
 
         }
 
@@ -206,7 +205,7 @@ $this->load->library('session');
                 <input type="time" class="form-control" name="End_time" style="font-size:18pt;height:42px;width:250px;" />
                 <label onclick = "getValueOfItems();">Description</label>
                 <input type="textfield" class="form-control" name="Description" placeholder="describe your event here" style="font-size:18pt;height:42px;width:250px;" />
-                <button type="button" onclick="/*getCarbValue(); getProtValue(); getSaladValue(); getDrinkValue();*/ sumTotal();" style="font-size:18pt;height:42px;width:250px;">
+                <button type="button" onclick = "sumTotal();"  style="font-size:18pt; height:42px; width:250px;">
                     Check Price
                 </button>
                 <input type="submit" class="btn-primary" name="caterSubmit" value="SUBMIT" onclick = "getValueOfItems();"/>
@@ -295,7 +294,8 @@ $this->load->library('session');
             var carb2 = document.getElementById('carb2');
             var carb2Value = '';
             if (carb2.checked) {
-                carb2Value = parseInt(carb2.value);
+                carb2Value = parseInt(carb2.getAttribute('data-value'));
+                //  alert(carb2Value);
             } else {
                 carb2Value = parseInt(0);
             }
@@ -303,7 +303,7 @@ $this->load->library('session');
             var carb3 = document.getElementById('carb3');
             var carb3Value = '';
             if (carb3.checked) {
-                carb3Value = parseInt(carb3.value);
+                carb3Value = parseInt(carb3.getAttribute('data-value'));
             } else {
                 carb3Value = parseInt(0);
             }
@@ -311,7 +311,7 @@ $this->load->library('session');
             var carb4 = document.getElementById('carb4');
             var carb4Value = '';
             if (carb4.checked) {
-                carb4Value = parseInt(carb4.value);
+                carb4Value = parseInt(carb4.getAttribute('data-value'));
             } else {
                 carb4Value = parseInt(0);
             }
@@ -319,7 +319,7 @@ $this->load->library('session');
             var carb5 = document.getElementById('carb5');
             var carb5Value = '';
             if (carb5.checked) {
-                carb5Value = parseInt(carb5.value);
+                carb5Value = parseInt(carb5.getAttribute('data-value'));
             } else {
                 carb5Value = parseInt(0);
             }
@@ -344,7 +344,7 @@ $this->load->library('session');
             var prot2 = document.getElementById('prot2');
             var prot2Value = '';
             if (prot2.checked) {
-                prot2Value = parseInt(prot2.value);
+                prot2Value = parseInt(prot2.getAttribute('data-value'));
             } else {
                 prot2Value = parseInt(0);
             }
@@ -352,7 +352,7 @@ $this->load->library('session');
             var prot3 = document.getElementById('prot3');
             var prot3Value = '';
             if (prot3.checked) {
-                prot3Value = parseInt(prot3.value);
+                prot3Value = parseInt(prot3.getAttribute('data-value'));
             } else {
                 prot3Value = parseInt(0);
             }
@@ -360,7 +360,7 @@ $this->load->library('session');
             var prot4 = document.getElementById('prot4');
             var prot4Value = '';
             if (prot4.checked) {
-                prot4Value = parseInt(prot4.value);
+                prot4Value = parseInt(prot4.getAttribute('data-value'));
             } else {
                 prot4Value = parseInt(0);
             }
@@ -368,7 +368,7 @@ $this->load->library('session');
             var prot5 = document.getElementById('prot5');
             var prot5Value = '';
             if (prot5.checked) {
-                prot5Value = parseInt(prot5.value);
+                prot5Value = parseInt(prot5.getAttribute('data-value'));
             } else {
                 prot5Value = parseInt(0);
             }
@@ -394,7 +394,7 @@ $this->load->library('session');
             var salad2 = document.getElementById('salad2');
             var salad2Value = '';
             if (salad2.checked) {
-                salad2Value = parseInt(salad2.value);
+                salad2Value = parseInt(salad2.getAttribute('data-value'));
             } else {
                 salad2Value = parseInt(0);
             }
@@ -402,7 +402,7 @@ $this->load->library('session');
             var salad3 = document.getElementById('salad3');
             var salad3Value = '';
             if (salad3.checked) {
-                salad3Value = parseInt(salad3.value);
+                salad3Value = parseInt(salad3.getAttribute('data-value'));
             } else {
                 salad3Value = parseInt(0);
             }
@@ -410,7 +410,7 @@ $this->load->library('session');
             var salad4 = document.getElementById('salad4');
             var salad4Value = '';
             if (salad4.checked) {
-                salad4Value = parseInt(salad4.value);
+                salad4Value = parseInt(salad4.getAttribute('data-value'));
             } else {
                 salad4Value = parseInt(0);
             }
@@ -418,7 +418,7 @@ $this->load->library('session');
             var salad5 = document.getElementById('salad5');
             var salad5Value = '';
             if (salad5.checked) {
-                salad5Value = parseInt(salad5.value);
+                salad5Value = parseInt(salad5.getAttribute('data-value'));
             } else {
                 salad5Value = parseInt(0);
             }
@@ -430,7 +430,7 @@ $this->load->library('session');
             return totalSaladPrice;
         }
 
-        function getDrinkValue() {
+        function getDrinkValue(){
             //TODO:One Drink
             var drink1 = document.getElementById('drink1');
             var drinkValue = '';
@@ -443,7 +443,7 @@ $this->load->library('session');
             var drink2 = document.getElementById('drink2');
             var drink2Value = '';
             if (drink2.checked) {
-                drink2Value = parseInt(drink2.value);
+                drink2Value = parseInt(drink2.getAttribute('data-value'));
             } else {
                 drink2Value = parseInt(0);
             }
@@ -451,7 +451,7 @@ $this->load->library('session');
             var drink3 = document.getElementById('drink3');
             var drink3Value = '';
             if (drink3.checked) {
-                drink3Value = parseInt(drink3.value);
+                drink3Value = parseInt(drink3.getAttribute('data-value'));
             } else {
                 drink3Value = parseInt(0);
             }
@@ -459,7 +459,7 @@ $this->load->library('session');
             var drink4 = document.getElementById('drink4');
             var drink4Value = '';
             if (drink4.checked) {
-                drink4Value = parseInt(drink4.value);
+                drink4Value = parseInt(drink4.getAttribute('data-value'));
             } else {
                 drink4Value = parseInt(0);
             }
@@ -467,7 +467,7 @@ $this->load->library('session');
             var drink5 = document.getElementById('drink5');
             var drink5Value = '';
             if (drink5.checked) {
-                drink5Value = parseInt(drink5.value);
+                drink5Value = parseInt(drink5.getAttribute('data-value'));
             } else {
                 drink5Value = parseInt(0);
             }
@@ -483,7 +483,7 @@ $this->load->library('session');
             var people = document.getElementById('No_of_people').value;
             var sumTotalPrice = getCarbValue() + getProtValue() + getSaladValue() + getDrinkValue();
             var sumTotalPrice = parseInt(sumTotalPrice) * people;
-            // alert(sumTotalPrice);
+            alert("Total Price "+sumTotalPrice);
             return parseInt(sumTotalPrice);
         }
         function getValueOfItems(){

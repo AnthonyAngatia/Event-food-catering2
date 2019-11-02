@@ -186,8 +186,8 @@
 
 </style>
  </head>
- <header class="header">
-    <img class="logo" src="<?php echo base_url("Assets/logo.jpg"); ?>" />
+ <!-- <header class="header">
+    <img class="logo" src="<?php //echo base_url("Assets/logo.jpg"); ?>" />
     <h1>Taste of Africa</h1>
     <a class="login" href="#" onclick="window.location.replace('users/login');"><button>Login</button></a>
 
@@ -200,7 +200,7 @@
   <a class="navbar-brand" href="#">Navbar</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
-  </button>
+  </button> -->
 
   <div class="collapse navbar-collapse" id="navbarColor01">
     <ul class="navbar-nav mr-auto">

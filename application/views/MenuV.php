@@ -509,7 +509,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           display: grid;
           grid-template-columns: 1fr 1fr 1fr 1fr;
           grid-column-gap: 1em;
-          font-family: 'Source Sans Pro', sans-serif;
+          grid-row-gap:11em;
           grid-auto-rows: minmax(300px, auto);
           color: #333333;
         }
@@ -520,7 +520,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
         .card-wrap > div {
           background-color: #dddddd;
-          box-shadow: 0 8px 6px -6px black;
         }
         .card-wrap h4,
         p {
@@ -607,13 +606,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     
               <img src="');  echo base_url('uploads/' .$row['foodImage']  .'" height = "100" width = "100">
               
-              <div class="info" style = "">
-                <h2> ' .$row['foodName'] .'</h2><br>
-                <h3> Sh ' .$row['foodPrice'] .'</h3><br>
+              <div class="info" style = "box-shadow: 0 8px 6px -6px black;">
+                <h2 style = "margin:5px 15px;"> ' .$row['foodName'] .'</h2><br>
+                <h3 style = "margin:5px 15px;"> Sh ' .$row['foodPrice'] .'</h3><br>
     
     
                 <div class="checkbox-input">
-                <h3> Duration: ' .$row['foodDuration'] .' minutes</h3>
+                <h3 style = "margin:5px 15px; font-size:12px;"> Duration: ' .$row['foodDuration'] .' minutes</h3>
                   <input
                     type =  "checkbox"
                     name =  "' .$row['foodName'] .'"
@@ -640,7 +639,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			
       echo('
           <div id = "formButtons"align = "center">
-					<input id = "cart_btn" align = "center" type = "submit" name = "Add_to_Cart"  value = "Add to Cart" style = "" >
+					<input id = "cart_btn" align = "center" type = "submit" name = "Add_to_Cart"  value = "Add to Cart" style = "margin-top: 10em;" >
           </div>
         </form>
 				

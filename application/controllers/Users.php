@@ -42,7 +42,7 @@ class Users extends CI_Controller
             //Getting menu items from db
             $this->load->model("menuM");
             $data["menuItems"] = $this->menuM->returnMenuItems();
-            $this->load->view('elements/header', $data);
+            // $this->load->view('elements/header', $data);
             $this->load->view('Navbar2', $data);
             $this->load->view('users/account', $data);
             $this->load->view('elements/footer');
@@ -129,15 +129,15 @@ class Users extends CI_Controller
         $totPrice = $this->input->post("TotPrice");
         $phoneNo = $this->input->post("PhoneNo");
         $this->load->model('Payment_model');
-        $this->Payment_model->mpesaSendMoney( $phoneNo, $totPrice);
+        $this->Payment_model->mpesaSendMoney($phoneNo, $totPrice);
     }
 
     public function login()
     {
         //SESSION VARS
-        //Relaying user data to DB
-        $_SESSION["userEmail"] = $this->input->post('email');
-        $this->user->saveSessionVars($_SESSION["userEmail"]);
+        // //Relaying user data to DB
+        // $_SESSION["userEmail"] = $this->input->post('email');
+        // $this->user->saveSessionVars($_SESSION[" "]);
 
 
 
@@ -172,6 +172,8 @@ class Users extends CI_Controller
                 if ($checkLogin) {
                     $this->session->set_userdata('isUserLoggedIn', TRUE);
                     $this->session->set_userdata('userId', $checkLogin['id']);
+                    $_SESSION["userEmail"] = $this->input->post('email');
+                    $this->user->saveSessionVars($_SESSION["userEmail"]);
                     redirect('users/account/');
                 } else {
                     $data['error_msg'] = 'Wrong email or password, please try again.';

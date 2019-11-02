@@ -8,83 +8,134 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css"> -->
     <title>Taste of Africa</title>
     <style>
-        @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+         @import url('https://fonts.googleapis.com/css?family=Montserrat:300&display=swap');
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0px;
-            font-family: 'Montserrat', sans-serif;
-            color: #333333;
-        }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0px;
+    font-family: 'Montserrat', sans-serif;
+    color: #333333;
+}
 
-        h1 {
-            /* text-align: center; */
-        }
-
-        header {
-            display: flex;
-            justify-content: flex-end;
+header {
+    display: flex;
+    justify-content: flex-end;
 
 
-        }
+}
 
-        header a {
-            margin-top: -10px;
-            margin-right: auto;
-        }
+header a {
+    margin-top: -10px;
+    margin-right: auto;
+}
 
-        .logo {
-            height: 60px;
-            width: 60px;
-            padding: 5px;
+.logo {
+    height: 60px;
+    width: 60px;
 
-        }
+}
 
-        .header h1 {
-            margin-right: auto;
-            margin-top: 15px;
-            padding: 5px;
+.header h1 {
+    margin-right: auto;
+    margin-top: 15px;
+    padding: 5px;
 
-        }
+}
 
+.Sign-up button {
+    border: 1px solid #003366;
+    color: #003366;
+    padding: 7px;
+    border-radius: 50px;
+    cursor: pointer;
+    background-color: white;
+}
 
-        .Sign-up button {
-            border: 1px solid #002147;
-            color: #002147;
-            padding: 7px;
-            border-radius: 50px;
-            cursor: pointer;
-            background-color: white;
-        }
+a {
+    padding: 15px;
+}
 
-        a {
-            padding: 15px;
-        }
+.nav {
 
-        .nav {
-            display: flex;
-            justify-content: space-evenly;
-            background-color: #002147;
-        }
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #003366;
+}
+
+.nav button {
+    border: 1px solid aliceblue;
+    border-radius: 20px;
+    background-color: #003366;
+    padding: 7px;
+    color: white;
+    cursor: pointer;
+}
+
+        .nav button:hover {
+    color: white;
+    border-color: #5a6268;
+    border: 2px solid white;
+}
 
         button {
             border: 1px solid aliceblue;
             border-radius: 50px;
-            background-color: #002147;
+            background-color: #003366;
             padding: 7px;
             color: white;
             cursor: pointer;
         }
-
         button:hover {
-            color: powderblue;
+            background-color: #002147;
+            color:white;
+            border: 2px solid white;
         }
 
+#session-data{
+    cursor: pointer;
+}
+#confirmOrder {
+      cursor: pointer;
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      padding: 5px 5px;
+      border: none;
+      height: 60px;
+      width: 160px;
+    }
+
+    #confirmOrder:hover {
+      border: 2px solid white;
+    }
+    #btn{
+        border: 1px solid aliceblue;
+           
+            background-color: #003366;
+            padding: 7px;
+            color: white;
+            cursor: pointer;
+    }
+    #btn:hover{
+        background-color: #002147;
+            color:white;
+            border: 2px solid white;
+    }
         .mySlides {
             display: none;
+        }
+        .mySlides img {
+            max-height: 500px;
+            max-width:100%;
+            width:99%;
+            text-align:center;
+            margin:0px 0.5%;
+            box-shadow: 0 8px 6px -6px black;
+            
         }
 
         /* Slideshow container */
@@ -96,9 +147,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             background-color: #ddd;
         }
 
-        .mySlides img {
-            max-height: 610px;
-        }
+       
 
         /* Caption text */
         .text {
@@ -290,7 +339,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
             font-weight: 600;
             line-height: 38px;
             padding: 40px 0 10px;
-            font-family: cursive;
             font-weight: lighter
         }
 
@@ -361,9 +409,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
         }
         .card-wrap {
           display: grid;
-          grid-template-columns: 1fr 1fr 1fr 1fr;
+          grid-template-columns: 1fr 1fr 1fr;
           grid-column-gap: 1em;
-          font-family: 'Source Sans Pro', sans-serif;
+          grid-row-gap:10em;
           grid-auto-rows: minmax(300px, auto);
           color: #333333;
         }
@@ -374,46 +422,40 @@ defined('BASEPATH') or exit('No direct script access allowed');
         }
         .card-wrap > div {
           background-color: #dddddd;
-          box-shadow: 0 8px 6px -6px black;
+          /* box-shadow: 0 8px 6px -6px black; */
+        }
+        .card-wrap > *{
+            margin:1em;
         }
         .card-wrap h4,
         p {
+            margin:1em;
           padding-left: 1em;
         }
         .checkbox-input {
           display: flex;
           justify-content: space-between;
         }
+        
+        
     </style>
 </head>
 
 <body>
-    <!-- <div class="nav">
-        <a href="<?php //echo site_url('catering')  
-                    ?>"><button>Catering</button></a>
-        <a class="Order" href="<? php // echo site_url('order')  
-                                ?>"><button>Order</button></a>
-        <a class="Cart" href="<? php // echo site_url('cart')  
-                                ?>"><button>Cart</button></a>
-        <a class="About us" href="<?php //echo site_url('catering')  
-                                    ?>"><button>Past Orders</button></a>
-    </div> -->
     <!--SlideShow-->
     <div class="slideshow-container">
         <div class="mySlides ">
-            <img src="<?php echo base_url("/Assets/brocoli.png"); ?>" style="width:100%;" />
+            <img src="<?php echo base_url("/Assets/brocoli.png"); ?>" />
             <div class="text"><a href="<?php echo site_url('menu')  ?>"><button>Menu</button></a></div>
         </div>
 
         <div class="mySlides ">
-            <img src="<?php echo base_url("/Assets/chicken.png"); ?>" style="width:100%;
-          " />
+            <img src="<?php echo base_url("/Assets/chicken.png"); ?>" />
             <div class="text"><a href="<?php echo site_url('menu')  ?>"><button>Menu</button></a></div>
         </div>
 
         <div class="mySlides ">
-            <img src="<?php echo base_url("/Assets/cheeseburger.png"); ?>" style="width:100%; ;
-" />
+            <img src="<?php echo base_url("/Assets/cheeseburger.png"); ?>" />
             <div class="text"><a href="<?php echo site_url('menu')  ?>"><button>Menu</button></a></div>
         </div>
     </div>
@@ -425,82 +467,32 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <span class="dot"></span>
     </div>
     <!--Foods-->
-    <h1 style="margin: 1em">Dishes</h1>
-    <!-- <div class="Dishes">
-        <div class="Dish1">
-             <img src="<?php //echo base_url("/Assets/brocoli.png"); ?>" alt="Dish1" /> -->
-        <!-- </div>
-        <div class="Dish2">
-            <img src="<?php //echo base_url("/Assets/cheeseburger.png"); ?>" alt="Dish2" />
-        </div>
-        <div class="Dish3">
-            <img src="<?php //echo base_url("/Assets/brocoli.png"); ?>" alt="Dish3" />
-        </div> 
-    </div> -->
-
-  
-
-
- 
-<!--Outer Div-->
-<!-- <div style = "background-color: white; color: #003366; border: 1px solid white;border-radius: 25px;"><br><br><br> -->
+    <h1 style="text-align:center; margin: 1em">Dishes</h1>
 
 <div class="card-wrap">
     <?php  
         //print_r($menuItems);
-        foreach ($menuItems as $row) { 
+        for ($i = 0; $i < 3; $i++) { 
     ?>
 
     <div class="card">
-        <form action ="<?php echo site_url("saveHomePicked")?>" method="post">
-            <img src="<?php echo base_url('uploads/' . $row['foodImage']);  ?>" height = "100" width = "100">
-            <div class="info" style = "font-style: oblique">    
-                <h2> <?php echo $row['foodName'] ?></h2><br>
-                <h3> Sh <?php echo $row['foodPrice'] ?></h3><br>
-                <div class="checkbox-input">
-
-                    <h3> Duration: <?php echo $row['foodDuration']; ?> minutes</h3>
-                    <input type="hidden" name="homeFoodPicked" value = "<?php echo $row['foodName']; ?>">
-                    <input
-                        type =  "submit"
-                        name =  "<?php $row['foodName']; ?>"
-                        value = "submit"
-                        id=""
-                        style="width:30px;height:30px;"
-                    />
-                </div><br>
-
-            </div>
-        </form >
+        <form action = "<?php echo site_url("saveHomePicked")?>"  method="post">
+        <img src="<?php echo base_url('uploads/' . $menuItems[$i]['foodImage']);  ?>" height = "100" width = "100">
+        <div class="info"style = "box-shadow: 0 8px 6px -6px black;">    
+            <h2  style = "margin:15px 15px;"> <?php echo $menuItems[$i]['foodName'] ?></h2>
+            <h3 style = "margin:15px 15px;"> Sh <?php echo $menuItems[$i]['foodPrice'] ?></h3><br>
+            <div class="checkbox-input" style ="">
+                <h3 style = "margin:15px 15px; font-size:12px;"> Duration: <?php echo $menuItems[$i]['foodDuration']; ?> minutes</h3>
+                <input type="hidden" name="homeFoodPicked" value = "<?php echo $menuItems[$i]['foodName']; ?>">
+                <input type =  "submit" name =  "<?php $menuItems[$i]['foodName']; ?>" value = "BUY" id="btn" style="width:60px;height:30px; margin-right:15px;" />
+            </div><br>
+        </div>
+        </form >    
     </div>
-
-    <?php
-        }
-    ?>
+    <?php } ?>
 </div>
 
-
-
-
-<!-- </div> -->
-
-    <!-- <div class="Description">
-        <div class="desc1">
-            <h3>Brocoli</h3>
-            <p>Price</p>
-        </div>
-        <div class="desc2">
-            <h3>Cheese Burger</h3>
-            <p>Price</p>
-        </div>
-        <div class="desc3">
-            <h3>Brocoli</h3>
-            <p>Price</p>
-        </div>
-    </div>
-    <button style="margin:1em"><a href="" style="text-decoration:none; color:white">See more</a></button>
-
-    <h1 style="margin: 1em">Extra</h1>
+    <h1 style="text-align:center; margin-top: 6em; margin-bottom:1em;">ABOUT US</h1>
     <div class="Extras">
         <div class="Extra1">
             <img src="<?php echo base_url("/Assets/Catering.jpg"); ?>" alt="Extra1" />
@@ -511,9 +503,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <div class="Extra3">
             <img src="<?php echo base_url("/Assets/QualityFood.jpg"); ?>" alt="Extra3" />
         </div>
-    </div> -->
+    </div>
 
-    <!-- <div class="Description">
+    <div class="Description">
         <div class="desc1">
             <h1>Catering Services</h1>
 
@@ -530,19 +522,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <button style=" margin:1em; padding:1em;"><a href="" style="text-decoration:none; color:white ">Find out
                     more</a></button>
         </div>
-    </div> -->
+    </div>
     <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+
     <footer>
         <div class="footer" id="footer">
             <div class="container">

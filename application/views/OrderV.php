@@ -35,7 +35,6 @@
     .logo {
       height: 60px;
       width: 60px;
-      padding: 5px;
 
     }
 

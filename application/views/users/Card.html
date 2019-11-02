@@ -5,18 +5,63 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 		<title>Document</title>
-    </head>
-    <style>
-    .card-wrap{
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-column-gap:1em ;
-    }
-    </style>
+	</head>
+	<style>
+		.card-wrap {
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr;
+			grid-column-gap: 1em;
+		}
+		.card-wrap img {
+			max-height: 300px;
+			height: 100%;
+			width: 100%;
+		}
+		.card-wrap > div {
+			background-color: #dddddd;
+			box-shadow: 0 8px 6px -6px black;
+		}
+		.card-wrap > * {
+			margin: 1em;
+		}
+		.card-wrap h4,
+		p {
+			margin: 1em;
+			padding-left: 1em;
+		}
+	</style>
 	<body>
 		<div class="card-wrap">
 			<div class="card">
-				<img src="" alt="" />
+				<img src="/Assets/fries.png" alt="" />
+				<div class="info">
+					<H4>Food name</H4>
+					<h4>Food Price</h4>
+				</div>
+			</div>
+			<div class="card">
+				<img src="/Assets/fries.png" alt="" />
+				<div class="info">
+					<H4>Food name</H4>
+					<h4>Food Price</h4>
+				</div>
+			</div>
+			<div class="card">
+				<img src="/Assets/fries.png" alt="" />
+				<div class="info">
+					<H4>Food name</H4>
+					<h4>Food Price</h4>
+				</div>
+			</div>
+			<div class="card">
+				<img src="/Assets/fries.png" alt="" />
+				<div class="info">
+					<H4>Food name</H4>
+					<h4>Food Price</h4>
+				</div>
+			</div>
+			<div class="card">
+				<img src="/Assets/fries.png" alt="" />
 				<div class="info">
 					<H4>Food name</H4>
 					<h4>Food Price</h4>

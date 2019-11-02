@@ -26,6 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         //   }
           
           public function mpesaSendMoney($phone_no, $total_amt ){
+            // echo $total_amt;
             $access_token_url = 'https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials';
               
             $curl = curl_init($access_token_url);
@@ -56,7 +57,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $CallBackURL = 'http://'.$localIP.'/M-ticket/Booking_n_Ticketing-master/callback_url.php';
             $AccountReference =  'TasteOfAfrica.com ';
             $TransactionDesc =  'Transaction description ';
-            $Amount = $total_amt;
+            $Amount = '100';
             $Passkey = 'bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919';
             $Password = base64_encode($BusinessShortcode.$Passkey.$Timestamp);
           
@@ -90,7 +91,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $curl_response = curl_exec($curl);
             //print_r($curl_response);
           
-            // echo $curl_response;
+            echo $curl_response;
             sleep(5);
             $data = array();
         if ($this->isUserLoggedIn) {
@@ -100,6 +101,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $data['user'] = $this->user->getRows($con);
         }
             // $this->load->view('Users/account');
-            redirect("http://localhost/Event-food-catering3/index.php/Home");
+            // redirect("http://localhost/Event-food-catering3/index.php/Home");
           }
     }

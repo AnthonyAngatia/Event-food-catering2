@@ -73,8 +73,7 @@ class Ahomepage extends CI_Controller
 			'foodDuration' => $this ->input-> post ('foodDuration'),
 			'foodName' => $this -> input-> post ('foodName'));
 			$this->load->model("Admin_model");
-			$foodID = $this->Admin_model->fetch_single_data(
-			)
+			$foodID = $this->Admin_model->fetch_single_data();
 			$this->admin_model->update_id($foodID,$data);
 			$this->load->view("adminhomepage_views",$load);
 				
